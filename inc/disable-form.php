@@ -162,13 +162,7 @@ function msbr_product_new_review_tab_content() {
                         }
 
                         $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
-
-                        //var_dump($comment_form);
-                        if( function_exists( 'comment_form' ) ) {
-                            echo 'Comment form';
-                        } else {
-                            echo 'No comment form';
-                        }
+                        
                         comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', $comment_form ) );
                         ?>
                     </div>
