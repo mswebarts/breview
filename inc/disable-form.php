@@ -25,7 +25,7 @@ function msbr_product_new_review_tab( $tabs ) {
 function msbr_product_new_review_tab_content() {
     
     global $product;
-    $enable_review_form_product = true;
+    $enable_review_form_product = false;
 
     if ( ! comments_open() ) {
         return;
