@@ -1,6 +1,6 @@
 (function ($) {
 	// initialize magnific popup
-	$(".msbr-open-add-review-modal").magnificPopup({
+	$(".msbr-open-add-review-modal, .msbr-open-show-review-modal").magnificPopup({
 		type: "inline",
 		midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
 	});

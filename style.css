@@ -1,4 +1,5 @@
-.msbr-add-review-modal {
+.msbr-add-review-modal,
+.msbr-show-review-modal {
 	position: relative;
 	background: #fff;
 	padding: 20px;
