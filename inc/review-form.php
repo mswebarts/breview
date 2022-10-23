@@ -129,38 +129,41 @@ function msbr_add_review_form( $item_id, $item, $order ) {
             </a>
         </div>
         <div id="msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-show-review-modal mfp-hide">
-            
-            <?php
-            // get the review
-            $args = array(
-                'post_id' => $product_id,
-                'status'  => 'approve',
-                'type'    => 'review',
-                'meta_query' => array(
-                    array(
-                        'key'     => 'order_identifier',
-                        'value'   => $order_identifier,
-                        'compare' => '=',
-                    ),
-                ),
-            );
+            <div id="reviews" class="woocommerce-Reviews">
+                <div id="comments">
+                    <?php
+                    // get the review
+                    $args = array(
+                        'post_id' => $product_id,
+                        'status'  => 'approve',
+                        'type'    => 'review',
+                        'meta_query' => array(
+                            array(
+                                'key'     => 'order_identifier',
+                                'value'   => $order_identifier,
+                                'compare' => '=',
+                            ),
+                        ),
+                    );
 
-            $comments = get_comments( $args );
+                    $comments = get_comments( $args );
 
-            ?>
-            <ol class="commentlist">
-                <?php
-                // display the review
-                $args = array(
-                    'max_depth'         => '1',
-                    'avatar_size'       => 60,
-                    'reverse_top_level' => false,
-                    'callback' => 'woocommerce_comments',
-                );
-                wp_list_comments( $args, $comments );
-                
-                ?>
-            </ol>
+                    ?>
+                    <ol class="commentlist">
+                        <?php
+                        // display the review
+                        $args = array(
+                            'max_depth'         => '1',
+                            'avatar_size'       => 60,
+                            'reverse_top_level' => false,
+                            'callback' => 'woocommerce_comments',
+                        );
+                        wp_list_comments( $args, $comments );
+                        
+                        ?>
+                    </ol>
+                </div>
+            </div>
 
         </div>
         <?php

@@ -7,3 +7,54 @@
 	max-width: 600px;
 	margin: 20px auto;
 }
+
+/* Show Review Star Rating */
+.msbr-show-review-modal .star-rating {
+	float: right;
+	overflow: hidden;
+	position: relative;
+	height: 20px;
+	line-height: 20px;
+	font-size: 16px;
+	width: 5.4em;
+	font-family: star;
+}
+.msbr-show-review-modal .star-rating span::before,
+.msbr-show-review-modal .star-rating::before {
+	color: #ffcc00;
+	height: 1.2em;
+	top: 0.5px;
+}
+.msbr-show-review-modal .star-rating::before {
+	content: "sssss";
+	color: #d3ced2;
+	float: left;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+.msbr-show-review-modal .star-rating span {
+	overflow: hidden;
+	float: left;
+	top: 0;
+	left: 0;
+	position: absolute;
+	padding-top: 1.5em;
+}
+.msbr-show-review-modal .product .star-rating span::before {
+	color: #f8ac08;
+	height: 1.2em;
+	top: 0.5px;
+}
+.msbr-show-review-modal .star-rating span::before,
+.msbr-show-review-modal .star-rating::before {
+	color: #ffcc00;
+	height: 1.2em;
+	top: 0.5px;
+}
+.msbr-show-review-modal .star-rating span::before {
+	content: "SSSSS";
+	top: 0;
+	position: absolute;
+	left: 0;
+}
