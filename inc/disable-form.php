@@ -12,7 +12,7 @@ add_filter( 'woocommerce_product_tabs', 'msbr_product_new_review_tab' );
 function msbr_product_new_review_tab( $tabs ) {
     // Adds the new tab
     $tabs['msbr_reviews'] = array(
-        'title'     => __( 'Reviews', 'woocommerce' ),
+        'title'     => __( 'Reviews', 'breview' ),
         'priority'  => 50,
         'callback'  => 'msbr_product_new_review_tab_content'
     );
@@ -39,10 +39,10 @@ function msbr_product_new_review_tab_content() {
                 $count = $product->get_review_count();
                 if ( $count && wc_review_ratings_enabled() ) {
                     /* translators: 1: reviews count 2: product name */
-                    $reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'woocommerce' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
+                    $reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'breview' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
                     echo apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ); // WPCS: XSS ok.
                 } else {
-                    esc_html_e( 'Reviews', 'woocommerce' );
+                    esc_html_e( 'Reviews', 'breview' );
                 }
                 ?>
             </h2>
@@ -89,7 +89,7 @@ function msbr_product_new_review_tab_content() {
                 ?>
 
             <?php else : ?>
-                <p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'woocommerce' ); ?></p>
+                <p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'breview' ); ?></p>
             <?php endif; ?>
         </div>
 
@@ -102,13 +102,13 @@ function msbr_product_new_review_tab_content() {
                         $commenter    = wp_get_current_commenter();
                         $comment_form = array(
                             /* translators: %s is product title */
-                            'title_reply'         => have_comments() ? esc_html__( 'Add a review', 'woocommerce' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'woocommerce' ), get_the_title() ),
+                            'title_reply'         => have_comments() ? esc_html__( 'Add a review', 'breview' ) : sprintf( esc_html__( 'Be the first to review &ldquo;%s&rdquo;', 'breview' ), get_the_title() ),
                             /* translators: %s is product title */
-                            'title_reply_to'      => esc_html__( 'Leave a Reply to %s', 'woocommerce' ),
+                            'title_reply_to'      => esc_html__( 'Leave a Reply to %s', 'breview' ),
                             'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',
                             'title_reply_after'   => '</span>',
                             'comment_notes_after' => '',
-                            'label_submit'        => esc_html__( 'Submit', 'woocommerce' ),
+                            'label_submit'        => esc_html__( 'Submit', 'breview' ),
                             'logged_in_as'        => '',
                             'comment_field'       => '',
                         );
@@ -116,13 +116,13 @@ function msbr_product_new_review_tab_content() {
                         $name_email_required = (bool) get_option( 'require_name_email', 1 );
                         $fields              = array(
                             'author' => array(
-                                'label'    => __( 'Name', 'woocommerce' ),
+                                'label'    => __( 'Name', 'breview' ),
                                 'type'     => 'text',
                                 'value'    => $commenter['comment_author'],
                                 'required' => $name_email_required,
                             ),
                             'email'  => array(
-                                'label'    => __( 'Email', 'woocommerce' ),
+                                'label'    => __( 'Email', 'breview' ),
                                 'type'     => 'email',
                                 'value'    => $commenter['comment_author_email'],
                                 'required' => $name_email_required,
@@ -147,21 +147,21 @@ function msbr_product_new_review_tab_content() {
                         $account_page_url = wc_get_page_permalink( 'myaccount' );
                         if ( $account_page_url ) {
                             /* translators: %s opening and closing link tags respectively */
-                            $comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'woocommerce' ), '<a href="' . esc_url( $account_page_url ) . '">', '</a>' ) . '</p>';
+                            $comment_form['must_log_in'] = '<p class="must-log-in">' . sprintf( esc_html__( 'You must be %1$slogged in%2$s to post a review.', 'breview' ), '<a href="' . esc_url( $account_page_url ) . '">', '</a>' ) . '</p>';
                         }
 
                         if ( wc_review_ratings_enabled() ) {
-                            $comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'woocommerce' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label><select name="rating" id="rating" required>
-                                <option value="">' . esc_html__( 'Rate&hellip;', 'woocommerce' ) . '</option>
-                                <option value="5">' . esc_html__( 'Perfect', 'woocommerce' ) . '</option>
-                                <option value="4">' . esc_html__( 'Good', 'woocommerce' ) . '</option>
-                                <option value="3">' . esc_html__( 'Average', 'woocommerce' ) . '</option>
-                                <option value="2">' . esc_html__( 'Not that bad', 'woocommerce' ) . '</option>
-                                <option value="1">' . esc_html__( 'Very poor', 'woocommerce' ) . '</option>
+                            $comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'breview' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label><select name="rating" id="rating" required>
+                                <option value="">' . esc_html__( 'Rate&hellip;', 'breview' ) . '</option>
+                                <option value="5">' . esc_html__( 'Perfect', 'breview' ) . '</option>
+                                <option value="4">' . esc_html__( 'Good', 'breview' ) . '</option>
+                                <option value="3">' . esc_html__( 'Average', 'breview' ) . '</option>
+                                <option value="2">' . esc_html__( 'Not that bad', 'breview' ) . '</option>
+                                <option value="1">' . esc_html__( 'Very poor', 'breview' ) . '</option>
                             </select></div>';
                         }
 
-                        $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'woocommerce' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
+                        $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
 
                         //var_dump($comment_form);
                         if( function_exists( 'comment_form' ) ) {
@@ -174,7 +174,7 @@ function msbr_product_new_review_tab_content() {
                     </div>
                 </div>
             <?php else : ?>
-                <p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'woocommerce' ); ?></p>
+                <p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'breview' ); ?></p>
             <?php endif; ?>
 
         <?php endif; ?>
