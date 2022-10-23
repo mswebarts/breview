@@ -13,7 +13,9 @@
 	line-height: 25px;
 	font-size: 20px;
 }
-.woocommerce ol.commentlist,
+
+/* review layout */
+.woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist,
 .msbr-show-review-modal ol.commentlist {
 	list-style: none;
 	padding-left: 0;
@@ -22,7 +24,7 @@
 .msbr-show-review-modal ol.commentlist p {
 	margin-bottom: 0;
 }
-.woocommerce ol.commentlist li .comment_container,
+.woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li .comment_container,
 .msbr-show-review-modal ol.commentlist li .comment_container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -49,7 +51,7 @@
 	float: none;
 	position: relative;
 }
-.woocommerce ol.commentlist li .comment_container .comment-text,
+.woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li .comment_container .comment-text,
 .msbr-show-review-modal ol.commentlist li .comment_container .comment-text {
 	width: calc(100% - 60px - 10px);
 	padding: 10px;
