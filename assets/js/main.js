@@ -64,7 +64,7 @@
 			data: formData,
 			success: function () {
 				formSubmitBtn.val("Submitted!");
-				modal.find(".review_form").hide(function () {
+				modal.find(".msbr-review-form").hide(function () {
 					modal.find(".msbr-review-success").css({
 						display: "block",
 					});

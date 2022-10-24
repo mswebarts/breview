@@ -33,8 +33,8 @@ function msbr_add_review_form( $item_id, $item, $order ) {
         </div>
         <div id="msbr-add-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-add-review-modal mfp-hide">
             <?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product_id ) ) : ?>
-                <div id="review_form_wrapper">
-                    <div class="review_form">
+                <div class="msbr-review-form-wrapper">
+                    <div class="msbr-review-form">
                         <?php
                         $commenter    = array(
                             'comment_author'       => '',
