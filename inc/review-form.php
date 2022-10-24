@@ -78,7 +78,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                         echo '</pre>';*/
 
                         foreach ( $fields as $key => $field ) {
-                            $field_html  = '<p class="comment-form-' . esc_attr( $key ) . '">';
+                            $field_html  = '<p class="msbr-comment-form-' . esc_attr( $key ) . '">';
                             $field_html .= '<label for="' . esc_attr( $key ) . '">' . esc_html( $field['label'] );
 
                             if ( $field['required'] ) {
@@ -97,7 +97,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                         }
 
                         if ( wc_review_ratings_enabled() ) {
-                            $comment_form['comment_field'] = '<div class="comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'breview' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label><select name="rating" id="rating" class="msbr-star-rating" required>
+                            $comment_form['comment_field'] = '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html__( 'Your rating', 'breview' ) . ( wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '' ) . '</label><select name="rating" id="rating" class="msbr-star-rating" required>
                                 <option value="">' . esc_html__( 'Rate&hellip;', 'breview' ) . '</option>
                                 <option value="5">' . esc_html__( 'Perfect', 'breview' ) . '</option>
                                 <option value="4">' . esc_html__( 'Good', 'breview' ) . '</option>
@@ -108,7 +108,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                             // TODO: add error message for rating setting
                         }
 
-                        $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__( 'This is a required field', 'breview' ) . '</span></p>';
+                        $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__( 'This is a required field', 'breview' ) . '</span></p>';
 
                         $comment_form['comment_field'] .= '<input type="hidden" name="order_identifier" value="' . esc_attr( $order_identifier ) . '" />';
                         
