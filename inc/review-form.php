@@ -36,7 +36,6 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                 <div id="review_form_wrapper">
                     <div id="review_form">
                         <?php
-                        // TODO: Make sure the form doesn't get redirected to product page (https://short.mswebarts.com/ml1u)
                         $commenter    = array(
                             'comment_author'       => '',
                             'comment_author_email' => '',

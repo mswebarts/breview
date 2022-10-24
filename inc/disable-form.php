@@ -70,7 +70,6 @@ function msbr_product_new_review_tab_content() {
                 </ol>
                 
                 <?php
-                // TODO: add ajax or jquery pagination before launching
                 if ( get_comment_pages_count($comments) > 1 && get_option( 'page_comments' ) ) :
                     echo '<nav class="woocommerce-pagination">';
                     paginate_comments_links(
