@@ -19,9 +19,10 @@
 	});
 
 	// ajaxify add review form
-	jQuery(document).on("submit", ".msbr-add-review-modal form", function (e) {
+	jQuery(document).on("submit", ".msbr-add-review-modal", function (e) {
 		e.preventDefault();
-		var form = jQuery(this);
+		var modal = jQuery(this);
+		var form = modal.find("form");
 
 		// validate if rating has been selected
 		if (form.find("select[name='rating']").find(":selected").val() == "") {
@@ -55,23 +56,23 @@
 		var formMethod = form.attr("method");
 		var formSubmitBtn = form.find("input[type=submit]");
 		var formSubmitBtnText = formSubmitBtn.text();
-		formSubmitBtn.val("Loading...");
+		formSubmitBtn.val("Submitting...");
 
 		jQuery.ajax({
 			url: formAction,
 			type: formMethod,
 			data: formData,
 			success: function () {
-				formSubmitBtn.val("Submitted");
-				$(".msbr-add-review-modal #review_form").hide(function () {
-					$(".msbr-review-success").css({
+				formSubmitBtn.val("Submitted!");
+				modal.find(".review_form").hide(function () {
+					modal.find(".msbr-review-success").css({
 						display: "block",
 					});
 				});
 			},
 			error: function (XMLHttpRequest, textStatus, errorThrown) {
-				alert("Status: " + textStatus);
-				alert("Error: " + errorThrown);
+				formSubmitBtn.val("Submit");
+				alert(errorThrown + " occured. Please refresh the page and try again");
 			},
 		});
 	});
