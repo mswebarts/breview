@@ -18,35 +18,51 @@
 		jQuery(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
 	});
 
-	// TODO: validate ajax form before submission
-
 	// ajaxify add review form
 	jQuery(document).on("submit", ".msbr-add-review-modal form", function (e) {
 		e.preventDefault();
 		var form = jQuery(this);
+
+		// validate if rating has been selected
+		if (form.find("select[name='rating']").find(":selected").val() == "") {
+			form.find(".gl-star-rating").addClass("msbr-error");
+			return;
+		} else {
+			form.find(".gl-star-rating").removeClass("msbr-error");
+		}
+
+		// validate if review is empty
+		if (form.find("textarea[name='comment']").val() == "") {
+			// add error class to the field
+			form.find("textarea[name='comment']").addClass("msbr-error");
+			// change error message
+			form.find("textarea[name='comment'] + .msbr-error-message").text("Review can't be empty");
+			return;
+		} else if (form.find("textarea[name='comment']").val().length > 300) {
+			// validate if review is more than x characters
+
+			// add error class to the field
+			form.find("textarea[name='comment']").addClass("msbr-error");
+			// change error message
+			form.find("textarea[name='comment'] + .msbr-error-message").text("Review can't be more than 300 characters");
+			return;
+		} else {
+			form.find("textarea[name='comment']").removeClass("msbr-error");
+		}
+
 		var formData = form.serialize();
 		var formAction = form.attr("action");
 		var formMethod = form.attr("method");
 		var formSubmitBtn = form.find("input[type=submit]");
 		var formSubmitBtnText = formSubmitBtn.text();
-		formSubmitBtn.text("Loading...");
-		console.log("before ajax");
+		formSubmitBtn.val("Loading...");
 
 		jQuery.ajax({
 			url: formAction,
 			type: formMethod,
 			data: formData,
-			/*success: function (response) {
-				console.log("success");
-				formSubmitBtn.text("Submitted");
-				if (response.success) {
-					jQuery.magnificPopup.close();
-					jQuery(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html(response.data);
-				} else {
-					form.html(response.data);
-				}
-			},*/
 			success: function () {
+				formSubmitBtn.val("Submitted");
 				$(".msbr-add-review-modal #review_form").hide(function () {
 					$(".msbr-review-success").css({
 						display: "block",
@@ -58,6 +74,5 @@
 				alert("Error: " + errorThrown);
 			},
 		});
-		console.log("after ajax");
 	});
 })(jQuery);

@@ -117,3 +117,10 @@
 .msbr-review-success {
 	display: none;
 }
+.msbr-error-message {
+	color: red;
+	display: none;
+}
+.msbr-error + .msbr-error-message {
+	display: block;
+}
