@@ -61,8 +61,8 @@ function msbr_register_styles() {
     // pass review data to javascript
     // TODO: error message setting
     $translation_array = array(
-        'review_empty_msg' => __( 'Review can\'t be empty', 'breview' ),
-        'max_char_msg'     => __( 'Review can\'t be more than 300 characters', 'breview' ),
+        'review_empty_msg' => __( 'Review can\'t be empty testing', 'breview' ),
+        'max_char_msg'     => __( 'Review can\'t be more than 300 characters testing', 'breview' ),
     );
     wp_localize_script( 'msbr-script', 'msbr_review', $translation_array );
 

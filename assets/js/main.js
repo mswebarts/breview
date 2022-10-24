@@ -38,7 +38,7 @@
 			// add error class to the field
 			form.find("textarea[name='comment']").addClass("msbr-error");
 			// change error message
-			form.find("textarea[name='comment'] + .msbr-error-message").text("Review can't be empty");
+			form.find("textarea[name='comment'] + .msbr-error-message").text(msbr_review["review_empty_msg"]);
 			return;
 		} else if (form.find("textarea[name='comment']").val().length > 300) {
 			// validate if review is more than x characters
@@ -46,7 +46,7 @@
 			// add error class to the field
 			form.find("textarea[name='comment']").addClass("msbr-error");
 			// change error message
-			form.find("textarea[name='comment'] + .msbr-error-message").text("Review can't be more than 300 characters");
+			form.find("textarea[name='comment'] + .msbr-error-message").text(msbr_review["max_char_msg"]);
 			return;
 		} else {
 			form.find("textarea[name='comment']").removeClass("msbr-error");
