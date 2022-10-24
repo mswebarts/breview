@@ -115,6 +115,9 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                         comment_form( $comment_form, $product_id );
                         ?>
                     </div>
+                    <div class="msbr-review-success">
+                        <p><?php esc_html_e( 'Thank you for your review. It has been submitted to the webmaster for approval.', 'breview' ); ?></p>
+                    </div>
                 </div>
             <?php else : ?>
                 <p class="woocommerce-verification-required"><?php esc_html_e( 'Only logged in customers who have purchased this product may leave a review.', 'breview' ); ?></p>

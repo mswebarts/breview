@@ -11,7 +11,6 @@
 	});
 
 	// ajaxify list of review pagination
-	/*******ajax pagination*******/
 	jQuery(document).on("click", ".woocommerce-Tabs-panel--msbr_reviews .page-numbers a", function (e) {
 		e.preventDefault();
 		var link = jQuery(this).attr("href");
@@ -19,5 +18,44 @@
 		jQuery(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
 	});
 
-	console.log("Hello World");
+	// ajaxify add review form
+	jQuery(document).on("submit", ".msbr-add-review-modal form", function (e) {
+		e.preventDefault();
+		var form = jQuery(this);
+		var formData = form.serialize();
+		var formAction = form.attr("action");
+		var formMethod = form.attr("method");
+		var formSubmitBtn = form.find("input[type=submit]");
+		var formSubmitBtnText = formSubmitBtn.text();
+		formSubmitBtn.text("Loading...");
+		console.log("before ajax");
+
+		jQuery.ajax({
+			url: formAction,
+			type: formMethod,
+			data: formData,
+			/*success: function (response) {
+				console.log("success");
+				formSubmitBtn.text("Submitted");
+				if (response.success) {
+					jQuery.magnificPopup.close();
+					jQuery(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html(response.data);
+				} else {
+					form.html(response.data);
+				}
+			},*/
+			success: function () {
+				$(".msbr-add-review-modal #review_form").hide(function () {
+					$(".msbr-review-success").css({
+						display: "block",
+					});
+				});
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				alert("Status: " + textStatus);
+				alert("Error: " + errorThrown);
+			},
+		});
+		console.log("after ajax");
+	});
 })(jQuery);

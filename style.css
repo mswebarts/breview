@@ -112,3 +112,8 @@
 	position: absolute;
 	left: 0;
 }
+
+/* Add Review Form */
+.msbr-review-success {
+	display: none;
+}
