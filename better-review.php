@@ -50,8 +50,12 @@ function msbr_register_styles() {
     // register and enqueue javascript
     wp_register_script( 'msbr-star-rating', plugins_url( 'assets/js/star-rating.min.js', __FILE__ ), array( 'jquery' ), '1.0', true );
     wp_register_script( 'msbr-magnific-popup', plugins_url( 'assets/js/jquery.magnific-popup.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-    wp_register_script( 'msbr-script', plugins_url( 'assets/js/main.js', __FILE__ ), array( 'jquery', 'msbr-magnific-popup', 'msbr-star-rating' ), '1.0.0', true );
+    wp_register_script( 'msbr-pagination', plugins_url( 'assets/js/pagination.min.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+    wp_register_script( 'msbr-script', plugins_url( 'assets/js/main.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 
+    wp_enqueue_script( 'msbr-star-rating' );
+    wp_enqueue_script( 'msbr-magnific-popup' );
+    wp_enqueue_script( 'msbr-pagination' );
     wp_enqueue_script( 'msbr-script' );
 
     // register and enqueue css
