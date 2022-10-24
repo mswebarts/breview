@@ -104,16 +104,18 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                                 <option value="3">' . esc_html__( 'Average', 'breview' ) . '</option>
                                 <option value="2">' . esc_html__( 'Not that bad', 'breview' ) . '</option>
                                 <option value="1">' . esc_html__( 'Very poor', 'breview' ) . '</option>
-                            </select><span class="msbr-error-message">Rating must be selected</span></div>';
+                            </select><span class="msbr-error-message">'  . esc_html__( 'Rating must be selected', 'breview' ) . '</span></div>';
+                            // TODO: add error message for rating setting
                         }
 
-                        $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">This is a required field</span></p>';
+                        $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__( 'This is a required field', 'breview' ) . '</span></p>';
 
                         $comment_form['comment_field'] .= '<input type="hidden" name="order_identifier" value="' . esc_attr( $order_identifier ) . '" />';
                         
                         comment_form( $comment_form, $product_id );
                         ?>
                     </div>
+                    <!--TODO: Success review text setting -->
                     <div class="msbr-review-success">
                         <p><?php esc_html_e( 'Thank you for your review. It has been submitted to the webmaster for approval.', 'breview' ); ?></p>
                     </div>

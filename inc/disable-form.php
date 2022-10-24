@@ -25,6 +25,7 @@ function msbr_product_new_review_tab( $tabs ) {
 function msbr_product_new_review_tab_content() {
     
     global $product;
+    // TODO: add a setting for enabling the review form in product page
     $enable_review_form_product = false;
 
     if ( ! comments_open() ) {
@@ -58,6 +59,7 @@ function msbr_product_new_review_tab_content() {
             <?php if ( $comments ) : ?>
                 <ol class="commentlist">
                     <?php
+                    // TODO: review list avatar size
                     $args = array(
                         'max_depth'         => '1',
                         'avatar_size'       => 60,

@@ -58,6 +58,14 @@ function msbr_register_styles() {
     wp_enqueue_script( 'msbr-pagination' );
     wp_enqueue_script( 'msbr-script' );
 
+    // pass review data to javascript
+    // TODO: error message setting
+    $translation_array = array(
+        'review_empty_msg' => __( 'Review can\'t be empty', 'breview' ),
+        'max_char_msg'     => __( 'Review can\'t be more than 300 characters', 'breview' ),
+    );
+    wp_localize_script( 'msbr-script', 'msbr_review', $translation_array );
+
     // register and enqueue css
     wp_register_style( 'msbr-star-rating', plugins_url( 'assets/css/star-rating.min.css', __FILE__ ) );
     wp_register_style( 'msbr-magnific-popup', plugins_url( 'assets/css/magnific-popup.css', __FILE__ ) );
