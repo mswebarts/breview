@@ -76,6 +76,13 @@ function msbr_register_styles() {
     wp_enqueue_style( "msbr-style" );
 }
 
+// add admin styles
+add_action( 'admin_enqueue_scripts', 'msbr_admin_styles' );
+function msbr_admin_styles() {
+    wp_register_style( "msbr-admin-style", plugins_url( "inc/admin/assets/css/style.css", __FILE__ ) );
+    wp_enqueue_style( "msbr-admin-style" );
+}
+
 register_activation_hook( __FILE__, 'msbr_initialization' );
 function msbr_initialization() {
     do_action( 'msbr_init' );
