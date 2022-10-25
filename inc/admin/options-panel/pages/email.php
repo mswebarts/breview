@@ -62,6 +62,11 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
 											</fieldset>
 										</td>
 									</tr>
+									<tr>
+										<td colspan="2">
+											<?php echo esc_html_e( "To change the texts of the email, override the template or translate the strings using a translation plugin. Copy the file from wc-better-review/templates/emails/completed.php to yourtheme/breview/emails/completed.php", "breview" ); ?>
+										</td>
+									</tr>
 								</table>
 
 								<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
