@@ -2,6 +2,8 @@
 $general_tab = menu_page_url( 'breview-settings', false );
 $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
+
+$completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -32,15 +34,40 @@ $email_tab   = menu_page_url( 'breview-email-settings', false );
 
 					<div class="postbox">
 
-						<h2><span><?php esc_html_e( 'Main Content Header', 'breview' ); ?></span></h2>
+						<h2><span><?php esc_html_e( 'Email Settings', 'breview' ); ?></span></h2>
 
 						<div class="inside">
 							<p>
-                                <?php esc_html_e(
-									'WordPress started in 2003 with a single bit of code to enhance the typography of everyday writing and with fewer users than you can count on your fingers and toes. Since then it has grown to be the largest self-hosted blogging tool in the world, used on millions of sites and seen by tens of millions of people every day.',
+                                <?php echo esc_html_e(
+									'Configure the email settings for Breview.',
 									'breview'
 								); ?>
                             </p>
+
+							<form method="post" action="">
+								<input type="hidden" name="msbr_email_form_submitted" value="Y">
+								<table class="form-table">
+									<tr>
+										<th>
+											<label for="msbr_enable_completed_email">
+												<?php esc_html_e( 'Review Request on Order Completion', 'breview' ); ?></th>
+											</label>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Review Request on Order Completion', 'breview' ); ?></span>
+												</legend>
+												<input name="msbr_enable_completed_email" type="checkbox" id="msbr_enable_completed_email" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $completed_email_check ); ?> />
+												<span><?php esc_html_e( 'Check mark to send an email to the customer to review the products when the order gets completed', 'breview' ); ?></span>
+											</fieldset>
+										</td>
+									</tr>
+								</table>
+
+								<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
+
+								<br class="clear" />
+							</form>
 						</div>
 						<!-- .inside -->
 

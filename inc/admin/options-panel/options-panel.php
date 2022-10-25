@@ -119,5 +119,46 @@ function msbr_breview_style_settings_page() {
 
 function msbr_breview_email_settings_page() {
     global $msbr_dir;
+
+    if( isset( $_POST['msbr_email_form_submitted'] ) ) {
+        $submitted = $_POST['msbr_email_form_submitted'];
+
+        // if submitted is set to Y
+        if( $submitted == 'Y' ) {
+            if( isset( $_POST['msbr_enable_completed_email'] ) ) {
+                $enable_completed_email = intval( $_POST['msbr_enable_completed_email'] );
+            } else {
+                $enable_completed_email = intval( 0 );
+            }
+            /*// email subject
+            if( isset( $_POST['msbr_completed_email_subject'] ) ) {
+                $completed_email_subject = sanitize_text_field( $_POST['msbr_completed_email_subject'] );
+            } else {
+                $completed_email_subject = '';
+            }
+
+            // email body
+            if( isset( $_POST['msbr_completed_email_body'] ) ) {
+                $completed_email_body = sanitize_text_field( $_POST['msbr_completed_email_body'] );
+            } else {
+                $completed_email_body = '';
+            }*/
+
+            // assign value to array
+            $msbr_options['msbr_enable_completed_email']     = $enable_completed_email;
+            //$msbr_options['msbr_completed_email_subject']    = $completed_email_subject;
+            //$msbr_options['msbr_completed_email_body']       = $completed_email_body;
+
+            // save options
+            update_option( 'msbr_email_options', $msbr_options );
+        }
+    }
+
+    // retrieve the options to use in email.php
+    $msbr_options            = get_option( 'msbr_email_options' );
+    $enable_completed_email  = $msbr_options['msbr_enable_completed_email'];
+    //$completed_email_subject = $msbr_options['msbr_completed_email_subject'];
+    //$completed_email_body    = $msbr_options['msbr_completed_email_body'];
+
     include_once $msbr_dir . 'inc/admin/options-panel/pages/email.php';
 }
