@@ -61,7 +61,6 @@ function msbr_register_styles() {
     wp_enqueue_script( 'msbr-script' );
 
     // pass review data to javascript
-    // TODO: error message setting
     $msbr_options = get_option( 'msbr_general_options' );
     $max_char     = isset( $msbr_options['msbr_review_form_max_char'] ) ? $msbr_options['msbr_review_form_max_char'] : 300;
 
