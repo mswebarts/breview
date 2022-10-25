@@ -39,7 +39,7 @@
 			// change error message
 			form.find("textarea[name='comment'] + .msbr-error-message").text(msbr_review["review_empty_msg"]);
 			return;
-		} else if (form.find("textarea[name='comment']").val().length > 300) {
+		} else if (form.find("textarea[name='comment']").val().length > msbr_review["max_char"]) {
 			// validate if review is more than x characters
 
 			// add error class to the field

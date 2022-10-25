@@ -59,13 +59,19 @@ function msbr_breview_general_settings_page() {
 
             // check if checkbox is set
             if( isset( $_POST['msbr_display_add_review_product'] ) ) {
-                $display_add_review_on_product = $_POST['msbr_display_add_review_product'];
+                $display_add_review_on_product = intval( $_POST['msbr_display_add_review_product'] );
             } else {
-                $display_add_review_on_product = 0;
+                $display_add_review_on_product = intval( 0 );
+            }
+            if( isset( $_POST['msbr_review_form_max_char'] ) ) {
+                $review_max_char = sanitize_text_field( $_POST['msbr_review_form_max_char'] );
+            } else {
+                $review_max_char = intval( 300 );
             }
 
             // assign value to array
             $msbr_options['msbr_display_add_review_product'] = $display_add_review_on_product;
+            $msbr_options['msbr_review_form_max_char']       = $review_max_char;
 
             // save options
             update_option( 'msbr_general_options', $msbr_options );
@@ -77,6 +83,7 @@ function msbr_breview_general_settings_page() {
     
     if( $msbr_options != '' ) {
         $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
+        $review_max_char               = $msbr_options['msbr_review_form_max_char'];
     }
 
     include_once $msbr_dir . 'inc/admin/options-panel/pages/general.php';

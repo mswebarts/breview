@@ -2,7 +2,7 @@
 $general_tab = menu_page_url( 'breview-settings', false );
 $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
-var_dump( $display_add_review_on_product );
+
 $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
 
 ?>
@@ -48,13 +48,34 @@ $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
 								<input type="hidden" name="msbr_general_form_submitted" value="Y">
 								<table class="form-table">
 									<tr>
-										<th><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></th>
+										<th>
+											<label for="msbr_display_add_review_product">
+												<?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></th>
+											</label>
 										<td>
 											<fieldset>
-												<legend class="screen-reader-text"><span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span></legend>
-												<label for="users_can_register">
-													<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
-													<span><?php esc_html_e( 'Check to display the Add Review form in product pages.', 'breview' ); ?></span>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span>
+												</legend>
+												<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
+												<span><?php esc_html_e( 'Check to display the Add Review form in product pages.', 'breview' ); ?></span>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="msbr_review_form_max_char">
+												<?php esc_html_e( 'Max Characters Allowed', 'breview' ); ?>
+											</label>
+										</th>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Max Characters Allowed', 'breview' ); ?></span>
+												</legend>
+												<label for="msbr_review_form_max_char">
+													<input type="number" name="msbr_review_form_max_char" value="<?php echo esc_attr( $review_max_char ); ?>" class="regular-text" /><br/>
+													<span><?php esc_html_e( 'Input the maximum characters allowed for the Add Review Form\'s Review field in the order page', 'breview' ); ?></span>
 												</label>
 											</fieldset>
 										</td>
