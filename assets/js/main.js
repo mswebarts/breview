@@ -18,7 +18,6 @@
 		jQuery(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
 	});
 
-	console.log(msbr_review);
 	// ajaxify add review form
 	jQuery(document).on("submit", ".msbr-add-review-modal", function (e) {
 		e.preventDefault();
