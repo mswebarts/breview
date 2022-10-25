@@ -21,9 +21,12 @@
 .msbr-show-review-modal ol.commentlist {
 	list-style: none;
 	padding-left: 0;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0;
 }
+.woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist,
+.msbr-show-review-modal ol.commentlist,
+.woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li,
+.msbr-show-review-modal ol.commentlist li,
 .msbr-show-review-modal ol.commentlist p {
 	margin: 0;
 }
