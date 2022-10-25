@@ -1,26 +1,18 @@
 <?php
 /**
- * Plugin Name: WC Better Review
- * Description: This plugin enables the order approval by Customers for woocommerce. The customers can change the order status/approve the order when it has order status set as Delivered.
- * Version:     1.2.1
- * Author:      MS Web Arts
- * Author URI:  https://www.mswebarts.com/
- * License:     GPL v2 or later
+ * Plugin Name: Breview - Better Review System for WooCommerce
+ * Description: Breview is a review plugin for WordPress. It changes the way customers review your products and services. Customers can only add reviews from the order page once the order gets completed
+ * Version: 1.0.0
+ * Plugin URI: https://www.mswebarts.com/plugins/breview/
+ * Author: MS Web Arts
+ * Author URI: https://www.mswebarts.com/
+ * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Requires at least: 5.6
+ * Requires PHP: 7.0
  * Text Domain: breview
-
-WC Better Review is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-any later version.
- 
-WC Better Review is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
- 
-You should have received a copy of the GNU General Public License
-along with WC Better Review. If not, see {License URI}.
+ * Domain Path: /languages
+ * 
  */
 
 if( ! defined( 'ABSPATH' ) ) {
