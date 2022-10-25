@@ -2,6 +2,9 @@
 $general_tab = menu_page_url( 'breview-settings', false );
 $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
+var_dump( $display_add_review_on_product );
+$add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
+
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -32,15 +35,36 @@ $email_tab   = menu_page_url( 'breview-email-settings', false );
 
 					<div class="postbox">
 
-						<h2><span><?php esc_html_e( 'Main Content Header', 'breview' ); ?></span></h2>
-
+						<h2><span><?php esc_html_e( 'General Settings', 'breview' ); ?></span></h2>
 						<div class="inside">
 							<p>
-                                <?php esc_html_e(
-									'WordPress started in 2003 with a single bit of code to enhance the typography of everyday writing and with fewer users than you can count on your fingers and toes. Since then it has grown to be the largest self-hosted blogging tool in the world, used on millions of sites and seen by tens of millions of people every day.',
+                                <?php echo esc_html_e(
+									'Configure the general settings for Breview.',
 									'breview'
 								); ?>
                             </p>
+
+							<form method="post" action="">
+								<input type="hidden" name="msbr_general_form_submitted" value="Y">
+								<table class="form-table">
+									<tr>
+										<th><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></th>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text"><span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span></legend>
+												<label for="users_can_register">
+													<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
+													<span><?php esc_html_e( 'Check to display the Add Review form in product pages.', 'breview' ); ?></span>
+												</label>
+											</fieldset>
+										</td>
+									</tr>
+								</table>
+
+								<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
+
+								<br class="clear" />
+							</form>
 						</div>
 						<!-- .inside -->
 

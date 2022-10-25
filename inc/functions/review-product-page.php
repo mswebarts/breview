@@ -25,8 +25,10 @@ function msbr_product_new_review_tab( $tabs ) {
 function msbr_product_new_review_tab_content() {
     
     global $product;
-    // TODO: add a setting for enabling the review form in product page
-    $enable_review_form_product = false;
+
+    $msbr_options = get_option( 'msbr_general_options' );
+    $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
+    
 
     if ( ! comments_open() ) {
         return;
@@ -94,7 +96,7 @@ function msbr_product_new_review_tab_content() {
             <?php endif; ?>
         </div>
 
-        <?php if( $enable_review_form_product ) : ?>
+        <?php if( $display_add_review_on_product ) : ?>
 
             <?php if ( get_option( 'woocommerce_review_rating_verification_required' ) === 'no' || wc_customer_bought_product( '', get_current_user_id(), $product->get_id() ) ) : ?>
                 <div id="review_form_wrapper">

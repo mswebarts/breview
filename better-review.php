@@ -26,8 +26,10 @@ along with WC Better Review. If not, see {License URI}.
 if( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-global $msbr_dir;
+global $msbr_dir, $msbr_options;
 $msbr_dir = plugin_dir_path( __FILE__ );
+$msbr_options = array();
+
 // Check if woocommerce is installed
 
 add_action('plugins_loaded', 'msbr_check_for_woocommerce');
