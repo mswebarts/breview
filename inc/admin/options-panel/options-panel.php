@@ -57,21 +57,31 @@ function msbr_breview_general_settings_page() {
         // if submitted is set to Y
         if( $submitted == 'Y' ) {
 
-            // check if checkbox is set
+            // display add review form
             if( isset( $_POST['msbr_display_add_review_product'] ) ) {
                 $display_add_review_on_product = intval( $_POST['msbr_display_add_review_product'] );
             } else {
                 $display_add_review_on_product = intval( 0 );
             }
+
+            // review form max char
             if( isset( $_POST['msbr_review_form_max_char'] ) ) {
                 $review_max_char = sanitize_text_field( $_POST['msbr_review_form_max_char'] );
             } else {
                 $review_max_char = intval( 300 );
             }
 
+            // reviewer avatar size
+            if( isset( $_POST['msbr_reviewer_avatar_size'] ) ) {
+                $reviewer_avatar_size = sanitize_text_field( $_POST['msbr_reviewer_avatar_size'] );
+            } else {
+                $reviewer_avatar_size = intval( 60 );
+            }
+
             // assign value to array
             $msbr_options['msbr_display_add_review_product'] = $display_add_review_on_product;
             $msbr_options['msbr_review_form_max_char']       = $review_max_char;
+            $msbr_options['msbr_reviewer_avatar_size']       = $reviewer_avatar_size;
 
             // save options
             update_option( 'msbr_general_options', $msbr_options );
@@ -81,9 +91,22 @@ function msbr_breview_general_settings_page() {
     // retrive the options to use in general.php
     $msbr_options = get_option( 'msbr_general_options' );
     
-    if( $msbr_options != '' ) {
-        $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
-        $review_max_char               = $msbr_options['msbr_review_form_max_char'];
+    if( !empty( $msbr_options['msbr_display_add_review_product'] ) ) {
+        $display_add_review_on_product = intval( $msbr_options['msbr_display_add_review_product'] );
+    } else {
+        $display_add_review_on_product = intval( 0 );
+    }
+
+    if( !empty( $msbr_options['msbr_review_form_max_char'] ) ) {
+        $review_max_char = intval( $msbr_options['msbr_review_form_max_char'] );
+    } else {
+        $review_max_char = intval( 300 );
+    }
+
+    if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
+        $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
+    } else {
+        $reviewer_avatar_size = intval( 60 );
     }
 
     include_once $msbr_dir . 'inc/admin/options-panel/pages/general.php';

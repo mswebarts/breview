@@ -158,10 +158,17 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                     ?>
                     <ol class="commentlist">
                         <?php
+                        $msbr_options = get_option( 'msbr_general_options' );
+
+                        if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
+                            $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
+                        } else {
+                            $reviewer_avatar_size = intval( 60 );
+                        }
                         // display the review
                         $args = array(
                             'max_depth'         => '1',
-                            'avatar_size'       => 60,
+                            'avatar_size'       => $reviewer_avatar_size,
                             'reverse_top_level' => false,
                             'callback' => 'woocommerce_comments',
                         );

@@ -61,10 +61,17 @@ function msbr_product_new_review_tab_content() {
             <?php if ( $comments ) : ?>
                 <ol class="commentlist">
                     <?php
-                    // TODO: review list avatar size
+                    
+                    $msbr_options = get_option( 'msbr_general_options' );
+
+                    if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
+                        $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
+                    } else {
+                        $reviewer_avatar_size = intval( 60 );
+                    }
                     $args = array(
-                        'max_depth'         => '1',
-                        'avatar_size'       => 60,
+                        'max_depth'         => intval(1),
+                        'avatar_size'       => $reviewer_avatar_size,
                         'reverse_top_level' => false,
                         'callback' => 'woocommerce_comments',
                     );

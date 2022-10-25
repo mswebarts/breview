@@ -4,7 +4,6 @@ $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
 
 $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
-
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -76,6 +75,24 @@ $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
 												<label for="msbr_review_form_max_char">
 													<input type="number" name="msbr_review_form_max_char" value="<?php echo esc_attr( $review_max_char ); ?>" class="regular-text" /><br/>
 													<span><?php esc_html_e( 'Input the maximum characters allowed for the Add Review Form\'s Review field in the order page', 'breview' ); ?></span>
+												</label>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="msbr_reviewer_avatar_size">
+												<?php esc_html_e( 'Reviewer Avatar Size(px)', 'breview' ); ?>
+											</label>
+										</th>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Reviewer Avatar Size(px)', 'breview' ); ?></span>
+												</legend>
+												<label for="msbr_reviewer_avatar_size">
+													<input type="number" name="msbr_reviewer_avatar_size" value="<?php echo esc_attr( $reviewer_avatar_size ); ?>" class="regular-text" /><br/>
+													<span><?php esc_html_e( 'Set the reviewer/customer avatar size in Review list', 'breview' ); ?></span>
 												</label>
 											</fieldset>
 										</td>
