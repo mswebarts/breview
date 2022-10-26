@@ -105,7 +105,6 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                                 <option value="2">' . esc_html__( 'Not that bad', 'breview' ) . '</option>
                                 <option value="1">' . esc_html__( 'Very poor', 'breview' ) . '</option>
                             </select><span class="msbr-error-message">'  . esc_html__( 'Rating must be selected', 'breview' ) . '</span></div>';
-                            // TODO: add translation error message for rating setting
                         }
 
                         $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__( 'This is a required field', 'breview' ) . '</span></p>';
