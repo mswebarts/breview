@@ -158,7 +158,6 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                     // get the review
                     $args = array(
                         'post_id' => $product_id,
-                        'status'  => 'approve',
                         'type'    => 'review',
                         'meta_query' => array(
                             array(
