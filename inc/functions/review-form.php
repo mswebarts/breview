@@ -23,7 +23,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
 
     // if the review is not submitted, show the form
     if( !$comments_count ) {
-        // check if order status is completed or wc-completed
+        // check if order status is completed and if on view/received order page
         if( ( ( $order->get_status() == 'completed' ) || ( $order->get_status() == 'wc-completed' ) ) && ( is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received') ) ) :
         ?>
         <div class="msbr-add-review">
