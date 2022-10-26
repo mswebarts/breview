@@ -1,7 +1,7 @@
 <?php
 if(!class_exists("MSBR_Lic_Base")) {
 	class MSBR_Lic_Base {
-    	public $key = "72E9503FEA045BE1";
+    	public $key = "13CA83BE61EBB004";
     	private $product_id = "1";
     	private $product_base = "breview";
     	private $server_host = "https://license102622.mswebarts.com/wp-json/licensor/";
