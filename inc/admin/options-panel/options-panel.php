@@ -15,33 +15,6 @@ function msbr_add_menu_page() {
             100
         );
     }
-    // add sub menu page
-    add_submenu_page(
-        'mswebarts-overview',
-        'Breview General Settings',
-        'Breview',
-        'manage_options',
-        'breview-settings',
-        'msbr_breview_general_settings_page'
-    );
-    // add sub menu page
-    add_submenu_page(
-        'breview-settings',
-        'Breview Style Settings',
-        'Style',
-        'manage_options',
-        'breview-style-settings',
-        'msbr_breview_style_settings_page'
-    );
-    // add sub menu page
-    add_submenu_page(
-        'breview-settings',
-        'Breview Email Settings',
-        'Emails',
-        'manage_options',
-        'breview-email-settings',
-        'msbr_breview_email_settings_page'
-    );
 }
 function msbr_overview_page() {
     global $msbr_dir;

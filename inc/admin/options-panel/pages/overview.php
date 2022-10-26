@@ -26,8 +26,7 @@
                     </h2>
 
                     <div class="inside">
-                        <p><?php esc_html_e( 'WordPress started in 2003 with a single bit of code to enhance the typography of everyday writing and with fewer users than you can count on your fingers and toes. Since then it has grown to be the largest self-hosted blogging tool in the world, used on millions of sites and seen by tens of millions of people every day.',
-                                            'breview' ); ?></p>
+                        <?php do_action( 'msbr_license_box' ); ?>
                     </div>
                     <!-- .inside -->
 
