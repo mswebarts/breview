@@ -123,7 +123,7 @@ class MSBR_Lic {
                        <?php echo $this->responseObj->expire_date;
                        if(!empty($this->responseObj->expire_renew_link)){
                            ?>
-                           <a target="_blank" class="el-blue-btn" href="<?php echo $this->responseObj->expire_renew_link; ?>">Renew</a>
+                           <a target="_blank" class="el-blue-btn" href="<?php echo $this->responseObj->expire_renew_link; ?>"><?php echo esc_html_e( 'Renew', 'breview' ) ?></a>
                            <?php
                        }
                        ?>
@@ -137,7 +137,7 @@ class MSBR_Lic {
                            echo $this->responseObj->support_end;
                         if(!empty($this->responseObj->support_renew_link)){
                             ?>
-                               <a target="_blank" class="el-blue-btn" href="<?php echo $this->responseObj->support_renew_link; ?>">Renew</a>
+                               <a target="_blank" class="el-blue-btn" href="<?php echo $this->responseObj->support_renew_link; ?>"><?php echo esc_html_e( 'Renew', 'breview' ) ?></a>
                             <?php
                         }
                        ?>
