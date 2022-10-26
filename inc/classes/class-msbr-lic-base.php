@@ -4,7 +4,7 @@ if(!class_exists("MSBR_Lic_Base")) {
     	public $key = "72E9503FEA045BE1";
     	private $product_id = "1";
     	private $product_base = "breview";
-    	private $server_host = "https://license.local:444/wp-json/licensor/";
+    	private $server_host = "https://license102622.mswebarts.com/wp-json/licensor/";
     	private $hasCheckUpdate=true;
     	private $isEncryptUpdate=false;
     	private $pluginFile;
