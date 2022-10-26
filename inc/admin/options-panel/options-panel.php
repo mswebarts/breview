@@ -1,31 +1,4 @@
 <?php
-// add_menu_page
-add_action( 'admin_menu', 'msbr_add_menu_page' );
-function msbr_add_menu_page() {
-    global $msbr_dir;
-    // add parent settings page only if not added by other plugin from us
-    if( empty( $GLOBALS['admin_page_hooks']['mswebarts-overview'] ) ) {
-        add_menu_page(
-            'MS Web Arts Overview',
-            'MS Web Arts',
-            'manage_options',
-            'mswebarts-overview',
-            'msbr_overview_page',
-            plugins_url( 'breview/inc/admin/assets/images/icon.png' ),
-            100
-        );
-    }
-}
-function msbr_overview_page() {
-    global $msbr_dir;
-    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
-}
-add_action( 'mswa_overview_sidebar', 'msbr_overview_sidebar', 10 );
-function msbr_overview_sidebar() {
-    global $msbr_dir;
-    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
-}
-
 function msbr_breview_general_settings_page() {
     global $msbr_dir, $msbr_options;
 

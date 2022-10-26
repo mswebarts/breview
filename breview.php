@@ -18,18 +18,24 @@
 if( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-global $msbr_dir, $msbr_options;
+global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path( __FILE__ );
+$msbr_url = plugins_url( '/', __FILE__ );
 $msbr_options = array();
 
 // Check if woocommerce is installed
 
-add_action('plugins_loaded', 'msbr_check_for_woocommerce');
-function msbr_check_for_woocommerce() {
+add_action('plugins_loaded', 'msbr_on_plugin_load');
+function msbr_on_plugin_load() {
+    global $msbr_dir;
+
     if ( !defined('WC_VERSION') ) {
         add_action( 'admin_notices', 'msbr_woocommerce_dependency_error' );
         return;
     }
+
+    // include plugin files
+    include_once $msbr_dir . 'inc/classes/class-msbr-lic.php';
 }
 
 function msbr_woocommerce_dependency_error() {
@@ -88,22 +94,36 @@ function msbr_register_styles() {
     wp_add_inline_style( 'msbr-inline', $custom_css );
 }
 
+// add_menu_page
+add_action( 'admin_menu', 'msbr_add_menu_page' );
+function msbr_add_menu_page() {
+    global $msbr_url;
+    // add parent settings page only if not added by other plugin from us
+    if( empty( $GLOBALS['admin_page_hooks']['mswebarts-overview'] ) ) {
+        add_menu_page(
+            'MS Web Arts Overview',
+            'MS Web Arts',
+            'manage_options',
+            'mswebarts-overview',
+            'msbr_overview_page',
+            $msbr_url . 'inc/admin/assets/images/icon.png',
+            100
+        );
+    }
+}
+function msbr_overview_page() {
+    global $msbr_dir;
+    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
+}
+add_action( 'mswa_overview_sidebar', 'msbr_overview_sidebar', 10 );
+function msbr_overview_sidebar() {
+    global $msbr_dir;
+    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
+}
+
 // add admin styles
 add_action( 'admin_enqueue_scripts', 'msbr_admin_styles' );
 function msbr_admin_styles() {
     wp_register_style( "msbr-admin-style", plugins_url( "inc/admin/assets/css/style.css", __FILE__ ) );
     wp_enqueue_style( "msbr-admin-style" );
-}
-
-register_activation_hook( __FILE__, 'msbr_initialization' );
-function msbr_initialization() {
-    do_action( 'msbr_init' );
-}
-
-add_action( 'plugins_loaded', 'msbr_include_files' );
-function msbr_include_files() {
-    global $msbr_dir;
-    // include plugin files
-    include_once $msbr_dir . 'inc/init.php';
-    include_once $msbr_dir . 'inc/classes/class-msbr-lic.php';
 }

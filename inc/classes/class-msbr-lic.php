@@ -18,6 +18,7 @@ class MSBR_Lic {
             //$this->licenselMessage=$this->mess;
             //***Write you plugin's code here***
             add_action( 'mswa_overview_columns', [ $this, 'Activated' ] );
+            add_action( 'init', [ $this, 'initializeBreview' ] );
 
         }else{
             if(!empty($licenseKey) && !empty($this->licenseMessage)){
@@ -28,6 +29,12 @@ class MSBR_Lic {
             add_action( 'admin_menu', [$this,'InactiveMenu']);
             add_action( 'mswa_overview_columns', [ $this, 'LicenseForm' ] );
         }
+    }
+    function initializeBreview() {
+        global $msbr_dir;
+        // include plugin files
+        require_once $msbr_dir .'inc/init.php';
+        //include_once $msbr_dir . 'inc/init.php';
     }
     function ActiveAdminMenu(){
         
