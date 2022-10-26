@@ -19,6 +19,7 @@ class MSBR_Lic {
             //***Write you plugin's code here***
             add_action( 'mswa_overview_columns', [ $this, 'Activated' ] );
             add_action( 'init', [ $this, 'initializeBreview' ] );
+            add_action( 'mswa_overview_columns', [ $this, 'defaultOverviewColumns' ] );
 
         }else{
             if(!empty($licenseKey) && !empty($this->licenseMessage)){
@@ -28,6 +29,7 @@ class MSBR_Lic {
             add_action( 'admin_post_msbr_lic_el_activate_license', [ $this, 'action_activate_license' ] );
             add_action( 'admin_menu', [$this,'InactiveMenu']);
             add_action( 'mswa_overview_columns', [ $this, 'LicenseForm' ] );
+            add_action( 'mswa_overview_columns', [ $this, 'defaultOverviewColumns' ] );
         }
     }
     function initializeBreview() {
@@ -35,6 +37,40 @@ class MSBR_Lic {
         // include plugin files
         require_once $msbr_dir .'inc/init.php';
         //include_once $msbr_dir . 'inc/init.php';
+    }
+    function defaultOverviewColumns() {
+        ?>
+        <div class="mswa-col-4">
+            <div class="mswa-box">
+                <h3 class="msbr-column-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Recommended Plugins", 'breview');?> </h3>
+                <hr>
+                <div class="msbr-column-content">
+                    <ul>
+                        <li><a href="https://mswebarts.com/plugins/breview/" target="_blank"><?php _e("Plugin Homepage", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/plugins/breview/#documentation" target="_blank"><?php _e("Documentation", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/plugins/breview/#support" target="_blank"><?php _e("Support", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/plugins/breview/#faq" target="_blank"><?php _e("FAQ", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/plugins/breview/#changelog" target="_blank"><?php _e("Changelog", 'breview');?></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mswa-col-4">
+            <div class="mswa-box">
+                <h3 class="msbr-column-title"><i class="dashicons-before dashicons-admin-links"></i> <?php _e("Important Links", 'breview');?> </h3>
+                <hr>
+                <div class="msbr-column-content">
+                    <ul>
+                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/" target="_blank"><?php _e("Plugin Homepage", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#documentation" target="_blank"><?php _e("Documentation", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#support" target="_blank"><?php _e("Support", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#faq" target="_blank"><?php _e("FAQ", 'breview');?></a></li>
+                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#changelog" target="_blank"><?php _e("Changelog", 'breview');?></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <?php
     }
     function ActiveAdminMenu(){
         
@@ -99,7 +135,7 @@ class MSBR_Lic {
                 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                     <input type="hidden" name="action" value="msbr_lic_el_deactivate_license"/>
                     <div class="msbr-license-container">
-                        <h3 class="msbr-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview License Info", 'breview');?> </h3>
+                        <h3 class="msbr-license-title"><i class="dashicons-before dashicons-info-outline"></i> <?php _e("Breview License Info", 'breview');?> </h3>
                         <hr>
                         <ul class="msbr-license-info">
                         <li>
@@ -172,7 +208,10 @@ class MSBR_Lic {
                 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                     <input type="hidden" name="action" value="msbr_lic_el_activate_license"/>
                     <div class="msbr-license-container">
-                        <h3 class="msbr-license-title"><?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?></h3>
+                        <h3 class="msbr-license-title">
+                            <i class="dashicons-before dashicons-unlock"></i>
+                            <?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?>
+                        </h3>
                         <hr>
                         <?php
                         if(!empty($this->showMessage) && !empty($this->licenseMessage)){

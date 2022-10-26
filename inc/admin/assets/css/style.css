@@ -27,6 +27,16 @@
 	width: calc(20% - 10px);
 	margin-bottom: 10px;
 }
+.mswa-row [class*="mswa-col-"] {
+	background: #fff;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.mswa-box {
+	padding: 20px;
+}
+
 .mswa-settings-page #post-body-content .nav-tab-wrapper {
 	padding-bottom: 0;
 	margin-bottom: 10px;
@@ -55,11 +65,6 @@
 /*===============================
 			License Page
 ================================*/
-.msbr-license-container {
-	padding: 20px;
-	background: #fff;
-	border-radius: 4px;
-}
 .msbr-license-container .msbr-license-field {
 	display: block;
 	margin-bottom: 15px;
@@ -75,7 +80,8 @@
 	background: rgba(220, 50, 50, 0.11);
 	margin: 0;
 }
-.msbr-license-container .msbr-license-title {
+.msbr-license-container .msbr-license-title,
+.msbr-column-title {
 	font-size: 18px;
 	margin-top: 0;
 	margin-bottom: 10px;
