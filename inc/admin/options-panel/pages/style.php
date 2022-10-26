@@ -7,7 +7,7 @@ $email_tab   = menu_page_url( 'breview-email-settings', false );
 <div id="icon-options-general" class="icon32"></div>
 <h1><?php echo esc_html_e( 'Breview - Better Review for WooCommerce', 'breview' ); ?></h1>
 <p><?php echo esc_html_e( 'Breview adds a completely new workflow for reviews in WooCommerce. You can configure all the settings from here.', 'breview' ); ?></p>
-<div class="wrap msbr-settings-page">
+<div class="wrap mswa-settings-page">
 
 	<div id="poststuff">
 

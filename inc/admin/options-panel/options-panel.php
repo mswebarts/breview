@@ -11,7 +11,7 @@ function msbr_add_menu_page() {
             'manage_options',
             'mswebarts-overview',
             'msbr_overview_page',
-            plugins_url( 'breview/inc/admin/assets/images/logo.png' ),
+            plugins_url( 'breview/inc/admin/assets/images/icon.png' ),
             100
         );
     }
@@ -19,6 +19,11 @@ function msbr_add_menu_page() {
 function msbr_overview_page() {
     global $msbr_dir;
     include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
+}
+add_action( 'mswa_overview_sidebar', 'msbr_overview_sidebar', 10 );
+function msbr_overview_sidebar() {
+    global $msbr_dir;
+    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
 }
 
 function msbr_breview_general_settings_page() {

@@ -1,11 +1,10 @@
-<div id="icon-options-general" class="icon32"></div>
-<h1><?php echo esc_html_e( 'Breview - Better Review for WooCommerce', 'breview' ); ?></h1>
-<p><?php echo esc_html_e( 'Breview adds a completely new workflow for reviews in WooCommerce. You can configure all the settings from here.', 'breview' ); ?></p>
+<h1 class="msbr-admin-options-page-title">
+    <img src="<?php echo esc_url( plugins_url( 'breview/inc/admin/assets/images/logo.png' ) ); ?>" alt="">
+    <span><?php echo esc_html_e( 'MS Web Arts Overview', 'breview' ); ?></span>
+</h1>
+<p><?php echo esc_html_e( 'This page contains the license activations for plugins provided by MS Web Arts and latest news/updates from us', 'breview' ); ?></p>
 
-<div class="wrap msbr-settings-page">
-
-	<div id="icon-options-general" class="icon32"></div>
-	<h1><?php esc_html_e( 'Heading', 'breview' ); ?></h1>
+<div class="wrap mswa-settings-page">
 
 	<div id="poststuff">
 
@@ -13,16 +12,13 @@
 
 			<!-- main content -->
 			<div id="post-body-content">
-
-                <div class="postbox">
-
-                    <div class="inside">
-                        <?php do_action( 'msbr_license_box' ); ?>
+                
+                <div class="inside">
+                    <div class="mswa-row">
+                        <?php do_action( 'mswa_overview_columns' ); ?>
                     </div>
-                    <!-- .inside -->
-
                 </div>
-                <!-- .postbox -->
+                <!-- .inside -->
 
 			</div>
 			<!-- post-body-content -->
@@ -32,19 +28,8 @@
 
                 <div class="postbox">
 
-                    <button type="button" class="handlediv" aria-expanded="true" >
-                        <span class="screen-reader-text">Toggle panel</span>
-                        <span class="toggle-indicator" aria-hidden="true"></span>
-                    </button>
-                    <!-- Toggle -->
-
-                    <h2 class="hndle"><span><?php esc_html_e(
-                                'Sidebar Content Header', 'breview'
-                            ); ?></span></h2>
-
                     <div class="inside">
-                        <p><?php esc_html_e( 'Everything you see here, from the documentation to the code itself, was created by and for the community. WordPress is an Open Source project, which means there are hundreds of people all over the world working on it. (More than most commercial platforms.) It also means you are free to use it for anything from your cat’s home page to a Fortune 500 web site without paying anyone a license fee and a number of other important freedoms.',
-                                            'breview' ); ?></p>
+                        <?php do_action( 'mswa_overview_sidebar' ); ?>
                     </div>
                     <!-- .inside -->
 

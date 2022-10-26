@@ -1,6 +1,55 @@
-.msbr-settings-page #post-body-content .nav-tab-wrapper {
+/*==============================
+			Admin Panel
+==============================*/
+.mswa-row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.mswa-col-2 {
+	width: calc(50% - 10px);
+	margin-bottom: 10px;
+}
+.mswa-col-3 {
+	width: calc(33.33% - 10px);
+	margin-bottom: 10px;
+}
+.mswa-col-4 {
+	width: calc(25% - 10px);
+	margin-bottom: 10px;
+}
+.mswa-col-5 {
+	width: calc(20% - 10px);
+	margin-bottom: 10px;
+}
+.mswa-settings-page #post-body-content .nav-tab-wrapper {
 	padding-bottom: 0;
 	margin-bottom: 10px;
+}
+.mswa-settings-page .inside {
+	margin-top: 0;
+}
+
+.msbr-admin-options-page-title {
+	font-size: 26px;
+	line-height: 30px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.msbr-admin-options-page-title img,
+.msbr-admin-options-page-title i {
+	margin-right: 5px;
 }
 
 /*===============================
@@ -96,4 +145,13 @@
 .msbr-license-container .msbr-license-active-btn .submit {
 	padding-bottom: 0;
 	margin-bottom: 0;
+}
+
+@media all and (max-width: 768px) {
+	.mswa-col-2,
+	.mswa-col-3,
+	.mswa-col-4,
+	.mswa-col-5 {
+		width: 100%;
+	}
 }
