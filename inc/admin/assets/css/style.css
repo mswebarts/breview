@@ -2,3 +2,98 @@
 	padding-bottom: 0;
 	margin-bottom: 10px;
 }
+
+/*===============================
+			License Page
+================================*/
+.msbr-license-container {
+	padding: 20px;
+	background: #fff;
+	border-radius: 4px;
+}
+.msbr-license-container .msbr-license-field {
+	display: block;
+	margin-bottom: 15px;
+}
+.msbr-license-container .msbr-license-field input {
+	font-size: 16px;
+	padding: 8px 10px 10px;
+	min-height: unset;
+	line-height: 18px;
+}
+.msbr-license-container .notice-error,
+.msbr-license-container div.error {
+	background: rgba(220, 50, 50, 0.11);
+	margin: 0;
+}
+.msbr-license-container .msbr-license-title {
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.msbr-license-container .msbr-license-info li {
+	list-style: none;
+	padding: 0;
+}
+.msbr-license-container .msbr-license-info-title {
+	width: 150px;
+	display: inline-block;
+	position: relative;
+	padding-right: 5px;
+}
+.msbr-license-container .msbr-license-info-title:after {
+	content: ":";
+	position: absolute;
+	right: 2px;
+}
+.msbr-license-container .msbr-license-valid,
+.msbr-license-container .msbr-license-invalid {
+	padding: 0px 5px 2px;
+	color: #fff;
+	background-color: #8fcc77;
+	border-radius: 3px;
+}
+.msbr-license-container .msbr-license-invalid {
+	background-color: #f44336;
+}
+.msbr-license-container .msbr-license-key {
+	font-weight: 700;
+	opacity: 0.8;
+}
+.msbr-license-container .el-green-btn {
+	padding: 0px 5px 2px;
+	color: #fff;
+	background-color: #8fcc77;
+	border-radius: 3px;
+	text-decoration: none;
+	-webkit-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+	box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+}
+.msbr-license-container .el-green-btn:hover {
+	color: #fff;
+	background-color: #84bc6c;
+}
+.msbr-license-container .el-blue-btn {
+	padding: 0px 5px 2px;
+	color: #fff;
+	background-color: #20b1d2;
+	border-radius: 3px;
+	text-decoration: none;
+	-webkit-box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+	box-shadow: 0 0 3px -1px rgba(0, 0, 0, 0.38);
+}
+.msbr-license-container .el-blue-btn:hover {
+	color: #fff;
+	background-color: #219dbf;
+}
+.msbr-license-container .msbr-license-field label {
+	display: block;
+	margin-bottom: 5px;
+}
+.msbr-license-container .msbr-license-active-btn {
+	margin-top: 25px;
+}
+.msbr-license-container .msbr-license-active-btn .submit {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}

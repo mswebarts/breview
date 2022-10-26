@@ -7,7 +7,6 @@ class MSBR_Lic {
     public $showMessage=false;
     public $slug="mswebarts-overview";
     function __construct() {
-        add_action( 'admin_print_styles', [ $this, 'SetAdminStyle' ] );
         $licenseKey=get_option("msbr_lic_key","");
         $liceEmail=get_option( "msbr_lic_email","");
         MSBR_Lic_Base::addOnDelete(function(){
@@ -29,11 +28,6 @@ class MSBR_Lic {
             add_action( 'admin_menu', [$this,'InactiveMenu']);
             add_action( 'msbr_license_box', [ $this, 'LicenseForm' ] );
         }
-    }
-    function SetAdminStyle() {
-        global $msbr_dir;
-        wp_register_style( "msbr_lic_css", plugins_url("../admin/assets/css/_lic_style.css",$this->plugin_file),10);
-        wp_enqueue_style( "msbr_lic_css" );
     }
     function ActiveAdminMenu(){
         
@@ -73,7 +67,7 @@ class MSBR_Lic {
         //add_submenu_page( 'mswebarts-overview',  "MSBR_Lic", "MSBR_Lic", 'activate_plugins', $this->slug,  [$this,"LicenseForm"], " dashicons-star-filled " );
     }
     function action_activate_license(){
-        check_admin_referer( 'el-license' );
+        check_admin_referer( 'msbr-license' );
         $licenseKey=!empty($_POST['el_license_key'])?$_POST['el_license_key']:"";
         $licenseEmail=!empty($_POST['el_license_email'])?$_POST['el_license_email']:"";
         update_option("msbr_lic_key",$licenseKey) || add_option("msbr_lic_key",$licenseKey);
@@ -82,7 +76,7 @@ class MSBR_Lic {
         wp_safe_redirect(admin_url( 'admin.php?page='.$this->slug));
     }
     function action_deactivate_license() {
-        check_admin_referer( 'el-license' );
+        check_admin_referer( 'msbr-license' );
         $message="";
         if(MSBR_Lic_Base::RemoveLicenseKey(__FILE__,$message)){
             update_option("msbr_lic_key","") || add_option("msbr_lic_key","");
@@ -94,32 +88,32 @@ class MSBR_Lic {
         ?>
         <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
             <input type="hidden" name="action" value="msbr_lic_el_deactivate_license"/>
-            <div class="el-license-container">
-                <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview License Info", 'breview');?> </h3>
+            <div class="msbr-license-container">
+                <h3 class="msbr-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview License Info", 'breview');?> </h3>
                 <hr>
-                <ul class="el-license-info">
+                <ul class="msbr-license-info">
                 <li>
                     <div>
-                        <span class="el-license-info-title"><?php _e("Status", "breview");?></span>
+                        <span class="msbr-license-info-title"><?php _e("Status", "breview");?></span>
 
                         <?php if ( $this->responseObj->is_valid ) : ?>
-                            <span class="el-license-valid"><?php _e("Valid", "breview");?></span>
+                            <span class="msbr-license-valid"><?php _e("Valid", "breview");?></span>
                         <?php else : ?>
-                            <span class="el-license-valid"><?php _e("Invalid", "breview");?></span>
+                            <span class="msbr-license-valid"><?php _e("Invalid", "breview");?></span>
                         <?php endif; ?>
                     </div>
                 </li>
 
                 <li>
                     <div>
-                        <span class="el-license-info-title"><?php _e("License Type", "breview");?></span>
+                        <span class="msbr-license-info-title"><?php _e("License Type", "breview");?></span>
                         <?php echo $this->responseObj->license_title; ?>
                     </div>
                 </li>
 
                <li>
                    <div>
-                       <span class="el-license-info-title"><?php _e("License Expired on", "breview");?></span>
+                       <span class="msbr-license-info-title"><?php _e("License Expired on", "breview");?></span>
                        <?php echo $this->responseObj->expire_date;
                        if(!empty($this->responseObj->expire_renew_link)){
                            ?>
@@ -132,7 +126,7 @@ class MSBR_Lic {
 
                <li>
                    <div>
-                       <span class="el-license-info-title"><?php _e("Support Expired on", "breview");?></span>
+                       <span class="msbr-license-info-title"><?php _e("Support Expired on", "breview");?></span>
                        <?php
                            echo $this->responseObj->support_end;
                         if(!empty($this->responseObj->support_renew_link)){
@@ -145,13 +139,13 @@ class MSBR_Lic {
                </li>
                 <li>
                     <div>
-                        <span class="el-license-info-title"><?php _e("Your License Key", "breview");?></span>
-                        <span class="el-license-key"><?php echo esc_attr( substr($this->responseObj->license_key,0,9)."XXXXXXXX-XXXXXXXX".substr($this->responseObj->license_key,-9) ); ?></span>
+                        <span class="msbr-license-info-title"><?php _e("Your License Key", "breview");?></span>
+                        <span class="msbr-license-key"><?php echo esc_attr( substr($this->responseObj->license_key,0,9)."XXXXXXXX-XXXXXXXX".substr($this->responseObj->license_key,-9) ); ?></span>
                     </div>
                 </li>
                 </ul>
-                <div class="el-license-active-btn">
-                    <?php wp_nonce_field( 'el-license' ); ?>
+                <div class="msbr-license-active-btn">
+                    <?php wp_nonce_field( 'msbr-license' ); ?>
                     <?php submit_button('Deactivate'); ?>
                 </div>
             </div>
@@ -163,8 +157,8 @@ class MSBR_Lic {
         ?>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
         <input type="hidden" name="action" value="msbr_lic_el_activate_license"/>
-        <div class="el-license-container">
-            <h3 class="el-license-title"><?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?></h3>
+        <div class="msbr-license-container">
+            <h3 class="msbr-license-title"><?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?></h3>
             <hr>
             <?php
             if(!empty($this->showMessage) && !empty($this->licenseMessage)){
@@ -184,11 +178,11 @@ class MSBR_Lic {
                     <a href="<?php echo esc_url( "https://www.mswebarts.com/support") ?>" target="<?php echo esc_attr( "_blank" ); ?>"><?php _e("Contact Us", "breview");?></a>
                 </li>
             </ol>
-            <div class="el-license-field">
+            <div class="msbr-license-field">
                 <label for="el_license_key"><?php _e("License code", "breview");?></label>
                 <input type="text" class="regular-text code" name="el_license_key" size="50" placeholder="xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx" required="required">
             </div>
-            <div class="el-license-field">
+            <div class="msbr-license-field">
                 <label for="el_license_key"><?php _e("Email Address", "breview");?></label>
                 <?php
                     $purchaseEmail   = get_option( "msbr_lic_email", get_bloginfo( 'admin_email' ));
@@ -196,8 +190,8 @@ class MSBR_Lic {
                 <input type="text" class="regular-text code" name="el_license_email" size="50" value="<?php echo $purchaseEmail; ?>" placeholder="" required="required">
                 <div><small><?php _e("We will send update news of this product by this email address, don't worry, we hate spam", "breview");?></small></div>
             </div>
-            <div class="el-license-active-btn">
-                <?php wp_nonce_field( 'el-license' ); ?>
+            <div class="msbr-license-active-btn">
+                <?php wp_nonce_field( 'msbr-license' ); ?>
                 <?php submit_button('Activate'); ?>
             </div>
         </div>
