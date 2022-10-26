@@ -2,6 +2,7 @@
 // add_menu_page
 add_action( 'admin_menu', 'msbr_add_menu_page' );
 function msbr_add_menu_page() {
+    global $msbr_dir;
     // add parent settings page only if not added by other plugin from us
     if( empty( $GLOBALS['admin_page_hooks']['mswebarts-overview'] ) ) {
         add_menu_page(
@@ -10,7 +11,7 @@ function msbr_add_menu_page() {
             'manage_options',
             'mswebarts-overview',
             'msbr_overview_page',
-            'dashicons-book-alt',
+            plugins_url( 'breview/inc/admin/assets/images/logo.png' ),
             100
         );
     }
