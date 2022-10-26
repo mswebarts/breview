@@ -15,7 +15,7 @@ class MSBR_Lic {
         });
         if(MSBR_Lic_Base::CheckWPPlugin($licenseKey,$liceEmail,$this->licenseMessage,$this->responseObj,__FILE__)){
             add_action( 'admin_menu', [$this,'ActiveAdminMenu'],99999);
-            add_action( 'admin_post_MSBR_Lic_el_deactivate_license', [ $this, 'action_deactivate_license' ] );
+            add_action( 'admin_post_msbr_lic_el_deactivate_license', [ $this, 'action_deactivate_license' ] );
             //$this->licenselMessage=$this->mess;
             //***Write you plugin's code here***
             add_action( 'msbr_license_box', [ $this, 'Activated' ] );
@@ -25,7 +25,7 @@ class MSBR_Lic {
                $this->showMessage=true;
             }
             update_option("msbr_lic_key","") || add_option("msbr_lic_key","");
-            add_action( 'admin_post_MSBR_Lic_el_activate_license', [ $this, 'action_activate_license' ] );
+            add_action( 'admin_post_msbr_lic_el_activate_license', [ $this, 'action_activate_license' ] );
             add_action( 'admin_menu', [$this,'InactiveMenu']);
             add_action( 'msbr_license_box', [ $this, 'LicenseForm' ] );
         }
@@ -93,9 +93,9 @@ class MSBR_Lic {
     function Activated(){
         ?>
         <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-            <input type="hidden" name="action" value="MSBR_Lic_el_deactivate_license"/>
+            <input type="hidden" name="action" value="msbr_lic_el_deactivate_license"/>
             <div class="el-license-container">
-                <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("MSBR_Lic License Info", 'breview');?> </h3>
+                <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview License Info", 'breview');?> </h3>
                 <hr>
                 <ul class="el-license-info">
                 <li>
@@ -162,9 +162,9 @@ class MSBR_Lic {
     function LicenseForm() {
         ?>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-        <input type="hidden" name="action" value="MSBR_Lic_el_activate_license"/>
+        <input type="hidden" name="action" value="msbr_lic_el_activate_license"/>
         <div class="el-license-container">
-            <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("MSBR_Lic Licensing", "breview");?></h3>
+            <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview Licensing", "breview");?></h3>
             <hr>
             <?php
             if(!empty($this->showMessage) && !empty($this->licenseMessage)){
