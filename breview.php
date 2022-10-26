@@ -127,3 +127,9 @@ function msbr_admin_styles() {
     wp_register_style( "msbr-admin-style", plugins_url( "inc/admin/assets/css/style.css", __FILE__ ) );
     wp_enqueue_style( "msbr-admin-style" );
 }
+
+// load translations
+add_action( 'init', 'msbr_load_textdomain' );
+function msbr_load_textdomain() {
+	load_plugin_textdomain( 'breview', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+}
