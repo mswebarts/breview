@@ -164,7 +164,7 @@ class MSBR_Lic {
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
         <input type="hidden" name="action" value="msbr_lic_el_activate_license"/>
         <div class="el-license-container">
-            <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview Licensing", "breview");?></h3>
+            <h3 class="el-license-title"><?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?></h3>
             <hr>
             <?php
             if(!empty($this->showMessage) && !empty($this->licenseMessage)){
@@ -176,12 +176,14 @@ class MSBR_Lic {
             }
             ?>
             <p><?php _e("Enter your license key here, to activate the product, and get full feature updates and premium support.", "breview");?></p>
-<ol>
-    <li><?php _e("Write your licnese key details", "breview");?></li>
-    <li><?php _e("How buyer will get this license key?", "breview");?></li>
-    <li><?php _e("Describe other info about licensing if required", "breview");?></li>
-    <li>. ...</li>
-</ol>
+            <ol>
+                <li><?php _e("You can get the License Code in your order page", "breview");?></li>
+                <li><?php _e("You must activate the license to be able to use the plugin", "breview");?></li>
+                <li>
+                    <?php _e("Experiencing any issue with the activation? ", "breview");?>
+                    <a href="<?php echo esc_url( "https://www.mswebarts.com/support") ?>" target="<?php echo esc_attr( "_blank" ); ?>"><?php _e("Contact Us", "breview");?></a>
+                </li>
+            </ol>
             <div class="el-license-field">
                 <label for="el_license_key"><?php _e("License code", "breview");?></label>
                 <input type="text" class="regular-text code" name="el_license_key" size="50" placeholder="xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxx" required="required">
