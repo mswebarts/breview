@@ -1,6 +1,6 @@
 <?php
-require_once "StandardBase.php";
-class Standard {
+require_once "class-msbr-lic-base.php";
+class MSBR_Lic {
     public $plugin_file=__FILE__;
     public $responseObj;
     public $licenseMessage;
@@ -8,14 +8,14 @@ class Standard {
     public $slug="mswebarts-overview";
     function __construct() {
         add_action( 'admin_print_styles', [ $this, 'SetAdminStyle' ] );
-        $licenseKey=get_option("Standard_lic_Key","");
-        $liceEmail=get_option( "Standard_lic_email","");
-        StandardBase::addOnDelete(function(){
-           delete_option("Standard_lic_Key");
+        $licenseKey=get_option("msbr_lic_key","");
+        $liceEmail=get_option( "msbr_lic_email","");
+        MSBR_Lic_Base::addOnDelete(function(){
+           delete_option("msbr_lic_key");
         });
-        if(StandardBase::CheckWPPlugin($licenseKey,$liceEmail,$this->licenseMessage,$this->responseObj,__FILE__)){
+        if(MSBR_Lic_Base::CheckWPPlugin($licenseKey,$liceEmail,$this->licenseMessage,$this->responseObj,__FILE__)){
             add_action( 'admin_menu', [$this,'ActiveAdminMenu'],99999);
-            add_action( 'admin_post_Standard_el_deactivate_license', [ $this, 'action_deactivate_license' ] );
+            add_action( 'admin_post_MSBR_Lic_el_deactivate_license', [ $this, 'action_deactivate_license' ] );
             //$this->licenselMessage=$this->mess;
             //***Write you plugin's code here***
             add_action( 'msbr_license_box', [ $this, 'Activated' ] );
@@ -24,21 +24,21 @@ class Standard {
             if(!empty($licenseKey) && !empty($this->licenseMessage)){
                $this->showMessage=true;
             }
-            update_option("Standard_lic_Key","") || add_option("Standard_lic_Key","");
-            add_action( 'admin_post_Standard_el_activate_license', [ $this, 'action_activate_license' ] );
+            update_option("msbr_lic_key","") || add_option("msbr_lic_key","");
+            add_action( 'admin_post_MSBR_Lic_el_activate_license', [ $this, 'action_activate_license' ] );
             add_action( 'admin_menu', [$this,'InactiveMenu']);
             add_action( 'msbr_license_box', [ $this, 'LicenseForm' ] );
         }
     }
     function SetAdminStyle() {
         global $msbr_dir;
-        wp_register_style( "StandardLic", plugins_url("../admin/assets/css/_lic_style.css",$this->plugin_file),10);
-        wp_enqueue_style( "StandardLic" );
+        wp_register_style( "msbr_lic_css", plugins_url("../admin/assets/css/_lic_style.css",$this->plugin_file),10);
+        wp_enqueue_style( "msbr_lic_css" );
     }
     function ActiveAdminMenu(){
         
-		//add_submenu_page ( $this->slug,  "Standard", "Standard", "activate_plugins", $this->slug, [$this,"Activated"], " dashicons-star-filled ");
-		//add_submenu_page(  $this->slug, "Standard License", "License Info", "activate_plugins",  $this->slug."_license", [$this,"Activated"] );
+		//add_submenu_page ( $this->slug,  "MSBR_Lic", "MSBR_Lic", "activate_plugins", $this->slug, [$this,"Activated"], " dashicons-star-filled ");
+		//add_submenu_page(  $this->slug, "MSBR_Lic License", "License Info", "activate_plugins",  $this->slug."_license", [$this,"Activated"] );
         
         // add sub menu page
         add_submenu_page(
@@ -70,22 +70,22 @@ class Standard {
 
     }
     function InactiveMenu() {
-        //add_submenu_page( 'mswebarts-overview',  "Standard", "Standard", 'activate_plugins', $this->slug,  [$this,"LicenseForm"], " dashicons-star-filled " );
+        //add_submenu_page( 'mswebarts-overview',  "MSBR_Lic", "MSBR_Lic", 'activate_plugins', $this->slug,  [$this,"LicenseForm"], " dashicons-star-filled " );
     }
     function action_activate_license(){
         check_admin_referer( 'el-license' );
         $licenseKey=!empty($_POST['el_license_key'])?$_POST['el_license_key']:"";
         $licenseEmail=!empty($_POST['el_license_email'])?$_POST['el_license_email']:"";
-        update_option("Standard_lic_Key",$licenseKey) || add_option("Standard_lic_Key",$licenseKey);
-        update_option("Standard_lic_email",$licenseEmail) || add_option("Standard_lic_email",$licenseEmail);
+        update_option("msbr_lic_key",$licenseKey) || add_option("msbr_lic_key",$licenseKey);
+        update_option("msbr_lic_email",$licenseEmail) || add_option("msbr_lic_email",$licenseEmail);
         update_option('_site_transient_update_plugins','');
         wp_safe_redirect(admin_url( 'admin.php?page='.$this->slug));
     }
     function action_deactivate_license() {
         check_admin_referer( 'el-license' );
         $message="";
-        if(StandardBase::RemoveLicenseKey(__FILE__,$message)){
-            update_option("Standard_lic_Key","") || add_option("Standard_lic_Key","");
+        if(MSBR_Lic_Base::RemoveLicenseKey(__FILE__,$message)){
+            update_option("msbr_lic_key","") || add_option("msbr_lic_key","");
             update_option('_site_transient_update_plugins','');
         }
         wp_safe_redirect(admin_url( 'admin.php?page='.$this->slug));
@@ -93,9 +93,9 @@ class Standard {
     function Activated(){
         ?>
         <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-            <input type="hidden" name="action" value="Standard_el_deactivate_license"/>
+            <input type="hidden" name="action" value="MSBR_Lic_el_deactivate_license"/>
             <div class="el-license-container">
-                <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Standard License Info", 'breview');?> </h3>
+                <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("MSBR_Lic License Info", 'breview');?> </h3>
                 <hr>
                 <ul class="el-license-info">
                 <li>
@@ -162,9 +162,9 @@ class Standard {
     function LicenseForm() {
         ?>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-        <input type="hidden" name="action" value="Standard_el_activate_license"/>
+        <input type="hidden" name="action" value="MSBR_Lic_el_activate_license"/>
         <div class="el-license-container">
-            <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Standard Licensing", "breview");?></h3>
+            <h3 class="el-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("MSBR_Lic Licensing", "breview");?></h3>
             <hr>
             <?php
             if(!empty($this->showMessage) && !empty($this->licenseMessage)){
@@ -189,7 +189,7 @@ class Standard {
             <div class="el-license-field">
                 <label for="el_license_key"><?php _e("Email Address", "breview");?></label>
                 <?php
-                    $purchaseEmail   = get_option( "Standard_lic_email", get_bloginfo( 'admin_email' ));
+                    $purchaseEmail   = get_option( "msbr_lic_email", get_bloginfo( 'admin_email' ));
                 ?>
                 <input type="text" class="regular-text code" name="el_license_email" size="50" value="<?php echo $purchaseEmail; ?>" placeholder="" required="required">
                 <div><small><?php _e("We will send update news of this product by this email address, don't worry, we hate spam", "breview");?></small></div>
@@ -204,4 +204,4 @@ class Standard {
     }
 }
 
-new Standard();
+new MSBR_Lic();

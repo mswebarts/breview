@@ -105,5 +105,5 @@ function msbr_include_files() {
     global $msbr_dir;
     // include plugin files
     include_once $msbr_dir . 'inc/init.php';
-    include_once $msbr_dir . 'inc/classes/Standard.php';
+    include_once $msbr_dir . 'inc/classes/class-msbr-lic.php';
 }

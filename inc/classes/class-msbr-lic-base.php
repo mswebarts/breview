@@ -1,6 +1,6 @@
 <?php
-if(!class_exists("StandardBase")) {
-	class StandardBase {
+if(!class_exists("MSBR_Lic_Base")) {
+	class MSBR_Lic_Base {
     	public $key = "72E9503FEA045BE1";
     	private $product_id = "1";
     	private $product_base = "breview";
