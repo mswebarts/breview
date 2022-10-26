@@ -150,7 +150,7 @@
 	display: none;
 }
 .msbr-error-message {
-	color: red;
+	color: rgb(255, 0, 0);
 	display: none;
 }
 .msbr-error + .msbr-error-message {
