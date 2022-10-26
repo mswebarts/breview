@@ -99,7 +99,7 @@ class MSBR_Lic {
                 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                     <input type="hidden" name="action" value="msbr_lic_el_deactivate_license"/>
                     <div class="msbr-license-container">
-                        <h3 class="msbr-license-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Breview License Info", 'breview');?> </h3>
+                        <h3 class="msbr-license-title"><i class="dashicons-before dashicons-info-outline"></i> <?php _e("Breview License Info", 'breview');?> </h3>
                         <hr>
                         <ul class="msbr-license-info">
                         <li>
@@ -172,6 +172,7 @@ class MSBR_Lic {
                 <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
                     <input type="hidden" name="action" value="msbr_lic_el_activate_license"/>
                     <div class="msbr-license-container">
+                        <i class="dashicons-before dashicons-unlock"></i>
                         <h3 class="msbr-license-title"><?php _e("Activate Breview - Better Review System for WooCommerce", "breview");?></h3>
                         <hr>
                         <?php
