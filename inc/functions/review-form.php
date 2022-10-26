@@ -27,7 +27,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
         if( ( ( $order->get_status() == 'completed' ) || ( $order->get_status() == 'wc-completed' ) ) && is_wc_endpoint_url('view-order') ) :
         ?>
         <div class="msbr-add-review">
-            <a href="#msbr-add-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-open-add-review-modal">
+            <a href="#msbr-add-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-add-review-modal">
                 <?php echo esc_html_e( 'Add Review', 'breview' ); ?>
             </a>
         </div>
@@ -131,7 +131,7 @@ function msbr_add_review_form( $item_id, $item, $order ) {
         // if the review is submitted, show the review
         ?>
         <div class="msbr-show-review">
-            <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-open-show-review-modal">
+            <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-show-review-modal">
                 <?php echo esc_html_e( 'Show Review', 'breview' ); ?>
             </a>
         </div>
