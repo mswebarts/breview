@@ -156,3 +156,40 @@
 .msbr-error + .msbr-error-message {
 	display: block;
 }
+
+/* Review Success */
+
+.msbr-review-success-icon-container {
+	text-align: center;
+}
+.msbr-review-success-icon,
+.msbr-review-success-icon i::before,
+.msbr-review-success-icon i {
+	font-size: 80px;
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+}
+.msbr-review-success-icon {
+	border: 4px solid #009e2f;
+	color: #009e2f;
+	border-radius: 50%;
+	position: relative;
+}
+.msbr-review-success-icon i {
+	position: absolute;
+	top: -5px;
+	left: -5px;
+}
+.msbr-review-success h3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 22px;
+	text-align: center;
+	font-weight: 700;
+}
+.msbr-review-success .msbr-review-success-description {
+	text-align: center;
+	font-size: 18px;
+	line-height: 24px;
+}

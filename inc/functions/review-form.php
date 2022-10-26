@@ -105,7 +105,6 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                                 <option value="2">' . esc_html__( 'Not that bad', 'breview' ) . '</option>
                                 <option value="1">' . esc_html__( 'Very poor', 'breview' ) . '</option>
                             </select><span class="msbr-error-message">'  . esc_html__( 'Rating must be selected', 'breview' ) . '</span></div>';
-                            // TODO: add translation error message for rating setting
                         }
 
                         $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__( 'Your review', 'breview' ) . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__( 'This is a required field', 'breview' ) . '</span></p>';
@@ -115,9 +114,25 @@ function msbr_add_review_form( $item_id, $item, $order ) {
                         comment_form( $comment_form, $product_id );
                         ?>
                     </div>
-                    <!--TODO: Add translation for success review text setting -->
                     <div class="msbr-review-success">
-                        <p><?php esc_html_e( 'Thank you for your review. It has been submitted to the webmaster for approval.', 'breview' ); ?></p>
+                        <div class="msbr-review-success-icon-container">
+                            <span class="msbr-review-success-icon">
+                                <i class="dashicons-before dashicons-saved"></i>
+                            </span>
+                        </div>
+                        <h3><?php echo esc_html_e( "Review Submitted Successfully!", "breview" ); ?></h3>
+                        <div class="msbr-review-success-description">
+                            <?php
+                            // line items
+                            $order_items_count = count( $order->get_items() );
+                            echo wp_sprintf( _n(
+                                'Thank you for giving a review to <b>%s</b>',
+                                'Thank you for giving a review to <b>%s</b>. Please give review to the other products in your order if not done already.',
+                                $order_items_count,
+                                'breview'
+                            ), get_the_title( $product_id ) );
+                            ?>
+                        </div>
                     </div>
                 </div>
             <?php else : ?>
