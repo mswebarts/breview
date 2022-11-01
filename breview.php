@@ -40,7 +40,7 @@ function msbr_on_plugin_load() {
 
 function msbr_woocommerce_dependency_error() {
     $class = 'notice notice-error';
-    $message = __( 'You must need to install and activate woocommerce for WC Better Review to work', 'breview' );
+    $message = __( 'You must need to install and activate woocommerce for Breview to work', 'breview' );
 
     printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) ); 
 }
