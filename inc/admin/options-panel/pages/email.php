@@ -22,9 +22,6 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
                     <a href="<?php echo esc_attr( esc_url( $general_tab ) ); ?>" class="nav-tab">
                         <?php echo esc_html_e( 'General', 'breview' ); ?>
                     </a>
-                    <a href="<?php echo esc_attr( esc_url( $style_tab ) ); ?>" class="nav-tab">
-                        <?php echo esc_html_e( 'Style', 'breview' ); ?>
-                    </a>
                     <a href="<?php echo esc_attr( esc_url( $email_tab ) ); ?>" class="nav-tab nav-tab-active">
                         <?php echo esc_html_e( 'Emails', 'breview' ); ?>
                     </a>

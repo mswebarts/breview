@@ -153,6 +153,31 @@
 	margin-bottom: 0;
 }
 
+/* sidebar */
+.msbr-add-trustpilot-review {
+	display: block;
+	padding: 10px;
+	border: 1px solid #00b67a;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: 400;
+	text-decoration: none;
+	color: #111111;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.msbr-add-trustpilot-review:hover {
+	color: #111111;
+}
+.msbr-add-trustpilot-review img {
+	height: 20px;
+}
+
 @media all and (max-width: 768px) {
 	.mswa-col-2,
 	.mswa-col-3,
