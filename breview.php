@@ -121,11 +121,17 @@ function msbr_overview_sidebar() {
     include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
 }
 
-// add admin styles
+// add admin styles and js
 add_action( 'admin_enqueue_scripts', 'msbr_admin_styles' );
 function msbr_admin_styles() {
     wp_register_style( "msbr-admin-style", plugins_url( "inc/admin/assets/css/style.css", __FILE__ ) );
     wp_enqueue_style( "msbr-admin-style" );
+}
+add_action( 'admin_enqueue_scripts', 'msbr_admin_js' );
+function msbr_admin_js() {
+    global $msbr_url;
+    wp_register_script( 'msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array( 'jquery' ), '1.0.0', true );
+    wp_register_script( 'msbr-admin-script', $msbr_url . 'inc/admin/assets/js/main.js', array( 'jquery', 'msbr-jquery-repeater' ), '1.0.0', true );
 }
 
 // load translations
