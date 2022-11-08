@@ -56,7 +56,6 @@ function msbr_product_new_review_tab_content() {
                     array(
                         'post_id' => $product->id,
                         'status' => 'approve'
-                        'status' => 'approve',
                     )
                 );
             ?>
