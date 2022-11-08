@@ -102,3 +102,37 @@ function msbr_breview_email_settings_page() {
 
     include_once $msbr_dir . 'inc/admin/options-panel/pages/email.php';
 }
+
+function msbr_breview_multi_rating_settings_page() {
+    global $msbr_dir;
+
+    if( isset( $_POST['msbr_multi_rating_form_submitted'] ) ) {
+        $submitted = $_POST['msbr_multi_rating_form_submitted'];
+
+        // if submitted is set to Y
+        if( $submitted == 'Y' ) {
+            if( isset( $_POST['msbr_enable_multi_rating'] ) ) {
+                $enable_multi_rating = intval( $_POST['msbr_enable_multi_rating'] );
+            } else {
+                $enable_multi_rating = intval( 0 );
+            }
+
+            // assign value to array
+            $msbr_options['msbr_enable_multi_rating']     = $enable_multi_rating;
+
+            // save options
+            update_option( 'msbr_multi_rating_options', $msbr_options );
+        }
+    }
+
+    // retrieve the options to use in multi-rating.php
+    $msbr_options            = get_option( 'msbr_multi_rating_options' );
+
+    if( !empty( $msbr_options['msbr_enable_multi_rating'] ) ) {
+        $enable_multi_rating = intval( $msbr_options['msbr_enable_multi_rating'] );
+    } else {
+        $enable_multi_rating = intval( 0 );
+    }
+
+    include_once $msbr_dir . 'inc/admin/options-panel/pages/multi-rating.php';
+}

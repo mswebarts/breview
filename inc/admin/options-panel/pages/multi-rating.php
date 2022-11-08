@@ -4,7 +4,7 @@ $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
 $rating_tab  = menu_page_url( 'breview-multi-rating-settings', false );
 
-$completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
+$enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -23,10 +23,10 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
                     <a href="<?php echo esc_attr( esc_url( $general_tab ) ); ?>" class="nav-tab">
                         <?php echo esc_html_e( 'General', 'breview' ); ?>
                     </a>
-                    <a href="<?php echo esc_attr( esc_url( $rating_tab ) ); ?>" class="nav-tab">
+                    <a href="<?php echo esc_attr( esc_url( $rating_tab ) ); ?>" class="nav-tab nav-tab-active">
                         <?php echo esc_html_e( 'Multi Rating', 'breview' ); ?>
                     </a>
-                    <a href="<?php echo esc_attr( esc_url( $email_tab ) ); ?>" class="nav-tab nav-tab-active">
+                    <a href="<?php echo esc_attr( esc_url( $email_tab ) ); ?>" class="nav-tab">
                         <?php echo esc_html_e( 'Emails', 'breview' ); ?>
                     </a>
                 </h2>
@@ -35,37 +35,32 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
 
 					<div class="postbox">
 
-						<h2><span><?php esc_html_e( 'Email Settings', 'breview' ); ?></span></h2>
+						<h2><span><?php esc_html_e( 'Multi Rating Settings', 'breview' ); ?></span></h2>
 
 						<div class="inside">
 							<p>
                                 <?php echo esc_html_e(
-									'Configure the email settings for Breview.',
+									'Configure multiple types of ratings for your products. You can add as many ratings as you want. But maximum 5 is recommended.',
 									'breview'
 								); ?>
                             </p>
 
 							<form method="post" action="">
-								<input type="hidden" name="msbr_email_form_submitted" value="Y">
+								<input type="hidden" name="msbr_multi_rating_form_submitted" value="Y">
 								<table class="form-table">
 									<tr>
 										<th>
-											<label for="msbr_enable_completed_email">
-												<?php esc_html_e( 'Review Request on Order Completion', 'breview' ); ?></th>
+											<label for="msbr_enable_multi_rating">
+												<?php esc_html_e( 'Enable Multi Rating', 'breview' ); ?></th>
 											</label>
 										<td>
 											<fieldset>
 												<legend class="screen-reader-text">
-													<span><?php esc_html_e( 'Review Request on Order Completion', 'breview' ); ?></span>
+													<span><?php esc_html_e( 'Enable Multi Rating', 'breview' ); ?></span>
 												</legend>
-												<input name="msbr_enable_completed_email" type="checkbox" id="msbr_enable_completed_email" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $completed_email_check ); ?> />
-												<span><?php esc_html_e( 'Check mark to send an email to the customer to review the products when the order gets completed', 'breview' ); ?></span>
+												<input name="msbr_enable_multi_rating" type="checkbox" id="msbr_enable_multi_rating" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $enable_multi_rating ); ?> />
+												<span><?php esc_html_e( 'Checkmark to enable the configured multiple ratings in WooCommerce. Customers will be able to submit these ratings when enabled.', 'breview' ); ?></span>
 											</fieldset>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="2">
-											<?php echo esc_html_e( "To change the texts of the email, translate the strings using a translation plugin ( i.e. Loco Translate ).", "breview" ); ?>
 										</td>
 									</tr>
 								</table>

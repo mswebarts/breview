@@ -77,7 +77,7 @@ class MSBR_Lic {
 		//add_submenu_page ( $this->slug,  "MSBR_Lic", "MSBR_Lic", "activate_plugins", $this->slug, [$this,"Activated"], " dashicons-star-filled ");
 		//add_submenu_page(  $this->slug, "MSBR_Lic License", "License Info", "activate_plugins",  $this->slug."_license", [$this,"Activated"] );
         
-        // add sub menu page
+        // add sub menu pages
         add_submenu_page(
             $this->slug,
             'Breview General Settings',
@@ -86,7 +86,16 @@ class MSBR_Lic {
             'breview-settings',
             'msbr_breview_general_settings_page'
         );
-        // add sub menu page
+        
+        add_submenu_page(
+            'breview-settings',
+            'Breview Multi Star-rating Settings',
+            'Multi Star-rating',
+            'manage_options',
+            'breview-multi-rating-settings',
+            'msbr_breview_multi_rating_settings_page'
+        );
+        
         add_submenu_page(
             'breview-settings',
             'Breview Style Settings',
@@ -95,7 +104,7 @@ class MSBR_Lic {
             'breview-style-settings',
             'msbr_breview_style_settings_page'
         );
-        // add sub menu page
+        
         add_submenu_page(
             'breview-settings',
             'Breview Email Settings',

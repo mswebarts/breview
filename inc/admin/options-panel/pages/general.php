@@ -2,6 +2,7 @@
 $general_tab = menu_page_url( 'breview-settings', false );
 $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
+$rating_tab  = menu_page_url( 'breview-multi-rating-settings', false );
 
 $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
 ?>
@@ -22,6 +23,9 @@ $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
                     <a href="<?php echo esc_attr( esc_url( $general_tab ) ); ?>" class="nav-tab nav-tab-active">
 						<?php echo esc_html_e( 'General', 'breview' ); ?>
 					</a>
+                    <a href="<?php echo esc_attr( esc_url( $rating_tab ) ); ?>" class="nav-tab">
+                        <?php echo esc_html_e( 'Multi Rating', 'breview' ); ?>
+                    </a>
                     <a href="<?php echo esc_attr( esc_url( $email_tab ) ); ?>" class="nav-tab">
 						<?php echo esc_html_e( 'Emails', 'breview' ); ?>
 					</a>
