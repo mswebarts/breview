@@ -147,9 +147,6 @@ function msbr_breview_multi_rating_settings_page()
 
     if (!empty($msbr_options['msbr_multi_rating'])) {
         $multi_ratings = $msbr_options['msbr_multi_rating'];
-        echo "<pre>";
-        var_dump($multi_ratings);
-        echo "</pre>";
     } else {
         $multi_ratings = [];
     }
