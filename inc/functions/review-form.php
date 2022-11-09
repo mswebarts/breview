@@ -96,7 +96,7 @@ function msbr_save_comment_meta_data($comment_id) {
     
         $total_ratings = count($multi_ratings);
     
-        //if($total_ratings > 0) {
+        if($total_ratings > 0) {
             foreach ($multi_ratings as $rating) {
                 $rating_id = $rating['msbr_multi_rating_id'];
                 
@@ -105,7 +105,7 @@ function msbr_save_comment_meta_data($comment_id) {
                     add_comment_meta($comment_id, 'msbr_multi_rating_item_'. $rating_id .'', $msbr_multi_rating_item);
                 }
             }
-        //}
+        }
     }
 }
 
