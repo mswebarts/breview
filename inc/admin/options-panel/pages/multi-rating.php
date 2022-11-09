@@ -45,7 +45,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                 ); ?>
                             </p>
 
-                            <form method="post" action="" class="msbr-repeater">
+                            <form method="post" action="" class="">
                                 <input type="hidden" name="msbr_multi_rating_form_submitted" value="Y">
                                 <table class="form-table">
                                     <tr>
@@ -72,18 +72,38 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                             </label>
                                         </th>
                                         <td>
-                                            <fieldset>
+                                            <fieldset class="msbr-repeater">
                                                 <legend class="screen-reader-text">
                                                     <span><?php esc_html_e('Multi Rating', 'breview'); ?></span>
                                                 </legend>
-                                                <div data-repeater-list="msbr-multi-rating">
-                                                    <div data-repeater-item>
-                                                        <input type="text" name="msbr-rating-id" placeholder="Add an unique ID for the rating" />
-                                                        <input type="text" name="msbr-rating-name" placeholder="Add a name for the rating" />
-                                                        <input data-repeater-delete type="button" value="Delete" />
-                                                    </div>
+                                                <div data-repeater-list="msbr_multi_rating">
+                                                    <?php
+                                                    $total_ratings = count($multi_ratings);
+
+                                                    if ($total_ratings > 0) {
+                                                        foreach ($multi_ratings as $rating) {
+                                                            //var_dump($rating);
+                                                    ?>
+                                                            <div data-repeater-item>
+                                                                <input type="text" class="msbr-multi-rating-id-input" name="msbr_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_rating_id']); ?>" />
+                                                                <input type="text" class="msbr-multi-rating-name-input" name="msbr_rating_name" placeholder="Add a name for the rating" value="<?php echo $rating['msbr_rating_name']; ?>" />
+                                                                <input data-repeater-delete type="button" value="Delete" />
+                                                            </div>
+                                                        <?php
+                                                        }
+                                                    } else {
+                                                        ?>
+                                                        <div data-repeater-item>
+                                                            <input type="text" name="msbr_rating_id" placeholder="Add an unique ID for the rating" value="" />
+                                                            <input type="text" name="msbr_rating_name" placeholder="Add a name for the rating" value="" />
+                                                            <input data-repeater-delete type="button" value="Delete" />
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <input data-repeater-create type="button" value="Add" />
+
                                             </fieldset>
                                         </td>
                                     </tr>

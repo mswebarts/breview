@@ -1,7 +1,7 @@
 (function ($) {
 	// do something
 	$(".msbr-repeater").repeater({
-		initEmpty: true,
+		initEmpty: false,
 		show: function () {
 			$(this).slideDown();
 		},
