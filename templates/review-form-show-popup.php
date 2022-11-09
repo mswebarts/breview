@@ -19,16 +19,7 @@
                     ),
                 ),
             );
-
-            // TODO: Clean this up
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_service', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_quality', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_buy_again', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_delivery', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_item5', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_item6', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_item7', true ) );
-            var_dump( get_comment_meta( 20, 'msbr_multi_rating_item_item8', true ) );
+            
             $comments = get_comments( $args );
 
             ?>
