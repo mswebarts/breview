@@ -85,8 +85,8 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                             //var_dump($rating);
                                                     ?>
                                                             <div data-repeater-item>
-                                                                <input type="text" class="msbr-multi-rating-id-input" name="msbr_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_rating_id']); ?>" />
-                                                                <input type="text" class="msbr-multi-rating-name-input" name="msbr_rating_name" placeholder="Add a name for the rating" value="<?php echo $rating['msbr_rating_name']; ?>" />
+                                                                <input type="text" class="msbr-multi-rating-id-input" name="msbr_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_rating_id']); ?>" required />
+                                                                <input type="text" class="msbr-multi-rating-name-input" name="msbr_rating_name" placeholder="Add a name for the rating" value="<?php echo $rating['msbr_rating_name']; ?>" required />
                                                                 <input data-repeater-delete type="button" value="Delete" />
                                                             </div>
                                                         <?php
