@@ -75,37 +75,41 @@
                     // check if multi rating is enabled
 
                     if ($enable_multi_rating) {
-                        $multi_ratings = get_option('msbr_multi_rating_options');
+                        $comment_form['comment_field'] .= '<div class="msbr-multi-ratings-form-container">';
+                            var_dump( $enable_multi_rating );
+                            $multi_ratings = get_option('msbr_multi_rating_options');
 
-                        // get the configured multi rating options
-                        if (!empty($msbr_options['msbr_multi_rating'])) {
-                            $multi_ratings = $msbr_options['msbr_multi_rating'];
-                        } else {
-                            $multi_ratings = [];
-                        }
+                            // get the configured multi rating options
+                            if (!empty($msbr_options['msbr_multi_rating'])) {
+                                $multi_ratings = $msbr_options['msbr_multi_rating'];
+                            } else {
+                                $multi_ratings = [];
+                            }
 
-                        $total_ratings = count($multi_ratings);
+                            $total_ratings = count($multi_ratings);
 
-                        if ($total_ratings > 0) {
-                            foreach ($multi_ratings as $rating) {
-                                $rating_id = $rating['msbr_multi_rating_id'];
-                                $rating_title = $rating['msbr_multi_rating_name'];
+                            if ($total_ratings > 0) {
+                                foreach ($multi_ratings as $rating) {
+                                    $rating_id = $rating['msbr_multi_rating_id'];
+                                    $rating_title = $rating['msbr_multi_rating_name'];
 
-                                // check if rating id and name is not empty
+                                    // check if rating id and name is not empty
 
-                                if(!empty($rating_id) || !empty($rating_title)) {
-                                    // TODO: Need to make sure rating title is translateable
-                                    $comment_form['comment_field'] .= '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html($rating_title) . (wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '') . '</label><select name="msbr_multi_rating_item_' . $rating_id . '" id="msbr_multi_rating_item_' . $rating_id . '" class="msbr-star-rating" required>
-                                        <option value="">' . esc_html__('Rate&hellip;', 'breview') . '</option>
-                                        <option value="5">' . esc_html__('Perfect', 'breview') . '</option>
-                                        <option value="4">' . esc_html__('Good', 'breview') . '</option>
-                                        <option value="3">' . esc_html__('Average', 'breview') . '</option>
-                                        <option value="2">' . esc_html__('Not that bad', 'breview') . '</option>
-                                        <option value="1">' . esc_html__('Very poor', 'breview') . '</option>
-                                    </select><span class="msbr-error-message">'  . esc_html__('Rating must be selected', 'breview') . '</span></div>';
+                                    if(!empty($rating_id) || !empty($rating_title)) {
+                                        // TODO: Need to make sure rating title is translateable
+                                        $comment_form['comment_field'] .= '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html($rating_title) . (wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '') . '</label><select name="msbr_multi_rating_item_' . $rating_id . '" id="msbr_multi_rating_item_' . $rating_id . '" class="msbr-star-rating" required>
+                                            <option value="">' . esc_html__('Rate&hellip;', 'breview') . '</option>
+                                            <option value="5">' . esc_html__('Perfect', 'breview') . '</option>
+                                            <option value="4">' . esc_html__('Good', 'breview') . '</option>
+                                            <option value="3">' . esc_html__('Average', 'breview') . '</option>
+                                            <option value="2">' . esc_html__('Not that bad', 'breview') . '</option>
+                                            <option value="1">' . esc_html__('Very poor', 'breview') . '</option>
+                                        </select><span class="msbr-error-message">'  . esc_html__('Rating must be selected', 'breview') . '</span></div>';
+                                    }
                                 }
                             }
-                        }
+                            
+                        $comment_form['comment_field'] .= '</div>';
                     } else {
                         $comment_form['comment_field'] = '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html__('Your rating', 'breview') . (wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '') . '</label><select name="rating" id="rating" class="msbr-star-rating" required>
                             <option value="">' . esc_html__('Rate&hellip;', 'breview') . '</option>

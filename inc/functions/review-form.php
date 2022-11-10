@@ -93,7 +93,7 @@ function msbr_save_comment_meta_data($comment_id) {
         } else {
             $multi_ratings = [];
         }
-    
+        $rating_sum = 0;
         $total_ratings = count($multi_ratings);
     
         if($total_ratings > 0) {
@@ -102,8 +102,22 @@ function msbr_save_comment_meta_data($comment_id) {
                 
                 if ((isset($_POST['msbr_multi_rating_item_'. $rating_id .''])) && ($_POST['msbr_multi_rating_item_'. $rating_id .''] != '')) {
                     $msbr_multi_rating_item = wp_filter_nohtml_kses($_POST['msbr_multi_rating_item_'. $rating_id .'']);
+                    $rating_sum += $msbr_multi_rating_item;
                     add_comment_meta($comment_id, 'msbr_multi_rating_item_'. $rating_id .'', $msbr_multi_rating_item);
                 }
+            }
+
+            $rating_average = $rating_sum / $total_ratings;
+            if( $rating_average >= 1) {
+                $rating_average = intval($rating_average);
+            } else if( $rating_average > 0 && $rating_average < 1) {
+                $rating_average = intval(1);
+            } else {
+                $rating_average = intval(0);
+            }
+
+            if( !empty($rating_average) ) {
+                add_comment_meta($comment_id, 'rating', $rating_average);
             }
         }
     }
