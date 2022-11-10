@@ -8,6 +8,7 @@
 	// initialize rating
 	var starRatingControl = new StarRating(".msbr-star-rating", {
 		maxStars: 5,
+		tooltip: "Select a Rating",
 	});
 
 	// ajaxify list of review pagination
