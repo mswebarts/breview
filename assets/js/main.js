@@ -25,6 +25,7 @@
 		var form = modal.find("form");
 
 		// validate if rating has been selected
+		//TODO: Validate if multi rating has been selected. Should implement a function to validate all rating fields
 		if (form.find("select[name='rating']").find(":selected").val() == "") {
 			form.find(".gl-star-rating").addClass("msbr-error");
 			return;
