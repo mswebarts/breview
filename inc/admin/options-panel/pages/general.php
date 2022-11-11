@@ -4,7 +4,8 @@ $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
 $rating_tab  = menu_page_url( 'breview-multi-rating-settings', false );
 
-$add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
+$add_review_check   = $display_add_review_on_product == '1' ? 'checked' : '';
+$auto_approve_check = $auto_approve == '1' ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -95,6 +96,21 @@ $add_review_check = $display_add_review_on_product == '1' ? 'checked' : '';
 													<input type="number" name="msbr_reviewer_avatar_size" value="<?php echo esc_attr( $reviewer_avatar_size ); ?>" class="regular-text" /><br/>
 													<span><?php esc_html_e( 'Set the reviewer/customer avatar size in Review list', 'breview' ); ?></span>
 												</label>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<label for="msbr_auto_approve_reviews">
+												<?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></th>
+											</label>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></span>
+												</legend>
+												<input name="msbr_auto_approve_reviews" type="checkbox" id="msbr_auto_approve_reviews" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $auto_approve_check ); ?> />
+												<span><?php esc_html_e( 'Approve the customer submitted reviews automatically', 'breview' ); ?></span>
 											</fieldset>
 										</td>
 									</tr>

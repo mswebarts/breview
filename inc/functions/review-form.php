@@ -121,6 +121,14 @@ function msbr_save_comment_meta_data($comment_id) {
             }
         }
     }
+
+    // set review status based on setting
+
+    if( get_option('msbr_auto_approve_reviews') ) {
+        wp_set_comment_status($comment_id, 'approve');
+    } else {
+        wp_set_comment_status($comment_id, 'hold');
+    }
 }
 
 if (class_exists('WeDevs_Dokan') && !function_exists('msbr_dokan_has_suborder_msg')) {
@@ -132,11 +140,23 @@ if (class_exists('WeDevs_Dokan') && !function_exists('msbr_dokan_has_suborder_ms
         $suborders = $order->get_meta('has_sub_order');
 
         if ($suborders) {
-?>
+            ?>
             <div class="woocommerce-message">
                 <?php echo esc_html_e("This order has suborders. Please review the products from the suborders page if they got completed.", "breview"); ?>
             </div>
-<?php
+            <?php
         }
     }
 }
+/*
+add_filter( "msbr_comment_status", "msbr_moderate_comment" );
+function msbr_moderate_comment( $comment_stat ) {
+    $msbr_options = get_option('msbr_multi_rating_options');
+    $auto_approve = $msbr_options['msbr_auto_approve_reviews'];
+
+    if( $auto_approve != true ) {
+        $comment_stat = esc_html('hold');
+        return $comment_stat;
+    }
+    return $comment_stat;
+}*/

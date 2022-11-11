@@ -31,13 +31,30 @@ function msbr_breview_general_settings_page()
                 $reviewer_avatar_size = intval(60);
             }
 
+            // auto approve reviews
+            if (isset($_POST['msbr_auto_approve_reviews'])) {
+                $auto_approve = intval($_POST['msbr_auto_approve_reviews']);
+            } else {
+                $auto_approve = intval(0);
+            }
+
             // assign value to array
             $msbr_options['msbr_display_add_review_product'] = $display_add_review_on_product;
             $msbr_options['msbr_review_form_max_char']       = $review_max_char;
             $msbr_options['msbr_reviewer_avatar_size']       = $reviewer_avatar_size;
+            // auto approve reviews
+            //$msbr_options['msbr_auto_approve_reviews']       = $auto_approve;
+            /*if( $auto_approve == 1 ){
+                $auto_approve_discussion   = 0;
+            }else{
+                $auto_approve_discussion   = 1;
+            }*/
 
             // save options
             update_option('msbr_general_options', $msbr_options);
+            update_option('msbr_auto_approve_reviews', $auto_approve);
+            //update_option('comment_moderation', $auto_approve_discussion);
+            //update_option('comment_previously_approved', $auto_approve);
         }
     }
 
@@ -61,6 +78,8 @@ function msbr_breview_general_settings_page()
     } else {
         $reviewer_avatar_size = intval(60);
     }
+
+    $auto_approve = get_option('msbr_auto_approve_reviews');
 
     include_once $msbr_dir . 'inc/admin/options-panel/pages/general.php';
 }
