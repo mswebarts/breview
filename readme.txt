@@ -1,4 +1,4 @@
-=== WC Better Review ===
+=== Breview ===
 Contributors: mswebarts, msshohan
 Tags:  better, review, order, woocommerce
 Requires at least: 4.6
@@ -8,30 +8,15 @@ Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin will help you improve the WooCommerce workflow and gain customer trust by completing the order only when they have received the products. 
+Better review system for WooCommerce. The way reviews should be handled in every WooCommerce websites.
 
 == Description ==
 
-Imagine the current workflow of WooCommerce where the admin is the only one who can change the order status to completed. The customers don’t have the option to approve order/product delivery from their end. So, the admins can’t verify if the product has been received by the customer or not. Also when a customer will see the order marked
-as Completed even though he/she has not received it, it will be a disaster for the trust of your BRAND. And this is where this plugin
-comes into play.
+Wouldn’t it be awesome if the WooCommerce review system worked like other traditional e-commerce websites? Traditionally, e-commerce websites let customers place an order and the seller delivers the product. Once the order is completed, customers can leave a product review right from the order page.
 
-At first, you will ship the product after an order has been placed. Then you will need to select the order status as
-Delivered. When the admin marks it as delivered, the customer will see a button named “Mark as Received” in the actions section
-on the My Accounts -> Orders page. Once the customer has received the product, he/she will just need to click on the "Mark as Received" button and the order status will be automatically marked as Completed upon the click.
+This makes sure only customers who have purchased the product can provide a review. But unfortunately, WooCommerce review doesn’t work this way.
 
-[youtube https://youtu.be/Q3qcKCD94e0]
-
-== Update ==
-* Added compatibility for WordPress 5.8
-* Hidden Mark As Received button after form submit
-* Fixed order status text update without manually refreshing
-
-== Benefits ==
-
-1. Improving the Workflow of the woocommerce shop
-2. Gaining customer trust
-3. Improving brand reputation by streamlining the process of product delivery
+The plugin is full of very useful features like easy to configure cultiple criteria Ratings, review moderation, ajax review submission, Dokan multi-vendor Compatibility, Email Reminder and many more. We always keep updating the plugin and adding new features. We have some really cool feautures in queue in our development list. So, stay tuned for new updates.
 
 
 == Installation ==
@@ -46,53 +31,53 @@ This section describes how to install the plugin and get it working.
 
 **Method Two**
 
-1. Download the plugin from wordpress.org plugin repository
+1. Download the plugin from your order page at MS Web Arts
 2. Go to your wordpress admin dashboard -> Plugins -> Add New
 3. Click on the "Upload Plugin" button
 4. Upload the downloaded plugin zip file
-5. Then activate it and it will start working right away if WooCommerce is active.
+5. Then activate it.
+
+Once the plugin is activated, you will find a new admin menu named MS Web Arts in your Wordpress dashboard. Go to that menu. You will see that it's asking for a license code. Copy the license code that you got after purchasing Breview and pase it in the License code field. After the successful activation, a new submenu named Breview will appear below MS Web Arts. You can control all the settings of the plugin from that page.
+
+Pro Tip: If you see any PHP warning in your site's frontend, just go to MS Web Arts -> Breview and click on the Save Settings button.
 
 **Method Three**
 
-1. Download the plugin from wordpress.org plugin repository
+1. Download the plugin from your order page at MS Web Arts
 2. Connect to your hosting with an FTP account or File Manager in your Hosting account
 3. Go to the WordPress installation directory -> wp-content -> plugins
 4. Upload the downloaded plugin's uncompressed folder ( if using FTP ) or zip file ( if Hosting cPanel ). You must extract the file from hosting cPanel if you upload zip file
-5. Then go to WordPress admin dashboard -> Plugins -> Installed Plugins -> Then activate WC Better Review
+5. Then go to WordPress admin dashboard -> Plugins -> Installed Plugins -> Then activate Breview
 
 Hope the installation process was as smooth as the plugin works!
 
 
 == Frequently Asked Questions ==
 
-= When will customers see Mark as Received button? =
+= I have activated the plugin on localhost and reached the license limit. What should I do? =
 
-The customers will see this button only if the order status is set as Delivered because
-we don't want them to be able to mark the order as Completed when the order is in processing or in any other status.
+All of our plans give you access to at least 2 domains. Even if you activate the plugin in localhost, you will be able to activate the same license key on the live site as well. Or you can simply deactivate the license key from the localhost and then use the key in the live site.
 
-= How to customize the button? =
+= How to remove PHP warnings in the review tab? =
 
-At this initial release, we have avoided extra customizations. We have some ideas to make this a great plugin for you but first,
-we need to see if this plugin will be useful to users.
+The review tab may display a warning after you activate the plugin and the license. You just need to go to your WordPress site’s admin panel -> MS Web Arts -> Breview and then just click on the Save Settings button. This will save the settings in the database and the warnings will go away.
 
-= How can I contribute to the plugin? =
+= How can I update the plugin? =
 
-It's an open source plugin and you can contribute on Github at this [Repository](https://github.com/mswebarts/order-approval-by-customer-for-woocommerce)
-
-== Screenshots ==
-
-1. /assets/screenshots/screenshot-1.png
-2. /assets/screenshots/screenshot-2.png
+The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
 
 == Changelog ==
 
-= 1.0.1 =
-* Initial release
+= Version 1.0.1 =
+* Added Multi-criteria rating
+* Added Comment Moderation Setting
+* Fixed auto update not getting pushed
+* Minor updates to the settings panel
+* Fixed the review submission validation
+* Fixed other minor issues
 
-= 1.2 =
-* Added compatibility for WordPress 5.6.2
-* Hidden Mark As Received button after form submit
-* Fixed order status text update without manually refreshing
-
-= 1.2.1 =
-* Added compatibility for WordPress 5.8
+= Version 1.0.0 =
+* Dokan Compatibility
+* Ajax Review form submission
+* Ability to toggle review form in product page
+* Send review request email once the order gets completed
