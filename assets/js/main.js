@@ -73,6 +73,17 @@
 				});
 			},
 		});
+
+		// find all the star ratings of the form
+		form.find(".msbr-star-rating").each(function () {
+			//add the rule to the rating
+			$(this).rules("add", {
+				required: true,
+				messages: {
+					required: "Selecting a rating is required",
+				},
+			});
+		});
 	});
 
 	/*$(document).on("submit", ".msbr-add-review-modal", function (e) {
