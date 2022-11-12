@@ -8,8 +8,9 @@
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Tested up to: 6.1
  * Requires at least: 5.6
- * Requires PHP: 7.0
+ * Requires PHP: 7.4
  * Text Domain: breview
  * Domain Path: /languages
  * 
