@@ -72,6 +72,9 @@
 }
 
 /* Show Review Star Rating */
+.mfp-wrap {
+	z-index: 99999999999;
+}
 .msbr-show-review-modal .star-rating {
 	float: right;
 	overflow: hidden;

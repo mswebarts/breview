@@ -76,7 +76,7 @@
 
                     if ($enable_multi_rating) {
                         $comment_form['comment_field'] .= '<div class="msbr-multi-ratings-form-container">';
-                            var_dump( $enable_multi_rating );
+                        
                             $multi_ratings = get_option('msbr_multi_rating_options');
 
                             // get the configured multi rating options
