@@ -62,6 +62,47 @@
 	margin-right: 5px;
 }
 
+/*==============================
+			Repeater
+================================*/
+.msbr-repeater [data-repeater-item] {
+	margin-bottom: 20px;
+	display: block;
+	max-width: 500px;
+	background-color: #d9d9d9;
+	padding: 15px 15px 10px 15px;
+	border-radius: 5px;
+}
+.msbr-repeater .msbr-repeater-field-item-container {
+	margin-bottom: 10px;
+}
+.msbr-repeater [data-repeater-item] input {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px;
+}
+.msbr-repeater [data-repeater-item] [data-repeater-delete] {
+	width: auto;
+	background-color: rgb(255, 0, 0);
+	border: none;
+	border-radius: 5px;
+	padding: 6px 16px;
+	color: #f5f5f5;
+	cursor: pointer;
+}
+.msbr-repeater [data-repeater-create] {
+	width: auto;
+	background-color: rgb(11, 126, 11);
+	border: none;
+	border-radius: 5px;
+	padding: 6px 16px;
+	color: #f5f5f5;
+	cursor: pointer;
+}
+.msbr-repeater [data-repeater-item] .msbr-label-heading {
+	margin: 0;
+}
+
 /*===============================
 			License Page
 ================================*/
