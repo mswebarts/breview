@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: Breview is a review plugin for WooCommerce. It changes the way customers review your products and services. Customers can only add reviews from the order page once the order gets completed
- * Version: 1.0.1
+ * Version: 1.0.2
  * Plugin URI: https://www.mswebarts.com/plugins/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/
@@ -23,6 +23,22 @@ global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
 $msbr_url = plugins_url('/', __FILE__);
 $msbr_options = array();
+
+// update
+require $msbr_dir . 'inc/admin/plugin-update-checker/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/msshohan/breview',
+	__FILE__,
+	'breview'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('release');
+
+//Optional: If you're using a private repository, specify the access token like this:
+$myUpdateChecker->setAuthentication('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');
 
 // Check if woocommerce is installed
 
