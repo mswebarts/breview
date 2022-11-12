@@ -35,7 +35,7 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 );
 
 //Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('release');
+$myUpdateChecker->setBranch('master');
 
 //Optional: If you're using a private repository, specify the access token like this:
 $myUpdateChecker->setAuthentication('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');
