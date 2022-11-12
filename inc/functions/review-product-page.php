@@ -191,7 +191,7 @@ function msbr_product_new_review_tab_content() {
 
 // Add multi rating to product page
 
-add_action( 'woocommerce_review_before_comment_meta', 'msbr_display_multi_ratings', 10 );
+add_action( 'woocommerce_review_before_comment_meta', 'msbr_display_multi_ratings', 5 );
 function msbr_display_multi_ratings( $comment ) {
     // display multi ratings
     $msbr_options = get_option('msbr_multi_rating_options');

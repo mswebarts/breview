@@ -1,16 +1,16 @@
 <?php
-
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
- * Description: Breview is a review plugin for WooCommerce. It changes the way customers review your products and services. Customers can only add reviews from the order page once the order gets completed
- * Version: 1.0.4
+ * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
+ * Version: 1.0.2
  * Plugin URI: https://www.mswebarts.com/plugins/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Tested up to: 6.1
  * Requires at least: 5.6
- * Requires PHP: 7.0
+ * Requires PHP: 7.4
  * Text Domain: breview
  * Domain Path: /languages
  * 
