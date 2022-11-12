@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
- * Version: 1.0.2
+ * Version: 1.0.1
  * Plugin URI: https://www.mswebarts.com/plugins/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/
