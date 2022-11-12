@@ -29,7 +29,7 @@ require $msbr_dir . 'inc/admin/plugin-update-checker/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 $myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/msshohan/breview',
+	'https://github.com/mswebarts/breview',
 	__FILE__,
 	'breview'
 );
