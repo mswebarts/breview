@@ -104,7 +104,7 @@
                                             <option value="3">' . esc_html__('Average', 'breview') . '</option>
                                             <option value="2">' . esc_html__('Not that bad', 'breview') . '</option>
                                             <option value="1">' . esc_html__('Very poor', 'breview') . '</option>
-                                        </select><span class="msbr-error-message">'  . esc_html__('Rating must be selected', 'breview') . '</span></div>';
+                                        </select></div>';
                                     }
                                 }
                             }
@@ -118,11 +118,11 @@
                             <option value="3">' . esc_html__('Average', 'breview') . '</option>
                             <option value="2">' . esc_html__('Not that bad', 'breview') . '</option>
                             <option value="1">' . esc_html__('Very poor', 'breview') . '</option>
-                        </select><span class="msbr-error-message">'  . esc_html__('Rating must be selected', 'breview') . '</span></div>';
+                        </select></div>';
                     }
                 }
 
-                $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__('Your review', 'breview') . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea><span class="msbr-error-message">'  . esc_html__('This is a required field', 'breview') . '</span></p>';
+                $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__('Your review', 'breview') . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
 
                 $comment_form['comment_field'] .= '<input type="hidden" name="order_identifier" value="' . esc_attr($order_identifier) . '" />';
 

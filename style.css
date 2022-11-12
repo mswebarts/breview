@@ -121,6 +121,20 @@
 	position: absolute;
 	left: 0;
 }
+.msbr-add-review-modal [data-star-rating] {
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.msbr-add-review-modal [data-star-rating] .error {
+	-webkit-box-ordinal-group: 3;
+	-ms-flex-order: 2;
+	order: 2;
+}
+.msbr-add-review-modal [data-star-rating] .gl-star-rating--stars {
+	-webkit-box-ordinal-group: 2;
+	-ms-flex-order: 1;
+	order: 1;
+}
 
 /* Add Review Form */
 .msbr-comment-form-comment textarea {
@@ -149,12 +163,9 @@
 .msbr-review-success {
 	display: none;
 }
-.msbr-error-message {
+.msbr-review-form .error {
 	color: rgb(255, 0, 0);
-	display: none;
-}
-.msbr-error + .msbr-error-message {
-	display: block;
+	width: 100%;
 }
 
 /* Review Success */
