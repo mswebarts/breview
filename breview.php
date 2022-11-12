@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
