@@ -1,6 +1,5 @@
 <?php
-function msbr_breview_general_settings_page()
-{
+function msbr_breview_general_settings_page() {
     global $msbr_dir, $msbr_options;
 
     // check if form submitted
@@ -18,15 +17,15 @@ function msbr_breview_general_settings_page()
             }
 
             // review form max char
-            if (isset($_POST['msbr_review_form_max_char'])) {
-                $review_max_char = sanitize_text_field($_POST['msbr_review_form_max_char']);
+            if (isset($_POST['msbr_review_form_max_char']) && is_int(intval($_POST['msbr_review_form_max_char']))) {
+                $review_max_char = intval($_POST['msbr_review_form_max_char']);
             } else {
                 $review_max_char = intval(300);
             }
 
             // reviewer avatar size
-            if (isset($_POST['msbr_reviewer_avatar_size'])) {
-                $reviewer_avatar_size = sanitize_text_field($_POST['msbr_reviewer_avatar_size']);
+            if (isset($_POST['msbr_reviewer_avatar_size']) && is_int($_POST['msbr_reviewer_avatar_size'])) {
+                $reviewer_avatar_size = intval($_POST['msbr_reviewer_avatar_size']);
             } else {
                 $reviewer_avatar_size = intval(60);
             }
@@ -84,14 +83,12 @@ function msbr_breview_general_settings_page()
     include_once $msbr_dir . 'inc/admin/options-panel/pages/general.php';
 }
 
-function msbr_breview_style_settings_page()
-{
+function msbr_breview_style_settings_page() {
     global $msbr_dir;
     include_once $msbr_dir . 'inc/admin/options-panel/pages/style.php';
 }
 
-function msbr_breview_email_settings_page()
-{
+function msbr_breview_email_settings_page() {
     global $msbr_dir;
 
     if (isset($_POST['msbr_email_form_submitted'])) {
@@ -125,8 +122,7 @@ function msbr_breview_email_settings_page()
     include_once $msbr_dir . 'inc/admin/options-panel/pages/email.php';
 }
 
-function msbr_breview_multi_rating_settings_page()
-{
+function msbr_breview_multi_rating_settings_page() {
     global $msbr_dir;
 
     if (isset($_POST['msbr_multi_rating_form_submitted'])) {
@@ -143,12 +139,24 @@ function msbr_breview_multi_rating_settings_page()
 
             // save multi rating ids
             if (isset($_POST['msbr_multi_rating'])) {
-                $rating_ids = $_POST['msbr_multi_rating'];
+                $multi_ratings = $_POST['msbr_multi_rating'];
+            }
+
+            // sanitize the array
+            foreach( $multi_ratings as $rating ){
+                $rating_id = sanitize_text_field( stripslashes( $rating['msbr_multi_rating_id'] ) );
+                $rating_name = sanitize_text_field( stripslashes( $rating['msbr_multi_rating_name'] ) );
+
+                $multi_ratings_new[] = array(
+                    'msbr_multi_rating_id' => $rating_id,
+                    'msbr_multi_rating_name' => $rating_name
+                );
             }
 
             // assign value to array
             $msbr_options['msbr_enable_multi_rating']     = $enable_multi_rating;
-            $msbr_options['msbr_multi_rating']        = $rating_ids;
+            // only add the sanitized fields
+            $msbr_options['msbr_multi_rating']        = $multi_ratings_new;
 
             // save options
             update_option('msbr_multi_rating_options', $msbr_options);
