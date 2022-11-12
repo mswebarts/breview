@@ -148,15 +148,3 @@ if (class_exists('WeDevs_Dokan') && !function_exists('msbr_dokan_has_suborder_ms
         }
     }
 }
-/*
-add_filter( "msbr_comment_status", "msbr_moderate_comment" );
-function msbr_moderate_comment( $comment_stat ) {
-    $msbr_options = get_option('msbr_multi_rating_options');
-    $auto_approve = $msbr_options['msbr_auto_approve_reviews'];
-
-    if( $auto_approve != true ) {
-        $comment_stat = esc_html('hold');
-        return $comment_stat;
-    }
-    return $comment_stat;
-}*/
