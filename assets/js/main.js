@@ -20,9 +20,10 @@
 	});
 
 	// ajaxify add review form
-	$(".msbr-review-form .comment-form").attr("novalidate", "novalidate");
 	$(document).on("submit", ".msbr-add-review-modal", function (e) {
 		e.preventDefault();
+		var modal = $(this);
+		var form = modal.find("form");
 
 		$(".msbr-review-form .comment-form").validate({
 			// Specify validation rules
@@ -49,9 +50,6 @@
 			// Make sure the form is submitted to the destination defined
 			// in the "action" attribute of the form when valid
 			submitHandler: function (formSubmit) {
-				var modal = $(this);
-				var form = modal.find("form");
-
 				var formData = form.serialize();
 				var formAction = form.attr("action");
 				var formMethod = form.attr("method");
