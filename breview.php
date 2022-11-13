@@ -68,7 +68,7 @@ function msbr_register_styles() {
 
     $translation_array = array(
         'review_empty_msg' => esc_html__('Review can\'t be empty', 'breview'),
-        'max_char_msg'     => wp_sprintf(__('Review can\'t be more than %s characters', 'breview'), $max_char),
+        'max_char_msg'     => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
         'max_char'         => esc_html($max_char),
     );
     wp_localize_script('msbr-script', 'msbr_review', $translation_array);
@@ -139,7 +139,6 @@ function msbr_admin_js() {
 }
 
 // check for updates
-
 add_action('plugins_loaded', 'msbr_plugin_update');
 function msbr_plugin_update() {
     global $msbr_dir;

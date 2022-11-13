@@ -33,7 +33,7 @@
 				comment: {
 					required: true,
 					minlength: 10,
-					maxlength: 300,
+					maxlength: msbr_review.max_char,
 				},
 			},
 			// Specify validation error messages
@@ -41,7 +41,7 @@
 				comment: {
 					required: "Review description is required",
 					minlength: "Your review must be at least 10 characters long",
-					maxlength: "Your review must be maximum 300 characters long",
+					maxlength: msbr_review.max_char_msg,
 				},
 			},
 			// Make sure the form is submitted to the destination defined
