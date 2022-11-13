@@ -20,7 +20,7 @@ function msbr_breview_general_settings_page() {
             if (isset($_POST['msbr_review_form_min_char']) && is_int(intval($_POST['msbr_review_form_min_char']))) {
                 $review_min_char = intval($_POST['msbr_review_form_min_char']);
             } else {
-                $review_min_char = intval(300);
+                $review_min_char = intval(10);
             }
 
             // review form max char
