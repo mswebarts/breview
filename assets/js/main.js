@@ -32,15 +32,15 @@
 				// on the right side
 				comment: {
 					required: true,
-					minlength: 10,
+					minlength: msbr_review.min_char,
 					maxlength: msbr_review.max_char,
 				},
 			},
 			// Specify validation error messages
 			messages: {
 				comment: {
-					required: "Review description is required",
-					minlength: "Your review must be at least 10 characters long",
+					required: msbr_review.review_empty_msg,
+					minlength: msbr_review.min_char_msg,
 					maxlength: msbr_review.max_char_msg,
 				},
 			},

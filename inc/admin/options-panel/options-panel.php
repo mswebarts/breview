@@ -16,6 +16,13 @@ function msbr_breview_general_settings_page() {
                 $display_add_review_on_product = intval(0);
             }
 
+            // review form min char
+            if (isset($_POST['msbr_review_form_min_char']) && is_int(intval($_POST['msbr_review_form_min_char']))) {
+                $review_min_char = intval($_POST['msbr_review_form_min_char']);
+            } else {
+                $review_min_char = intval(300);
+            }
+
             // review form max char
             if (isset($_POST['msbr_review_form_max_char']) && is_int(intval($_POST['msbr_review_form_max_char']))) {
                 $review_max_char = intval($_POST['msbr_review_form_max_char']);
@@ -39,6 +46,7 @@ function msbr_breview_general_settings_page() {
 
             // assign value to array
             $msbr_options['msbr_display_add_review_product'] = $display_add_review_on_product;
+            $msbr_options['msbr_review_form_min_char']       = $review_min_char;
             $msbr_options['msbr_review_form_max_char']       = $review_max_char;
             $msbr_options['msbr_reviewer_avatar_size']       = $reviewer_avatar_size;
             // auto approve reviews
