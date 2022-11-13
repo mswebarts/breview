@@ -61,6 +61,10 @@ The review tab may display a warning after you activate the plugin and the licen
 The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
 
 == Changelog ==
+= Version 1.0.2 =
+* Fixed max char allowed setting
+* Added min char allowed setting
+* Fixed JS text translations
 
 = Version 1.0.1 =
 * Added Multi-criteria rating
