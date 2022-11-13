@@ -25,12 +25,6 @@ This section describes how to install the plugin and get it working.
 
 **Method One**
 
-1. Go to your wordpress admin dashboard -> Plugins -> Add New
-2. Search for "WC Better Review"
-3. Click on Install button and then activate.
-
-**Method Two**
-
 1. Download the plugin from your order page at MS Web Arts
 2. Go to your wordpress admin dashboard -> Plugins -> Add New
 3. Click on the "Upload Plugin" button
@@ -41,7 +35,7 @@ Once the plugin is activated, you will find a new admin menu named MS Web Arts i
 
 Pro Tip: If you see any PHP warning in your site's frontend, just go to MS Web Arts -> Breview and click on the Save Settings button.
 
-**Method Three**
+**Method Two**
 
 1. Download the plugin from your order page at MS Web Arts
 2. Connect to your hosting with an FTP account or File Manager in your Hosting account
