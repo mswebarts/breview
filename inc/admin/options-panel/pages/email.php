@@ -31,22 +31,20 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
                     </a>
                 </h2>
 
-				<div class="meta-box-sortables ui-sortable">
-
-					<div class="postbox">
-
-						<h2><span><?php esc_html_e( 'Email Settings', 'breview' ); ?></span></h2>
-
-						<div class="inside">
-							<p>
-                                <?php echo esc_html_e(
-									'Configure the email settings for Breview.',
-									'breview'
-								); ?>
-                            </p>
-
-							<form method="post" action="">
-								<input type="hidden" name="msbr_email_form_submitted" value="Y">
+				<div class="mswa-form-wrapper">
+					<form method="post" action="">
+						<input type="hidden" name="msbr_email_form_submitted" value="Y">
+						<div class="mswa-section-wrapper">
+							<div class="mswa-section">
+								<div class="mswa-section-heading">
+									<h2><span><?php esc_html_e( 'Email Settings', 'breview' ); ?></span></h2>
+									<p>
+										<?php echo esc_html_e(
+											'Configure the email settings for Breview.',
+											'breview'
+										); ?>
+									</p>
+								</div>
 								<table class="form-table">
 									<tr>
 										<th>
@@ -69,19 +67,14 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
 										</td>
 									</tr>
 								</table>
-
-								<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
-
-								<br class="clear" />
-							</form>
+							</div>
 						</div>
-						<!-- .inside -->
 
-					</div>
-					<!-- .postbox -->
+						<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
 
+						<br class="clear" />
+					</form>
 				</div>
-				<!-- .meta-box-sortables .ui-sortable -->
 
 			</div>
 			<!-- post-body-content -->

@@ -62,6 +62,23 @@
 	margin-right: 5px;
 }
 
+.mswa-form-wrapper form {
+	width: 100%;
+}
+.mswa-section-wrapper .mswa-section {
+	background-color: #ffffff;
+	border: 1px solid #cdcdcd;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+}
+.mswa-section .mswa-section-heading h2 {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: 600;
+	padding: 0 !important;
+}
+
 /*==============================
 			Repeater
 ================================*/

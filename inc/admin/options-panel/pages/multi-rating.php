@@ -31,23 +31,18 @@ $display_multi_rating_product = $display_multi_rating_product == 1 ? 'checked' :
                         <?php echo esc_html_e('Emails', 'breview'); ?>
                     </a>
                 </h2>
-
-                <div class="meta-box-sortables ui-sortable">
-
-                    <div class="postbox">
-
-                        <h2><span><?php esc_html_e('Multi Rating Settings', 'breview'); ?></span></h2>
-
-                        <div class="inside">
-                            <p>
-                                <?php echo esc_html_e(
-                                    'Configure multiple types of ratings for your products. You can add as many ratings as you want. But maximum 5 is recommended.',
-                                    'breview'
-                                ); ?>
-                            </p>
-
-                            <form method="post" action="" class="">
-                                <input type="hidden" name="msbr_multi_rating_form_submitted" value="Y">
+                <div class="mswa-form-wrapper">
+                    <form method="post" action="" class="">
+                        <input type="hidden" name="msbr_multi_rating_form_submitted" value="Y">
+                        <div class="mswa-section-wrapper">
+                            <div class="mswa-section">
+                                <h2><?php esc_html_e('Multi Rating Settings', 'breview'); ?></h2>
+                                <p>
+                                    <?php echo esc_html_e(
+                                        'Configure multiple types of ratings for your products. You can add as many ratings as you want. But maximum 5 is recommended.',
+                                        'breview'
+                                    ); ?>
+                                </p>
                                 <table class="form-table">
                                     <tr>
                                         <th>
@@ -148,19 +143,14 @@ $display_multi_rating_product = $display_multi_rating_product == 1 ? 'checked' :
                                         </td>
                                     </tr>
                                 </table>
-
-                                <input class="button-primary" type="submit" value="<?php esc_html_e('Save Settings', 'breview'); ?>" />
-
-                                <br class="clear" />
-                            </form>
+                            </div>
                         </div>
-                        <!-- .inside -->
 
-                    </div>
-                    <!-- .postbox -->
+                        <input class="button-primary" type="submit" value="<?php esc_html_e('Save Settings', 'breview'); ?>" />
 
+                        <br class="clear" />
+                    </form>
                 </div>
-                <!-- .meta-box-sortables .ui-sortable -->
 
             </div>
             <!-- post-body-content -->

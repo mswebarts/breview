@@ -32,37 +32,19 @@ $auto_approve_check = $auto_approve == '1' ? 'checked' : '';
 					</a>
                 </h2>
 
-				<div class="meta-box-sortables ui-sortable">
+				<div class="mswa-form-wrapper">
+					<form method="post" action="">
+						<input type="hidden" name="msbr_general_form_submitted" value="Y">
+						<div class="mswa-section-wrapper">
+							<div class="mswa-section">
+								<div class="mswa-section-heading">
+									<h2><?php echo esc_html_e( 'Review Submission Settings', 'breview' ); ?></h2>
+									<p>
+										<?php echo esc_html_e( 'Configure the general settings for review submissions.', 'breview' ); ?>
+									</p>
+								</div>
 
-					<div class="postbox">
-
-						<h2><span><?php esc_html_e( 'General Settings', 'breview' ); ?></span></h2>
-						<div class="inside">
-							<p>
-                                <?php echo esc_html_e(
-									'Configure the general settings for Breview.',
-									'breview'
-								); ?>
-                            </p>
-
-							<form method="post" action="">
-								<input type="hidden" name="msbr_general_form_submitted" value="Y">
 								<table class="form-table">
-									<tr>
-										<th>
-											<label for="msbr_display_add_review_product">
-												<?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></th>
-											</label>
-										<td>
-											<fieldset>
-												<legend class="screen-reader-text">
-													<span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span>
-												</legend>
-												<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
-												<span><?php esc_html_e( 'Check to display the Add Review form in product pages. Not compatible with multi-rating yet.', 'breview' ); ?></span>
-											</fieldset>
-										</td>
-									</tr>
 									<tr>
 										<th>
 											<label for="msbr_review_form_min_char">
@@ -101,6 +83,47 @@ $auto_approve_check = $auto_approve == '1' ? 'checked' : '';
 									</tr>
 									<tr>
 										<th>
+											<label for="msbr_auto_approve_reviews">
+												<?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></th>
+											</label>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></span>
+												</legend>
+												<input name="msbr_auto_approve_reviews" type="checkbox" id="msbr_auto_approve_reviews" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $auto_approve_check ); ?> />
+												<span><?php esc_html_e( 'Approve the customer submitted reviews automatically', 'breview' ); ?></span>
+											</fieldset>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="mswa-section">
+								<div class="mswa-section-heading">
+									<h2><?php echo esc_html_e( 'Review Display Settings', 'breview' ); ?></h2>
+									<p>
+										<?php echo esc_html_e( 'Configure the general settings for displaying the reviews.', 'breview' ); ?>
+									</p>
+								</div>
+
+								<table class="form-table">
+									<tr>
+										<th>
+											<label for="msbr_display_add_review_product">
+												<?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></th>
+											</label>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span>
+												</legend>
+												<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
+												<span><?php esc_html_e( 'Check to display the Add Review form in product pages. Not compatible with multi-rating yet.', 'breview' ); ?></span>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<th>
 											<label for="msbr_reviewer_avatar_size">
 												<?php esc_html_e( 'Reviewer Avatar Size(px)', 'breview' ); ?>
 											</label>
@@ -117,35 +140,15 @@ $auto_approve_check = $auto_approve == '1' ? 'checked' : '';
 											</fieldset>
 										</td>
 									</tr>
-									<tr>
-										<th>
-											<label for="msbr_auto_approve_reviews">
-												<?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></th>
-											</label>
-										<td>
-											<fieldset>
-												<legend class="screen-reader-text">
-													<span><?php esc_html_e( 'Auto Approve Reviews', 'breview' ); ?></span>
-												</legend>
-												<input name="msbr_auto_approve_reviews" type="checkbox" id="msbr_auto_approve_reviews" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $auto_approve_check ); ?> />
-												<span><?php esc_html_e( 'Approve the customer submitted reviews automatically', 'breview' ); ?></span>
-											</fieldset>
-										</td>
-									</tr>
 								</table>
-
-								<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
-
-								<br class="clear" />
-							</form>
+							</div>
 						</div>
-						<!-- .inside -->
 
-					</div>
-					<!-- .postbox -->
+						<input class="button-primary" type="submit" value="<?php esc_html_e( 'Save Settings', 'breview' ); ?>" />
 
+						<br class="clear" />
+					</form>
 				</div>
-				<!-- .meta-box-sortables .ui-sortable -->
 
 			</div>
 			<!-- post-body-content -->
