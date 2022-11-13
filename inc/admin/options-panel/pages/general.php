@@ -6,6 +6,8 @@ $rating_tab  = menu_page_url( 'breview-multi-rating-settings', false );
 
 $add_review_check   = $display_add_review_on_product == '1' ? 'checked' : '';
 $auto_approve_check = $auto_approve == '1' ? 'checked' : '';
+$review_header_default_checked = $review_list_header == 'default' ? 'checked' : '';
+$review_header_one_checked     = $review_list_header == 'one' ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -107,6 +109,31 @@ $auto_approve_check = $auto_approve == '1' ? 'checked' : '';
 								</div>
 
 								<table class="form-table">
+									<tr>
+										<th>
+											<label for="msbr_review_list_header_design">
+												<?php esc_html_e( 'Review List Header Design', 'breview' ); ?></th>
+											</label>
+										<td>
+											<fieldset>
+												<legend class="screen-reader-text">
+													<span><?php esc_html_e( 'Review List Header Design', 'breview' ); ?></span>
+												</legend>
+												<div class="mswa-radio-groups">
+													<span class="mswa-radio-group">
+														<input name="msbr_review_list_header_design" type="radio" value="default" <?php echo esc_attr( $review_header_default_checked ); ?>/>
+														<label for="default">Default</label>
+													</span>
+													<span class="mswa-radio-group">
+														<input name="msbr_review_list_header_design" type="radio" value="one" <?php echo esc_attr( $review_header_one_checked ); ?>/>
+														<label for="one">Design One</label>
+													</span>
+												</div>
+
+												<span><?php esc_html_e( 'Select the design that you want to show as the header of the Reviews list in the single product pages.', 'breview' ); ?></span>
+											</fieldset>
+										</td>
+									</tr>
 									<tr>
 										<th>
 											<label for="msbr_display_add_review_product">
