@@ -87,7 +87,14 @@ function msbr_save_comment_meta_data($comment_id) {
         $enable_multi_rating = intval(0);
     }
 
-    if( $enable_multi_rating ) {
+    // check if multi rating is enabled
+    if (!empty($msbr_options['msbr_display_multi_rating_product'])) {
+        $display_multi_rating_product = intval($msbr_options['msbr_display_multi_rating_product']);
+    } else {
+        $display_multi_rating_product = intval(0);
+    }
+
+    if( $enable_multi_rating && $display_multi_rating_product ) {
         if(!empty($msbr_options['msbr_multi_rating'])) {
             $multi_ratings = $msbr_options['msbr_multi_rating'];
         } else {
