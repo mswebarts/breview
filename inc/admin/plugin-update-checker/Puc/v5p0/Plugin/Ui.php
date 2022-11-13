@@ -127,7 +127,7 @@ if ( !class_exists('Ui', false) ):
 
 				$linkText = apply_filters(
 					$this->updateChecker->getUniqueName('manual_check_link'),
-					__('Check for updates', 'plugin-update-checker')
+					__('Check for updates', 'breview')
 				);
 				if ( !empty($linkText) ) {
 					/** @noinspection HtmlUnknownTarget */
@@ -214,17 +214,17 @@ if ( !class_exists('Ui', false) ):
 				$details = '';
 
 				if ( $status == 'no_update' ) {
-					$message = sprintf(_x('The %s plugin is up to date.', 'the plugin title', 'plugin-update-checker'), $title);
+					$message = sprintf(_x('The %s plugin is up to date.', 'the plugin title', 'breview'), $title);
 				} else if ( $status == 'update_available' ) {
-					$message = sprintf(_x('A new version of the %s plugin is available.', 'the plugin title', 'plugin-update-checker'), $title);
+					$message = sprintf(_x('A new version of the %s plugin is available.', 'the plugin title', 'breview'), $title);
 				} else if ( $status === 'error' ) {
-					$message = sprintf(_x('Could not determine if updates are available for %s.', 'the plugin title', 'plugin-update-checker'), $title);
+					$message = sprintf(_x('Could not determine if updates are available for %s.', 'the plugin title', 'breview'), $title);
 					$noticeClass = 'error notice-error';
 
 					$details = $this->formatManualCheckErrors(get_site_transient($this->manualCheckErrorTransient));
 					delete_site_transient($this->manualCheckErrorTransient);
 				} else {
-					$message = sprintf(__('Unknown update checker status "%s"', 'plugin-update-checker'), $status);
+					$message = sprintf(__('Unknown update checker status "%s"', 'breview'), $status);
 					$noticeClass = 'error notice-error';
 				}
 
