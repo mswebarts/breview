@@ -1,10 +1,10 @@
 === Breview ===
 Contributors: mswebarts, msshohan
 Tags:  better, review, order, woocommerce
-Requires at least: 4.6
-Tested up to: 5.9
-Requires PHP: 5.6
-Stable tag: 1.2.1
+Requires at least: 6.1
+Tested up to: 6.1
+Requires PHP: 7.4
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,12 +25,6 @@ This section describes how to install the plugin and get it working.
 
 **Method One**
 
-1. Go to your wordpress admin dashboard -> Plugins -> Add New
-2. Search for "WC Better Review"
-3. Click on Install button and then activate.
-
-**Method Two**
-
 1. Download the plugin from your order page at MS Web Arts
 2. Go to your wordpress admin dashboard -> Plugins -> Add New
 3. Click on the "Upload Plugin" button
@@ -41,7 +35,7 @@ Once the plugin is activated, you will find a new admin menu named MS Web Arts i
 
 Pro Tip: If you see any PHP warning in your site's frontend, just go to MS Web Arts -> Breview and click on the Save Settings button.
 
-**Method Three**
+**Method Two**
 
 1. Download the plugin from your order page at MS Web Arts
 2. Connect to your hosting with an FTP account or File Manager in your Hosting account
@@ -67,6 +61,10 @@ The review tab may display a warning after you activate the plugin and the licen
 The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
 
 == Changelog ==
+= Version 1.0.2 =
+* Fixed max char allowed setting
+* Added min char allowed setting
+* Fixed JS text translations
 
 = Version 1.0.1 =
 * Added Multi-criteria rating
