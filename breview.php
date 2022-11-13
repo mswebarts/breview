@@ -8,7 +8,7 @@
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Tested up to: 6.1
+ * Tested up to: 6.1.0
  * Requires at least: 5.6
  * Requires PHP: 7.4
  * Text Domain: breview
@@ -20,31 +20,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 global $msbr_dir, $msbr_url, $msbr_options;
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $msbr_dir = plugin_dir_path(__FILE__);
 $msbr_url = plugins_url('/', __FILE__);
 $msbr_options = array();
 
-// update
-require $msbr_dir . 'inc/admin/plugin-update-checker/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/mswebarts/breview',
-	__FILE__,
-	'breview'
-);
-
-//Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('release');
-
-//Optional: If you're using a private repository, specify the access token like this:
-$myUpdateChecker->setAuthentication('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');
-
 // Check if woocommerce is installed
 
 add_action('plugins_loaded', 'msbr_on_plugin_load');
-function msbr_on_plugin_load()
-{
+function msbr_on_plugin_load() {
     global $msbr_dir;
 
     if (!defined('WC_VERSION')) {
@@ -56,8 +40,7 @@ function msbr_on_plugin_load()
     include_once $msbr_dir . 'inc/classes/class-msbr-lic.php';
 }
 
-function msbr_woocommerce_dependency_error()
-{
+function msbr_woocommerce_dependency_error() {
     $class = 'notice notice-error';
     $message = __('You must need to install and activate woocommerce for Breview to work', 'breview');
 
@@ -65,8 +48,7 @@ function msbr_woocommerce_dependency_error()
 }
 
 add_action("wp_enqueue_scripts", "msbr_register_styles");
-function msbr_register_styles()
-{
+function msbr_register_styles() {
     // register and enqueue javascript
     wp_register_script('msbr-star-rating', plugins_url('assets/js/star-rating.min.js', __FILE__), array('jquery'), '1.0', true);
     wp_register_script('msbr-magnific-popup', plugins_url('assets/js/jquery.magnific-popup.min.js', __FILE__), array('jquery'), '1.0.0', true);
@@ -118,8 +100,7 @@ function msbr_register_styles()
 
 // add_menu_page
 add_action('admin_menu', 'msbr_add_menu_page');
-function msbr_add_menu_page()
-{
+function msbr_add_menu_page() {
     global $msbr_url;
     // add parent settings page only if not added by other plugin from us
     if (empty($GLOBALS['admin_page_hooks']['mswebarts-overview'])) {
@@ -134,36 +115,51 @@ function msbr_add_menu_page()
         );
     }
 }
-function msbr_overview_page()
-{
+function msbr_overview_page() {
     global $msbr_dir;
     include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
 }
 add_action('mswa_overview_sidebar', 'msbr_overview_sidebar', 10);
-function msbr_overview_sidebar()
-{
+function msbr_overview_sidebar() {
     global $msbr_dir;
     include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
 }
 
 // add admin styles and js
 add_action('admin_enqueue_scripts', 'msbr_admin_styles');
-function msbr_admin_styles()
-{
+function msbr_admin_styles() {
     wp_register_style("msbr-admin-style", plugins_url("inc/admin/assets/css/style.css", __FILE__));
     wp_enqueue_style("msbr-admin-style");
 }
 add_action('admin_enqueue_scripts', 'msbr_admin_js');
-function msbr_admin_js()
-{
+function msbr_admin_js() {
     global $msbr_url;
     wp_register_script('msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array('jquery'), '1.0.0', true);
     wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater'), '1.0.0', true);
 }
 
+// check for updates
+
+add_action('plugins_loaded', 'msbr_plugin_update');
+function msbr_plugin_update() {
+    global $msbr_dir;
+    require $msbr_dir . 'inc/admin/plugin-update-checker/plugin-update-checker.php';
+
+    $myUpdateChecker = PucFactory::buildUpdateChecker(
+        'https://github.com/mswebarts/breview',
+        __FILE__,
+        'breview'
+    );
+    
+    //Set the branch that contains the stable release.
+    $myUpdateChecker->setBranch('release');
+    
+    //Optional: If you're using a private repository, specify the access token like this:
+    $myUpdateChecker->setAuthentication('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');
+}
+
 // load translations
 add_action('init', 'msbr_load_textdomain');
-function msbr_load_textdomain()
-{
+function msbr_load_textdomain() {
     load_plugin_textdomain('breview', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
