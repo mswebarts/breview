@@ -170,10 +170,6 @@
 	color: rgb(255, 0, 0);
 	width: 100%;
 }
-.msbr-display-multi-ratings {
-	width: 100%;
-	margin-bottom: 10px;
-}
 
 /* Review Success */
 
@@ -210,4 +206,14 @@
 	text-align: center;
 	font-size: 18px;
 	line-height: 24px;
+}
+
+/* multi-rating */
+.msbr-display-multi-ratings {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.msbr-display-multi-ratings tr.msbr-display-multi-ratings-item td:first-child {
+	font-weight: 700;
+	color: #4a4a4a;
 }

@@ -17,21 +17,21 @@ function msbr_breview_general_settings_page() {
             }
 
             // review form min char
-            if (isset($_POST['msbr_review_form_min_char']) && is_int(intval($_POST['msbr_review_form_min_char']))) {
+            if (isset($_POST['msbr_review_form_min_char'])) {
                 $review_min_char = intval($_POST['msbr_review_form_min_char']);
             } else {
                 $review_min_char = intval(10);
             }
 
             // review form max char
-            if (isset($_POST['msbr_review_form_max_char']) && is_int(intval($_POST['msbr_review_form_max_char']))) {
+            if (isset($_POST['msbr_review_form_max_char'])) {
                 $review_max_char = intval($_POST['msbr_review_form_max_char']);
             } else {
                 $review_max_char = intval(300);
             }
 
             // reviewer avatar size
-            if (isset($_POST['msbr_reviewer_avatar_size']) && is_int($_POST['msbr_reviewer_avatar_size'])) {
+            if (isset($_POST['msbr_reviewer_avatar_size'])) {
                 $reviewer_avatar_size = intval($_POST['msbr_reviewer_avatar_size']);
             } else {
                 $reviewer_avatar_size = intval(60);
@@ -72,6 +72,12 @@ function msbr_breview_general_settings_page() {
         $display_add_review_on_product = intval($msbr_options['msbr_display_add_review_product']);
     } else {
         $display_add_review_on_product = intval(0);
+    }
+
+    if (!empty($msbr_options['msbr_review_form_min_char'])) {
+        $review_min_char = intval($msbr_options['msbr_review_form_min_char']);
+    } else {
+        $review_min_char = intval(10);
     }
 
     if (!empty($msbr_options['msbr_review_form_max_char'])) {
@@ -145,6 +151,13 @@ function msbr_breview_multi_rating_settings_page() {
                 $enable_multi_rating = intval(0);
             }
 
+            // save display multi rating product
+            if (isset($_POST['msbr_display_multi_rating_product'])) {
+                $display_multi_rating_product = intval($_POST['msbr_display_multi_rating_product']);
+            } else {
+                $display_multi_rating_product = intval(0);
+            }
+
             // save multi rating ids
             if (isset($_POST['msbr_multi_rating'])) {
                 $multi_ratings = $_POST['msbr_multi_rating'];
@@ -162,9 +175,10 @@ function msbr_breview_multi_rating_settings_page() {
             }
 
             // assign value to array
-            $msbr_options['msbr_enable_multi_rating']     = $enable_multi_rating;
+            $msbr_options['msbr_enable_multi_rating']          = $enable_multi_rating;
             // only add the sanitized fields
-            $msbr_options['msbr_multi_rating']        = $multi_ratings_new;
+            $msbr_options['msbr_multi_rating']                 = $multi_ratings_new;
+            $msbr_options['msbr_display_multi_rating_product'] = $display_multi_rating_product;
 
             // save options
             update_option('msbr_multi_rating_options', $msbr_options);
@@ -178,6 +192,12 @@ function msbr_breview_multi_rating_settings_page() {
         $enable_multi_rating = intval($msbr_options['msbr_enable_multi_rating']);
     } else {
         $enable_multi_rating = intval(0);
+    }
+
+    if (!empty($msbr_options['msbr_display_multi_rating_product'])) {
+        $display_multi_rating_product = intval($msbr_options['msbr_display_multi_rating_product']);
+    } else {
+        $display_multi_rating_product = intval(0);
     }
 
     if (!empty($msbr_options['msbr_multi_rating'])) {
