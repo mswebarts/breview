@@ -40,36 +40,6 @@ class MSBR_Lic {
     }
     function defaultOverviewColumns() {
         ?>
-        <div class="mswa-col-4">
-            <div class="mswa-box">
-                <h3 class="msbr-column-title"><i class="dashicons-before dashicons-star-filled"></i> <?php _e("Recommended Plugins", 'breview');?> </h3>
-                <hr>
-                <div class="msbr-column-content">
-                    <ul>
-                        <li><a href="https://mswebarts.com/plugins/breview/" target="_blank"><?php _e("Plugin Homepage", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/plugins/breview/#documentation" target="_blank"><?php _e("Documentation", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/plugins/breview/#support" target="_blank"><?php _e("Support", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/plugins/breview/#faq" target="_blank"><?php _e("FAQ", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/plugins/breview/#changelog" target="_blank"><?php _e("Changelog", 'breview');?></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="mswa-col-4">
-            <div class="mswa-box">
-                <h3 class="msbr-column-title"><i class="dashicons-before dashicons-admin-links"></i> <?php _e("Important Links", 'breview');?> </h3>
-                <hr>
-                <div class="msbr-column-content">
-                    <ul>
-                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/" target="_blank"><?php _e("Plugin Homepage", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#documentation" target="_blank"><?php _e("Documentation", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#support" target="_blank"><?php _e("Support", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#faq" target="_blank"><?php _e("FAQ", 'breview');?></a></li>
-                        <li><a href="https://mswebarts.com/wordpress-plugins/breview/#changelog" target="_blank"><?php _e("Changelog", 'breview');?></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <?php
     }
     function ActiveAdminMenu(){
