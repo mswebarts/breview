@@ -68,11 +68,17 @@ function msbr_register_styles() {
     $max_char     = isset($msbr_options['msbr_review_form_max_char']) ? $msbr_options['msbr_review_form_max_char'] : 300;
 
     $translation_array = array(
-        'review_empty_msg' => esc_html__('Review description is required', 'breview'),
-        'min_char_msg'     => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $min_char),
-        'min_char'         => esc_html($min_char),
-        'max_char_msg'     => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
-        'max_char'         => esc_html($max_char),
+        'min_char'                   => esc_html($min_char),
+        'max_char'                   => esc_html($max_char),
+        'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $min_char),
+        'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
+        'review_empty_msg'           => esc_html__('Review description is required', 'breview'),
+        'rating_tooltip'             => esc_html__('Select a rating', 'breview'),
+        'rating_empty_msg'           => esc_html__('Rating is required', 'breview'),
+        'review_sub_msg'             => esc_html__('Submitting...', 'breview'),
+        'review_sub_err_msg'         => _x(' occured. Please refresh the page and try again.', 'name of error at the start', 'breview'),
+        'review_list_loading_msg'    => esc_html__('Loading...', 'breview'),
+        'review_sub_success_btn_msg' => esc_html__('Submitted!', 'breview'),
     );
     wp_localize_script('msbr-script', 'msbr_review', $translation_array);
 

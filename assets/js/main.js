@@ -8,14 +8,14 @@
 	// initialize rating
 	var starRatingControl = new StarRating(".msbr-star-rating", {
 		maxStars: 5,
-		tooltip: "Select a Rating",
+		tooltip: msbr_review.rating_tooltip,
 	});
 
 	// ajaxify list of review pagination
 	$(document).on("click", ".woocommerce-Tabs-panel--msbr_reviews .page-numbers a", function (e) {
 		e.preventDefault();
 		var link = $(this).attr("href");
-		$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html("Loading..."); //the 'main' div is inside the 'content' div
+		$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html(msbr_review.review_list_loading_msg); //the 'main' div is inside the 'content' div
 		$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
 	});
 
@@ -52,14 +52,14 @@
 				var formMethod = form.attr("method");
 				var formSubmitBtn = form.find("input[type=submit]");
 				var formSubmitBtnText = formSubmitBtn.text();
-				formSubmitBtn.val("Submitting...");
+				formSubmitBtn.val(msbr_review.review_sub_msg);
 
 				$.ajax({
 					url: formAction,
 					type: formMethod,
 					data: formData,
 					success: function () {
-						formSubmitBtn.val("Submitted!");
+						formSubmitBtn.val(msbr_review.review_sub_success_btn_msg);
 						modal.find(".msbr-review-form").hide(function () {
 							modal.find(".msbr-review-success").css({
 								display: "block",
@@ -68,7 +68,7 @@
 					},
 					error: function (XMLHttpRequest, textStatus, errorThrown) {
 						formSubmitBtn.val("Submit");
-						alert(errorThrown + " occured. Please refresh the page and try again");
+						alert(errorThrown + msbr_review.review_sub_err_msg);
 					},
 				});
 			},
@@ -80,7 +80,7 @@
 			$(this).rules("add", {
 				required: true,
 				messages: {
-					required: "Selecting a rating is required",
+					required: msbr_review.rating_empty_msg,
 				},
 			});
 		});
