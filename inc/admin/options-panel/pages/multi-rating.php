@@ -5,7 +5,6 @@ $email_tab   = menu_page_url('breview-email-settings', false);
 $rating_tab  = menu_page_url('breview-multi-rating-settings', false);
 
 $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
-$display_multi_rating_product = $display_multi_rating_product == 1 ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -62,23 +61,6 @@ $display_multi_rating_product = $display_multi_rating_product == 1 ? 'checked' :
                                                 </legend>
                                                 <input name="msbr_enable_multi_rating" type="checkbox" id="msbr_enable_multi_rating" value="<?php echo esc_attr('1'); ?>" <?php echo esc_attr($enable_multi_rating); ?> />
                                                 <span><?php esc_html_e('Checkmark to enable the configured multiple ratings in WooCommerce. Customers will be able to submit these ratings when enabled.', 'breview'); ?></span>
-                                            </fieldset>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th>
-                                            <label for="msbr_display_multi_rating_product">
-                                                <?php esc_html_e('Display Multi Rating', 'breview'); ?>
-                                        </th>
-                                        </label>
-                                        <td>
-                                            <fieldset>
-                                                <legend class="screen-reader-text">
-                                                    <span><?php esc_html_e('Display Multi Rating', 'breview'); ?></span>
-                                                </legend>
-                                                <input name="msbr_display_multi_rating_product" type="checkbox" id="msbr_display_multi_rating_product" value="<?php echo esc_attr('1'); ?>" <?php echo esc_attr($display_multi_rating_product); ?> />
-                                                <span><?php esc_html_e('Checkmark to display the submitted Multi-ratings in the product pages. It will only show the average rating if you disable this', 'breview'); ?></span>
                                             </fieldset>
                                         </td>
                                     </tr>
