@@ -24,10 +24,11 @@ function msbr_product_new_review_tab( $tabs ) {
 
 function msbr_product_new_review_tab_content() {
     
-    global $product;
+    global $product, $msbr_dir;
 
     $msbr_options = get_option( 'msbr_general_options' );
     $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
+    $msbr_header_design = $msbr_options['msbr_review_list_header_design'];
     
 
     if ( ! comments_open() ) {
@@ -37,6 +38,7 @@ function msbr_product_new_review_tab_content() {
     ?>
     <div id="reviews" class="woocommerce-Reviews">
         <div id="comments">
+            <?php if( $msbr_header_design == "default" ) { ?>
             <h2 class="woocommerce-Reviews-title">
                 <?php
                 $count = $product->get_review_count();
@@ -49,6 +51,12 @@ function msbr_product_new_review_tab_content() {
                 }
                 ?>
             </h2>
+            <?php } else {
+                $data = array( 'count' => $product->get_review_count() );
+                $templates = new MSBR_Template_Loader;
+                $templates->set_template_data($data)->get_template_part( 'header/header', $msbr_header_design );
+            }
+            ?>
             
             <?php
 
