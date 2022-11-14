@@ -2,7 +2,6 @@
 $item_id = $data->item_id;
 $product_id = $data->product_id;
 $order_identifier = $data->order_identifier;
-$order = $data->order;
 ?>
 
 <div class="msbr-add-review">
@@ -147,14 +146,10 @@ $order = $data->order;
                 <h3><?php echo esc_html_e("Review Submitted Successfully!", "breview"); ?></h3>
                 <div class="msbr-review-success-description">
                     <?php
-                    // line items
-                    $order_items_count = count($order->get_items());
-                    echo wp_sprintf(_n(
-                        'Thank you for giving a review to <b>%s</b>',
-                        'Thank you for giving a review to <b>%s</b>. Please give review to the other products in your order if not done already.',
-                        $order_items_count,
-                        'breview'
-                    ), get_the_title($product_id));
+                    echo wp_sprintf(
+                        __( 'Thank you for giving a review to <b>%s</b>', 'breview' ),
+                        get_the_title($product_id)
+                    );
                     ?>
                 </div>
             </div>

@@ -1,18 +1,34 @@
 <?php
-$product = $data->product;
-
+$product      = $data->product;
 $total_rating = $product->get_review_count();
 $avg_rating   = $product->get_average_rating();
-
 $rating1      = $product->get_rating_count(1);
 $rating2      = $product->get_rating_count(2);
 $rating3      = $product->get_rating_count(3);
 $rating4      = $product->get_rating_count(4);
 $rating5      = $product->get_rating_count(5);
+$templates    = new MSBR_Template_Loader();
+
+$msbr_options                  = get_option( 'msbr_general_options' );
+$display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
+$add_review_enabled            = $display_add_review_on_product ? 'msbr-add-review-enabled' : '';
 ?>
 
-<div class="msbr-review-list-header-design-one msbr-alt">
-    <div class="msbr-review-list-header-right">
+<div class="msbr-review-list-header-design-one msbr-alt <?php echo esc_attr( $add_review_enabled ); ?>">
+    <?php if( $display_add_review_on_product ) : ?>
+        <div class="msbr-review-list-header-right">
+            <?php
+                $data = array(
+                    'item_id' => $product->ID,
+                    'product_id' => $product->ID,
+                    'order_identifier' => 'product_page',
+                );
+                $templates->set_template_data($data)->get_template_part('review-form-add-popup');
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="msbr-review-list-header-middle">
         <div class="msbr-review-list-header-rating-bars">
             <div class="msbr-review-list-header-rating-bar">
                 <div class="msbr-review-list-header-rating-bar-title">
@@ -71,6 +87,7 @@ $rating5      = $product->get_rating_count(5);
             </div>
         </div>
     </div>
+
     <div class="msbr-review-list-header-left">
         <div class="msbr-review-list-header-info-rating">
             <?php echo wp_sprintf( __( "Rated %s out of 5", "breview" ), "<span>$avg_rating</span>" ) ?><br/>
