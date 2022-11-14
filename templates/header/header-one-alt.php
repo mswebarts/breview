@@ -30,7 +30,7 @@ $add_review_enabled            = $display_add_review_on_product ? 'msbr-add-revi
                     'product_id' => $product->ID,
                     'order_identifier' => 'product_page',
                 );
-                $templates->set_template_data($data)->get_template_part('review-form-add-popup');
+                $templates->set_template_data($data)->get_template_part('product/add-review-popup-product');
             ?>
         </div>
     <?php endif; ?>

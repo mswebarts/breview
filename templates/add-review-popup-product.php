@@ -4,7 +4,7 @@
  * since 1.0.3
  * 
  * This template is responsible for showing the Add Review form in the product details page and
- * it can be overridden by copying it to yourtheme/breview/review-form-add-popup.php
+ * it can be overridden by copying it to yourtheme/breview/product/add-review-popup-product.php
  */
 $item_id = $data->item_id;
 $product_id = $data->product_id;

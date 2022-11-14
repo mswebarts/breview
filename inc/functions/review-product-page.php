@@ -120,7 +120,7 @@ function msbr_product_new_review_tab_content() {
                     'product_id' => $product->ID,
                     'order_identifier' => 'product_page',
                 );
-                $templates->set_template_data($data)->get_template_part('review-form-add-popup');
+                $templates->set_template_data($data)->get_template_part('product/add-review-popup-product');
             }
         ?>
 
