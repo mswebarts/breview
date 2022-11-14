@@ -126,6 +126,8 @@
 
                 $comment_form['comment_field'] .= '<input type="hidden" name="order_identifier" value="' . esc_attr($order_identifier) . '" />';
 
+                $comment_form['comment_field'] .= '<input type="hidden" name="rating" value="'. esc_attr("") .'" />';
+
                 comment_form($comment_form, $product_id);
                 ?>
             </div>

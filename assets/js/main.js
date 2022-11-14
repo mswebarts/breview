@@ -11,6 +11,59 @@
 		tooltip: msbr_review.rating_tooltip,
 	});
 
+	// initialize rating svg
+	$(".msbr-rating-svg").starRating({
+		totalStars: 5,
+		starSize: 25,
+		readOnly: true,
+		useFullStars: false,
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
+
+	// calculate average of multi-rating
+	$(".msbr-review-form").each(function (formInd) {
+		// get the form
+		var form = $(this);
+		// get each select fields of the form
+		$count = 0;
+		form.find("select").each(function (selectInd) {
+			// get the exact value of the number of select fields
+			$count++;
+			// create an object to store the select field values
+			let selectVals = {};
+			$sumRating = 0;
+
+			// assign 0 as placeholder to each select field indexes
+			for (var i = 0; i <= selectInd; i++) {
+				selectVals[i] = 0;
+			}
+
+			// get the current select field
+			$select = $(this);
+			// on change of the current select field
+			$select.change(function () {
+				if (selectVals[selectInd] == 0) {
+					// override the placeholder select field index value with the current value
+					selectVals[selectInd] = $(this).val();
+
+					// calculate the sum of all select field values
+					$sumRating += parseInt(selectVals[selectInd]);
+				} else {
+					// calculate the sum of all select field values
+					$sumRating -= parseInt(selectVals[selectInd]);
+					$sumRating += parseInt($(this).val());
+					// override the placeholder select field index value with the current value
+					selectVals[selectInd] = $(this).val();
+				}
+
+				form.find("input[name='rating']").val($sumRating / $count);
+			});
+		});
+	});
+
 	// ajaxify list of review pagination
 	$(document).on("click", ".woocommerce-Tabs-panel--msbr_reviews .page-numbers a", function (e) {
 		e.preventDefault();

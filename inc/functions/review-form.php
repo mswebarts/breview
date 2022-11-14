@@ -113,19 +113,6 @@ function msbr_save_comment_meta_data($comment_id) {
                     add_comment_meta($comment_id, 'msbr_multi_rating_item_'. $rating_id .'', $msbr_multi_rating_item);
                 }
             }
-
-            $rating_average = $rating_sum / $total_ratings;
-            if( $rating_average >= 1) {
-                $rating_average = intval($rating_average);
-            } else if( $rating_average > 0 && $rating_average < 1) {
-                $rating_average = intval(1);
-            } else {
-                $rating_average = intval(0);
-            }
-
-            if( !empty($rating_average) ) {
-                add_comment_meta($comment_id, 'rating', $rating_average);
-            }
         }
     }
 
