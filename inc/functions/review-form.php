@@ -3,6 +3,7 @@ add_action('woocommerce_order_item_meta_end', 'msbr_add_review_form', 10, 3);
 function msbr_add_review_form($item_id, $item, $order)
 {
     global $product, $msbr_dir;
+    $templates = new MSBR_Template_Loader;
     $product_id = $item->get_product_id();
 
     // create an identifier to pass to the form
@@ -46,7 +47,12 @@ function msbr_add_review_form($item_id, $item, $order)
                 }
             } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
                 // if the review is submitted, show the review
-                require($msbr_dir . 'templates/review-form-show-popup.php');
+                $data = array(
+                    'item_id' => $item_id,
+                    'product_id' => $product_id,
+                    'order_identifier' => $order_identifier,
+                );
+                $templates->set_template_data($data)->get_template_part('order/review-form-show-popup');
             } else {
                 // leave empty so, the review form is not shown anywhere else
             }
@@ -61,7 +67,12 @@ function msbr_add_review_form($item_id, $item, $order)
             }
         } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
             // if the review is submitted, show the review
-            require($msbr_dir . 'templates/review-form-show-popup.php');
+            $data = array(
+                'item_id' => $item_id,
+                'product_id' => $product_id,
+                'order_identifier' => $order_identifier,
+            );
+            $templates->set_template_data($data)->get_template_part('order/review-form-show-popup');
         } else {
             // leave empty so, the review form is not shown anywhere else
         }

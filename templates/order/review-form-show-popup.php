@@ -1,3 +1,8 @@
+<?php
+$item_id = $data->item_id;
+$product_id = $data->product_id;
+$order_identifier = $data->order_identifier;
+?>
 <div class="msbr-show-review">
     <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-show-review-modal">
         <?php echo esc_html_e( 'Show Review', 'breview' ); ?>
