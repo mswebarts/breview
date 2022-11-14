@@ -1,4 +1,11 @@
 <?php
+/**
+ * Show review popup template for Order page
+ * since 1.0.3
+ * 
+ * This template is responsible for showing the submitted Review popup in the Order details page and
+ * it can be overridden by copying it to yourtheme/breview/order/show-review-popup.php
+ */
 $item_id = $data->item_id;
 $product_id = $data->product_id;
 $order_identifier = $data->order_identifier;
