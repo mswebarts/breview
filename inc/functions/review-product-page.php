@@ -52,7 +52,10 @@ function msbr_product_new_review_tab_content() {
                 ?>
             </h2>
             <?php } else {
-                $data = array( 'count' => $product->get_review_count() );
+                // load the template for the header design
+                $data = array(
+                    'product' => $product,
+                );
                 $templates = new MSBR_Template_Loader;
                 $templates->set_template_data($data)->get_template_part( 'header/header', $msbr_header_design );
             }

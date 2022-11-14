@@ -217,3 +217,43 @@
 	font-weight: 700;
 	color: #4a4a4a;
 }
+
+/* Rating Header */
+.msbr-review-list-header-design-one {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 30px;
+	border-top: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-left {
+	width: 30%;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-right {
+	/*width: 70%;*/
+	width: 100%;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-left,
+.msbr-review-list-header-design-one .msbr-review-list-header-right {
+	padding: 30px;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-info-rating {
+	color: #818181;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	text-align: center;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-info-rating span {
+	font-size: 36px;
+	font-weight: 700;
+	color: #f8ac08;
+}
