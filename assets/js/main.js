@@ -22,6 +22,16 @@
 		useGradient: false,
 		strokeWidth: 0,
 	});
+	$(".msbr-rating-svg-small").starRating({
+		totalStars: 5,
+		starSize: 22,
+		readOnly: true,
+		useFullStars: false,
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
 
 	// calculate average of multi-rating
 	$(".msbr-review-form").each(function (formInd) {

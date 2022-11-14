@@ -235,15 +235,17 @@
 	border-bottom: 1px solid #ededed;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-left {
-	width: 30%;
+	min-width: 220px;
+	max-width: 330px;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-right {
-	/*width: 70%;*/
 	width: 100%;
+	border-left: 1px solid #ededed;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-left,
 .msbr-review-list-header-design-one .msbr-review-list-header-right {
-	padding: 30px;
+	padding: 0 20px;
+	margin: 30px 0;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-info-rating {
 	color: #818181;
@@ -256,4 +258,87 @@
 	font-size: 36px;
 	font-weight: 700;
 	color: #f8ac08;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-bottom: 5px;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar:last-child {
+	margin-bottom: 0;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar-title {
+	width: 120px;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar-count {
+	width: 40px;
+	max-width: 40px;
+	text-align: right;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 16px;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar-bar {
+	width: calc(100% - 150px);
+	height: 10px;
+	background-color: #e3e3e3;
+	border-radius: 50px;
+}
+.msbr-review-list-header-design-one .msbr-review-list-header-rating-bar-bar-fill {
+	height: 100%;
+	background-color: #f8ac08;
+	border-radius: 50px;
+}
+/* alt */
+.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-right {
+	border-left: 0;
+}
+.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-right {
+	border-right: 1px solid #ededed;
+}
+@media all and (max-width: 767px) {
+	.msbr-review-list-header-design-one {
+		border-top: none;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	.msbr-review-list-header-design-one .msbr-review-list-header-left,
+	.msbr-review-list-header-design-one .msbr-review-list-header-right {
+		width: 100%;
+		padding: 0 15px;
+		margin: 5px 0 20px 0;
+	}
+	.msbr-review-list-header-design-one .msbr-review-list-header-right {
+		border-left: none;
+	}
+	.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-right {
+		border-right: none;
+		-webkit-box-ordinal-group: 2;
+		-ms-flex-order: 1;
+		order: 1;
+	}
+	.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-left {
+		-webkit-box-ordinal-group: 1;
+		-ms-flex-order: 0;
+		order: 0;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.msbr-review-list-header-design-one .msbr-review-list-header-left,
+	.msbr-review-list-header-design-one .msbr-review-list-header-right {
+		padding: 5px;
+	}
 }

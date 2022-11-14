@@ -11,14 +11,7 @@ $rating4      = $product->get_rating_count(4);
 $rating5      = $product->get_rating_count(5);
 ?>
 
-<div class="msbr-review-list-header-design-one">
-    <div class="msbr-review-list-header-left">
-        <div class="msbr-review-list-header-info-rating">
-            <?php echo wp_sprintf( __( "Rated %s out of 5", "breview" ), "<span>$avg_rating</span>" ) ?><br/>
-            <?php echo wp_sprintf( __( "Based on %s reviews", "breview" ), $total_rating ); ?><br/>
-            <div class="msbr-rating-svg" data-rating="<?php echo esc_attr( $avg_rating ); ?>"></div>
-        </div>
-    </div>
+<div class="msbr-review-list-header-design-one msbr-alt">
     <div class="msbr-review-list-header-right">
         <div class="msbr-review-list-header-rating-bars">
             <div class="msbr-review-list-header-rating-bar">
@@ -76,6 +69,13 @@ $rating5      = $product->get_rating_count(5);
                     <?php echo esc_html( $rating1 ); ?>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="msbr-review-list-header-left">
+        <div class="msbr-review-list-header-info-rating">
+            <?php echo wp_sprintf( __( "Rated %s out of 5", "breview" ), "<span>$avg_rating</span>" ) ?><br/>
+            <?php echo wp_sprintf( __( "Based on %s reviews", "breview" ), $total_rating ); ?><br/>
+            <div class="msbr-rating-svg" data-rating="<?php echo esc_attr( $avg_rating ); ?>"></div>
         </div>
     </div>
 </div>

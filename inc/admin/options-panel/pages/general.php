@@ -4,10 +4,11 @@ $style_tab   = menu_page_url( 'breview-style-settings', false );
 $email_tab   = menu_page_url( 'breview-email-settings', false );
 $rating_tab  = menu_page_url( 'breview-multi-rating-settings', false );
 
-$add_review_check   = $display_add_review_on_product == '1' ? 'checked' : '';
-$auto_approve_check = $auto_approve == '1' ? 'checked' : '';
-$review_header_default_checked = $review_list_header == 'default' ? 'checked' : '';
-$review_header_one_checked     = $review_list_header == 'one' ? 'checked' : '';
+$add_review_check                  = $display_add_review_on_product == '1' ? 'checked' : '';
+$auto_approve_check                = $auto_approve == '1' ? 'checked' : '';
+$review_header_default_checked     = $review_list_header == 'default' ? 'checked' : '';
+$review_header_one_checked         = $review_list_header == 'one' ? 'checked' : '';
+$review_header_one_alt_checked     = $review_list_header == 'one-alt' ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -121,12 +122,22 @@ $review_header_one_checked     = $review_list_header == 'one' ? 'checked' : '';
 												</legend>
 												<div class="mswa-radio-groups">
 													<span class="mswa-radio-group">
-														<input name="msbr_review_list_header_design" type="radio" value="default" <?php echo esc_attr( $review_header_default_checked ); ?>/>
-														<label for="default">Default</label>
+														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('default') ?>" <?php echo esc_attr( $review_header_default_checked ); ?>/>
+														<label for="default">
+															<?php echo esc_html_e( 'Default', 'breview' ); ?>
+														</label>
 													</span>
 													<span class="mswa-radio-group">
-														<input name="msbr_review_list_header_design" type="radio" value="one" <?php echo esc_attr( $review_header_one_checked ); ?>/>
-														<label for="one">Design One</label>
+														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('one'); ?>" <?php echo esc_attr( $review_header_one_checked ); ?>/>
+														<label for="one">
+															<?php echo esc_html_e( 'Design One', 'breview' ); ?>
+														</label>
+													</span>
+													<span class="mswa-radio-group">
+														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('one-alt'); ?>" <?php echo esc_attr( $review_header_one_alt_checked ); ?>/>
+														<label for="one-alt">
+															<?php echo esc_html_e( 'Design One Alt', 'breview' ); ?>
+														</label>
 													</span>
 												</div>
 
