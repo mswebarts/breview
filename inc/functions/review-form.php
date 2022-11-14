@@ -49,7 +49,7 @@ function msbr_add_review_form($item_id, $item, $order)
                         'order_identifier' => $order_identifier,
                         'order' => $order,
                     );
-                    $templates->set_template_data($data)->get_template_part('review-form-add-popup');
+                    $templates->set_template_data($data)->get_template_part('order/add-review-popup');
                 }
             } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
                 // if the review is submitted, show the review
@@ -75,7 +75,7 @@ function msbr_add_review_form($item_id, $item, $order)
                     'order_identifier' => $order_identifier,
                     'order' => $order,
                 );
-                $templates->set_template_data($data)->get_template_part('review-form-add-popup');
+                $templates->set_template_data($data)->get_template_part('order/add-review-popup');
             }
         } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
             // if the review is submitted, show the review
