@@ -19,8 +19,11 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-global $msbr_dir, $msbr_url, $msbr_options;
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+define( 'MSBR_DIR', plugin_dir_path( __FILE__ ) );
+
+global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
 $msbr_url = plugins_url('/', __FILE__);
 $msbr_options = array();
