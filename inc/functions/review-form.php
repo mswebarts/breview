@@ -58,7 +58,7 @@ function msbr_add_review_form($item_id, $item, $order)
                     'product_id' => $product_id,
                     'order_identifier' => $order_identifier,
                 );
-                $templates->set_template_data($data)->get_template_part('order/review-form-show-popup');
+                $templates->set_template_data($data)->get_template_part('order/show-review-popup');
             } else {
                 // leave empty so, the review form is not shown anywhere else
             }
@@ -84,7 +84,7 @@ function msbr_add_review_form($item_id, $item, $order)
                 'product_id' => $product_id,
                 'order_identifier' => $order_identifier,
             );
-            $templates->set_template_data($data)->get_template_part('order/review-form-show-popup');
+            $templates->set_template_data($data)->get_template_part('order/show-review-popup');
         } else {
             // leave empty so, the review form is not shown anywhere else
         }
