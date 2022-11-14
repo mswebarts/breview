@@ -10,3 +10,6 @@ include_once $msbr_dir . 'inc/functions/review-form.php';
 
 // including emails
 include_once $msbr_dir . 'inc/emails/completed.php';
+
+// including template loader
+include_once $msbr_dir . 'inc/classes/class-msbr-template-loader.php';
