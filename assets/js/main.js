@@ -24,6 +24,33 @@
 	});
 
 	// calculate average of multi-rating
+	let obj = {
+		// first form
+		0: {
+			// first rating
+			0: "Chittagong",
+			// second rating
+			1: "Dhaka",
+			// third rating
+			2: "Rajshahi",
+			// fourth rating
+			3: "Sylhet",
+		},
+		// second form
+		1: {
+			// first rating
+			0: "Barishal",
+			// second rating
+			1: "Khulna",
+			// third rating
+			2: "Rangpur",
+			// fourth rating
+			3: "Mymensingh",
+		},
+	};
+	//console.log(obj);
+	//console.log(obj[0]);
+
 	$(".msbr-review-form").each(function (formInd) {
 		// get the form
 		var form = $(this);
@@ -32,34 +59,63 @@
 		form.find("select").each(function (selectInd) {
 			// get the exact value of the number of select fields
 			$count++;
-			// create an object to store the select field values
-			let selectVals = {};
-			$sumRating = 0;
+			// create an array of sum to store the total values of each form ( needed when using ajax )
+			$sumRating = [];
 
-			// assign 0 as placeholder to each select field indexes
-			for (var i = 0; i <= selectInd; i++) {
-				selectVals[i] = 0;
+			// create an object to store the select field values
+			var selectVals = [];
+
+			// create a multi dimensional array to store the select field values
+			/*
+				form[
+					0: [ select value, select value, select value, select value ],
+					0: [ select value, select value, select value, select value ],
+					0: [ select value, select value, select value, select value ],
+				]
+			*/
+			// assign 0 as placeholder to each form field indexes
+			for (var i = 0; i <= formInd; i++) {
+				// assign 0 as placeholder to form sumRatings
+				$sumRating[i] = 0;
+
+				// Create subArray to store the select field values
+				selectVals[i] = [];
+
+				for (var j = 0; j <= selectInd; j++) {
+					selectVals[i].push(0); // Add 0 as element to subArray
+				}
 			}
 
 			// get the current select field
 			$select = $(this);
 			// on change of the current select field
 			$select.change(function () {
-				if (selectVals[selectInd] == 0) {
-					// override the placeholder select field index value with the current value
-					selectVals[selectInd] = $(this).val();
+				// check if selected
+				if ($(this).val() != "") {
+					if (selectVals[formInd][selectInd] == 0) {
+						// override the placeholder select field index value with the current value
+						selectVals[formInd][selectInd] = $(this).val();
 
-					// calculate the sum of all select field values
-					$sumRating += parseInt(selectVals[selectInd]);
+						// calculate the sum of all select field values
+						$sumRating[formInd] += parseInt(selectVals[formInd][selectInd]);
+					} else {
+						// subtract the existing value first and then add the new value to the sum
+						$sumRating[formInd] -= parseInt(selectVals[formInd][selectInd]);
+						$sumRating[formInd] += parseInt($(this).val());
+						// override the select field index value with the current value
+						selectVals[formInd][selectInd] = $(this).val();
+					}
 				} else {
-					// calculate the sum of all select field values
-					$sumRating -= parseInt(selectVals[selectInd]);
-					$sumRating += parseInt($(this).val());
+					// when deselelcted a rating
+					// subtract the previous value from the sum
+					$sumRating[formInd] -= parseInt(selectVals[formInd][selectInd]);
 					// override the placeholder select field index value with the current value
-					selectVals[selectInd] = $(this).val();
+					selectVals[formInd][selectInd] = 0;
 				}
-
-				form.find("input[name='rating']").val($sumRating / $count);
+				form.find("input[name='rating']").val($sumRating[formInd] / $count);
+				//console.log(selectVals[formInd]);
+				console.log("The sum of form number " + selectVals[formInd] + " select field values is: " + $sumRating[formInd]);
+				console.log("The average of form number " + selectVals[formInd] + " select field values is: " + $sumRating[formInd] / $count);
 			});
 		});
 	});
