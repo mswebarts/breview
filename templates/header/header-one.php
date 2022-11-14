@@ -1,4 +1,11 @@
 <?php
+/**
+ * Review List Header Design One Template
+ * since 1.0.3
+ * 
+ * This template is responsible for showing the review list header design in the product details page and
+ * it can be overridden by copying it to yourtheme/breview/header/header-one.php
+ */
 $product      = $data->product;
 $total_rating = $product->get_review_count();
 $avg_rating   = $product->get_average_rating();
@@ -22,7 +29,7 @@ $add_review_enabled            = $display_add_review_on_product ? 'msbr-add-revi
             <div class="msbr-rating-svg" data-rating="<?php echo esc_attr( $avg_rating ); ?>"></div>
         </div>
     </div>
-    
+
     <div class="msbr-review-list-header-middle">
         <div class="msbr-review-list-header-rating-bars">
             <div class="msbr-review-list-header-rating-bar">

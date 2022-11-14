@@ -1,4 +1,11 @@
 <?php
+/**
+ * Review List Header Design One Alt Template
+ * since 1.0.3
+ * 
+ * This template is responsible for showing the review list header design in the product details page and
+ * it can be overridden by copying it to yourtheme/breview/header/header-one-alt.php
+ */
 $product      = $data->product;
 $total_rating = $product->get_review_count();
 $avg_rating   = $product->get_average_rating();
