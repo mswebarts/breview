@@ -24,33 +24,6 @@
 	});
 
 	// calculate average of multi-rating
-	let obj = {
-		// first form
-		0: {
-			// first rating
-			0: "Chittagong",
-			// second rating
-			1: "Dhaka",
-			// third rating
-			2: "Rajshahi",
-			// fourth rating
-			3: "Sylhet",
-		},
-		// second form
-		1: {
-			// first rating
-			0: "Barishal",
-			// second rating
-			1: "Khulna",
-			// third rating
-			2: "Rangpur",
-			// fourth rating
-			3: "Mymensingh",
-		},
-	};
-	//console.log(obj);
-	//console.log(obj[0]);
-
 	$(".msbr-review-form").each(function (formInd) {
 		// get the form
 		var form = $(this);
@@ -113,9 +86,6 @@
 					selectVals[formInd][selectInd] = 0;
 				}
 				form.find("input[name='rating']").val($sumRating[formInd] / $count);
-				//console.log(selectVals[formInd]);
-				console.log("The sum of form number " + selectVals[formInd] + " select field values is: " + $sumRating[formInd]);
-				console.log("The average of form number " + selectVals[formInd] + " select field values is: " + $sumRating[formInd] / $count);
 			});
 		});
 	});
