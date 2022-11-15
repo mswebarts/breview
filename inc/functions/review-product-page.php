@@ -22,13 +22,13 @@ function msbr_product_new_review_tab( $tabs ) {
 
 // add the new review tab content
 function msbr_product_new_review_tab_content() {
-    
     global $product, $msbr_dir;
 
-    $msbr_options = get_option( 'msbr_general_options' );
+    $msbr_options                  = get_option( 'msbr_general_options' );
     $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
-    $msbr_header_design = $msbr_options['msbr_review_list_header_design'];
-    $templates = new MSBR_Template_Loader;
+    $msbr_header_design            = $msbr_options['msbr_review_list_header_design'];
+    $msbr_review_list_design       = $msbr_options['msbr_review_list_design'];
+    $templates                     = new MSBR_Template_Loader;
 
     if ( ! comments_open() ) {
         return;
@@ -72,7 +72,7 @@ function msbr_product_new_review_tab_content() {
                     'comments' => $comments,
                     'product' => $product,
                 );
-                $templates->set_template_data($data)->get_template_part( 'product/review-list', 'default' );
+                $templates->set_template_data($data)->get_template_part( 'product/review-list', $msbr_review_list_design );
             ?>
         </div>
 

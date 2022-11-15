@@ -44,6 +44,13 @@ function msbr_breview_general_settings_page() {
                 $review_list_header = sanitize_text_field('default');
             }
 
+            // review list design
+            if (isset($_POST['msbr_review_list_design'])) {
+                $review_list_design = sanitize_text_field($_POST['msbr_review_list_design']);
+            } else {
+                $review_list_design = sanitize_text_field('default');
+            }
+
             // auto approve reviews
             if (isset($_POST['msbr_auto_approve_reviews'])) {
                 $auto_approve = intval($_POST['msbr_auto_approve_reviews']);
@@ -57,19 +64,11 @@ function msbr_breview_general_settings_page() {
             $msbr_options['msbr_review_form_max_char']       = $review_max_char;
             $msbr_options['msbr_reviewer_avatar_size']       = $reviewer_avatar_size;
             $msbr_options['msbr_review_list_header_design']  = $review_list_header;
-            // auto approve reviews
-            //$msbr_options['msbr_auto_approve_reviews']       = $auto_approve;
-            /*if( $auto_approve == 1 ){
-                $auto_approve_discussion   = 0;
-            }else{
-                $auto_approve_discussion   = 1;
-            }*/
+            $msbr_options['msbr_review_list_design']         = $review_list_design;
 
             // save options
             update_option('msbr_general_options', $msbr_options);
             update_option('msbr_auto_approve_reviews', $auto_approve);
-            //update_option('comment_moderation', $auto_approve_discussion);
-            //update_option('comment_previously_approved', $auto_approve);
         }
     }
 
@@ -104,6 +103,12 @@ function msbr_breview_general_settings_page() {
         $review_list_header = sanitize_text_field($msbr_options['msbr_review_list_header_design']);
     } else {
         $review_list_header = sanitize_text_field('default');
+    }
+
+    if (!empty($msbr_options['msbr_review_list_design'])) {
+        $review_list_design = sanitize_text_field($msbr_options['msbr_review_list_design']);
+    } else {
+        $review_list_design = sanitize_text_field('default');
     }
 
     $auto_approve = get_option('msbr_auto_approve_reviews');
