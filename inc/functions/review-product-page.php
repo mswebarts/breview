@@ -22,21 +22,26 @@ function msbr_product_new_review_tab( $tabs ) {
 
 // add the new review tab content
 function msbr_product_new_review_tab_content() {
-    global $product, $msbr_dir;
-
-    $msbr_options                  = get_option( 'msbr_general_options' );
-    $display_add_review_on_product = $msbr_options['msbr_display_add_review_product'];
-    $msbr_header_design            = $msbr_options['msbr_review_list_header_design'];
-    $msbr_review_list_design       = $msbr_options['msbr_review_list_design'];
-    $templates                     = new MSBR_Template_Loader;
-
     if ( ! comments_open() ) {
         return;
     }
 
+    global $product, $msbr_dir;
+
+    $msbr_options                    = get_option( 'msbr_general_options' );
+    $display_add_review_on_product   = $msbr_options['msbr_display_add_review_product'];
+    $msbr_header_design              = $msbr_options['msbr_review_list_header_design'];
+    $msbr_review_list_design         = $msbr_options['msbr_review_list_design'];
+    $templates                       = new MSBR_Template_Loader;
+  
+    $msbr_review_list_id             = $msbr_review_list_design == 'default' ? 'reviews' : 'msbr-reviews-wrapper';
+    $msbr_review_list_class          = $msbr_review_list_design == 'default' ? 'woocommerce-Reviews' : 'msbr-reviews-wrapper';
+    $msbr_review_list_class         .= ' msbr-reviews-list-' . $msbr_review_list_design;
+    $msbr_review_list_comment_class  = $msbr_review_list_design == 'default' ? 'comments' : 'msbr-reviews';
+
     ?>
-    <div id="reviews" class="woocommerce-Reviews">
-        <div id="comments">
+    <div id="<?php echo esc_attr($msbr_review_list_id); ?>" class="<?php echo esc_attr($msbr_review_list_class); ?>">
+        <div id="<?php echo esc_attr($msbr_review_list_comment_class); ?>">
             <?php if( $msbr_header_design == "default" ) { ?>
             <h2 class="woocommerce-Reviews-title">
                 <?php
