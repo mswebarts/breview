@@ -84,7 +84,7 @@ if( !function_exists('msbr_get_rating_html') ) {
     }
 }
 
-if ( ! function_exists( 'msbr_review_design_one_item' ) ) {
+if ( ! function_exists( 'msbr_review_design_item' ) ) {
 
 	/**
 	 * Output the Review comments template.
@@ -93,8 +93,10 @@ if ( ! function_exists( 'msbr_review_design_one_item' ) ) {
 	 * @param array      $args Arguments.
 	 * @param int        $depth Depth.
 	 */
-	function msbr_review_design_one_item( $comment, $args, $depth ) {
+	function msbr_review_design_item( $comment, $args, $depth ) {
 		// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+        $msbr_options       = get_option('msbr_general_options');
+        $review_list_design = $msbr_options['msbr_review_list_design'];
         $templates = new MSBR_Template_Loader;
 
 		$GLOBALS['comment'] = $comment;
@@ -103,7 +105,7 @@ if ( ! function_exists( 'msbr_review_design_one_item' ) ) {
             'args'    => $args,
             'depth'   => $depth,
         );
-        $templates->set_template_data($data)->get_template_part( 'product/review-design-one/review-design', 'one-item' );
+        $templates->set_template_data($data)->get_template_part( 'product/review-design-'. esc_html( $review_list_design ) .'/review-design', esc_html( $review_list_design ) . '-item' );
 	}
 }
 

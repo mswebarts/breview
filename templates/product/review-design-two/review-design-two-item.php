@@ -4,7 +4,7 @@
  *
  * Closing li is left out on purpose!.
  *
- * This template can be overridden by copying it to yourtheme/breview/product/review-design-one/review-design-one-item.php
+ * This template can be overridden by copying it to yourtheme/breview/product/review-design-two/review-design-two-item.php
  *
  * HOWEVER, on occasion Breview will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</div>
 			<?php do_action( 'msbr_review_after_user' ); ?>
-
+			
 		</div>
 
 		<div class="msbr-review-right">
