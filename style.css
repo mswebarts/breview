@@ -9,11 +9,14 @@
 .msbr-show-review-modal {
 	position: relative;
 	background: #fff;
-	padding: 20px;
 	width: auto;
 	max-width: 600px;
 	margin: 20px auto;
 	border-radius: 5px;
+}
+.msbr-add-review-modal,
+.msbr-show-review-modal .msbr-reviews-list-default {
+	padding: 20px;
 }
 .msbr-add-review-modal .mfp-close,
 .msbr-show-review-modal .mfp-close {

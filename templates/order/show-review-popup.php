@@ -9,6 +9,16 @@
 $item_id = $data->item_id;
 $product_id = $data->product_id;
 $order_identifier = $data->order_identifier;
+
+$msbr_options                    = get_option( 'msbr_general_options' );
+$msbr_review_list_design         = $msbr_options['msbr_review_list_design'];
+
+$templates                       = new MSBR_Template_Loader;
+  
+$msbr_review_list_id             = $msbr_review_list_design == 'default' ? 'reviews' : 'msbr-reviews-wrapper';
+$msbr_review_list_class          = $msbr_review_list_design == 'default' ? 'woocommerce-Reviews' : 'msbr-reviews-wrapper';
+$msbr_review_list_class         .= ' msbr-reviews-list-' . $msbr_review_list_design;
+$msbr_review_list_comment_class  = $msbr_review_list_design == 'default' ? 'comments' : 'msbr-reviews';
 ?>
 <div class="msbr-show-review">
     <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-show-review-modal">
@@ -16,8 +26,8 @@ $order_identifier = $data->order_identifier;
     </a>
 </div>
 <div id="msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-show-review-modal mfp-hide">
-    <div id="reviews" class="woocommerce-Reviews">
-        <div id="comments">
+    <div id="<?php echo esc_attr($msbr_review_list_id); ?>" class="<?php echo esc_attr($msbr_review_list_class); ?>">
+        <div id="<?php echo esc_attr($msbr_review_list_comment_class); ?>">
             <?php
             // get the review
             $args = array(
@@ -35,26 +45,15 @@ $order_identifier = $data->order_identifier;
             $comments = get_comments( $args );
 
             ?>
-            <ol class="commentlist">
-                <?php
-                $msbr_options = get_option( 'msbr_general_options' );
-
-                if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
-                    $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
-                } else {
-                    $reviewer_avatar_size = intval( 60 );
-                }
-                // display the review
-                $args = array(
-                    'max_depth'         => '1',
-                    'avatar_size'       => $reviewer_avatar_size,
-                    'reverse_top_level' => false,
-                    'callback' => 'woocommerce_comments',
+            <?php
+                // load the review list template
+                $product = wc_get_product( $product_id );
+                $data = array(
+                    'comments' => $comments,
+                    'product' => $product,
                 );
-                wp_list_comments( $args, $comments );
-                
-                ?>
-            </ol>
+                $templates->set_template_data($data)->get_template_part( 'product/review-design', $msbr_review_list_design );
+            ?>
         </div>
     </div>
 
