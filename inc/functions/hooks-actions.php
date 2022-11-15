@@ -64,6 +64,9 @@ if( !function_exists('msbr_review_display_rating') ) {
 }
 
 if( !function_exists('msbr_get_rating_html') ) {
+    /**
+     * Get the review rating for a product.
+     */
     function msbr_get_rating_html( $rating, $count = 0 ) {
         $html = '';
     
