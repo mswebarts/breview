@@ -55,36 +55,36 @@ $review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 								<table class="form-table">
 									<tr>
 										<th>
-											<label for="msbr_review_form_min_char">
-												<?php esc_html_e( 'Min Characters Allowed', 'breview' ); ?>
+											<label for="msbr_review_form_desc_min_char">
+												<?php esc_html_e( 'Review Description Min Chars', 'breview' ); ?>
 											</label>
 										</th>
 										<td>
 											<fieldset>
 												<legend class="screen-reader-text">
-													<span><?php esc_html_e( 'Min Characters Allowed', 'breview' ); ?></span>
+													<span><?php esc_html_e( 'Review Description Min Chars', 'breview' ); ?></span>
 												</legend>
-												<label for="msbr_review_form_min_char">
-													<input type="number" name="msbr_review_form_min_char" value="<?php echo esc_attr( $review_min_char ); ?>" class="regular-text" /><br/>
-													<span><?php esc_html_e( 'Input the minimum characters allowed for the Add Review Form\'s Review field in the order page', 'breview' ); ?></span>
+												<label for="msbr_review_form_desc_min_char">
+													<input type="number" name="msbr_review_form_desc_min_char" value="<?php echo esc_attr( $review_min_char ); ?>" class="regular-text" /><br/>
+													<span><?php esc_html_e( 'Input the minimum characters allowed for the Add Review Form\'s Review description field in the order page', 'breview' ); ?></span>
 												</label>
 											</fieldset>
 										</td>
 									</tr>
 									<tr>
 										<th>
-											<label for="msbr_review_form_max_char">
-												<?php esc_html_e( 'Max Characters Allowed', 'breview' ); ?>
+											<label for="msbr_review_form_desc_max_char">
+												<?php esc_html_e( 'Review Description Max Chars', 'breview' ); ?>
 											</label>
 										</th>
 										<td>
 											<fieldset>
 												<legend class="screen-reader-text">
-													<span><?php esc_html_e( 'Max Characters Allowed', 'breview' ); ?></span>
+													<span><?php esc_html_e( 'Review Description Max Chars', 'breview' ); ?></span>
 												</legend>
-												<label for="msbr_review_form_max_char">
-													<input type="number" name="msbr_review_form_max_char" value="<?php echo esc_attr( $review_max_char ); ?>" class="regular-text" /><br/>
-													<span><?php esc_html_e( 'Input the maximum characters allowed for the Add Review Form\'s Review field in the order page', 'breview' ); ?></span>
+												<label for="msbr_review_form_desc_max_char">
+													<input type="number" name="msbr_review_form_desc_max_char" value="<?php echo esc_attr( $review_max_char ); ?>" class="regular-text" /><br/>
+													<span><?php esc_html_e( 'Input the maximum characters allowed for the Add Review Form\'s Review Description field in the order page', 'breview' ); ?></span>
 												</label>
 											</fieldset>
 										</td>

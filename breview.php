@@ -69,15 +69,15 @@ function msbr_register_styles() {
 
     // pass review data to javascript
     $msbr_options = get_option('msbr_general_options');
-    $min_char     = isset($msbr_options['msbr_review_form_min_char']) ? $msbr_options['msbr_review_form_min_char'] : 300;
-    $max_char     = isset($msbr_options['msbr_review_form_max_char']) ? $msbr_options['msbr_review_form_max_char'] : 300;
+    $desc_min_char     = isset($msbr_options['msbr_review_form_desc_min_char']) ? $msbr_options['msbr_review_form_desc_min_char'] : 300;
+    $desc_max_char     = isset($msbr_options['msbr_review_form_desc_max_char']) ? $msbr_options['msbr_review_form_desc_max_char'] : 300;
 
     $translation_array = array(
-        'min_char'                   => esc_html($min_char),
-        'max_char'                   => esc_html($max_char),
+        'min_char'                   => esc_html($desc_min_char),
+        'max_char'                   => esc_html($desc_max_char),
         'review_list_design'         => esc_html($msbr_options['msbr_review_list_design']),
-        'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $min_char),
-        'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
+        'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $desc_min_char),
+        'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $desc_max_char),
         'review_empty_msg'           => esc_html__('Review description is required', 'breview'),
         'rating_tooltip'             => esc_html__('Select a rating', 'breview'),
         'rating_empty_msg'           => esc_html__('Rating is required', 'breview'),
