@@ -337,7 +337,7 @@
 }
 
 /*=========================================
-				Review List
+				Review List Design One
 ===========================================*/
 .msbr-reviews-wrapper {
 	width: 100%;
@@ -400,6 +400,12 @@
 }
 .msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-user .meta .msbr-review-author,
 .msbr-reviews-wrapper.msbr-reviews-list-one .msbr-display-multi-ratings tr.msbr-display-multi-ratings-item td:first-child {
+	color: var(--msbr-review-list-item-heading-color);
+}
+.msbr-reviews-wrapper .msbr-review-title {
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 700;
 	color: var(--msbr-review-list-item-heading-color);
 }
 .msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-content .msbr-review-description {

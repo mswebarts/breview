@@ -129,7 +129,18 @@ if ( ! function_exists( 'msbr_review_display_meta' ) ) {
 	}
 }
 
-if ( ! function_exists( 'msbr_review_display_comment_text' ) ) {
+if ( ! function_exists( 'msbr_review_display_comment_title' ) ) {
+
+	/**
+	 * Display the review content.
+	 */
+    add_action( 'msbr_review_content', 'msbr_review_display_comment_title', 10 );
+	function msbr_review_display_comment_title( $comment ) {
+        echo '<h4 class="msbr-review-title">' . get_comment_meta( $comment->comment_ID, 'msbr_review_title', true ) . '</h4>';
+	}
+}
+
+if ( ! function_exists( 'msbr_review_display_comment_description' ) ) {
 
 	/**
 	 * Display the review content.

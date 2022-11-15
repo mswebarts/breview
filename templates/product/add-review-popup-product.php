@@ -135,7 +135,9 @@ $order_identifier = $data->order_identifier;
                     }
                 }
 
-                $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__('Your review', 'breview') . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" required></textarea></p>';
+                $comment_form['comment_field'] .= '<p class="msbr-comment-form-title"><label for="msbr_review_title">' . esc_html__('Review Title', 'breview') . '&nbsp;<span class="required">*</span></label><input type="text" id="msbr_review_title" name="msbr_review_title" value="" placeholder="'. esc_attr__( "Add a review title", "breview") .'" required></p>';
+
+                $comment_form['comment_field'] .= '<p class="msbr-comment-form-comment"><label for="comment">' . esc_html__('Your review', 'breview') . '&nbsp;<span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'. esc_attr__( "Write your review in detail", "breview" ) .'" required></textarea></p>';
 
                 $comment_form['comment_field'] .= '<input type="hidden" name="order_identifier" value="' . esc_attr($order_identifier) . '" />';
 

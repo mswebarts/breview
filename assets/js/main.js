@@ -132,6 +132,11 @@
 				// The key name on the left side is the name attribute
 				// of an input field. Validation rules are defined
 				// on the right side
+				msbr_review_title: {
+					required: true,
+					minlength: 10,
+					maxlength: 100,
+				},
 				comment: {
 					required: true,
 					minlength: msbr_review.min_char,

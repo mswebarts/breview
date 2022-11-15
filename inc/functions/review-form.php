@@ -99,6 +99,11 @@ function msbr_save_comment_meta_data($comment_id) {
         add_comment_meta($comment_id, 'order_identifier', $order_identifier);
     }
 
+    if ((isset($_POST['msbr_review_title'])) && ($_POST['msbr_review_title'] != '')) {
+        $title = sanitize_text_field($_POST['msbr_review_title']);
+        add_comment_meta($comment_id, 'msbr_review_title', $title);
+    }
+
     // save multi ratings
     $msbr_options = get_option('msbr_multi_rating_options');
 
