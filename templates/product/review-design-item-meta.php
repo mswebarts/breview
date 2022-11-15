@@ -31,14 +31,15 @@ if ( '0' === $comment->comment_approved ) { ?>
 <?php } else { ?>
 
 	<p class="meta">
-		<strong class="woocommerce-review__author"><?php comment_author(); ?> </strong>
+		<strong class="msbr-review-author"><?php comment_author(); ?> </strong>
 		<?php
 		if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
-			echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
+			echo '<span class="msbr-review-verified verified dashicons-before dashicons-yes-alt"></span> ';
 		}
-
 		?>
-		<span class="woocommerce-review__dash">&ndash;</span> <time class="woocommerce-review__published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></time>
+		<div class="msbr-review-time">
+			<time class="msbr-review-published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></time>
+		</div>
 	</p>
 
 	<?php
