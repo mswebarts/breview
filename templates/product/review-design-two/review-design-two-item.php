@@ -31,7 +31,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				/**
 				 * The msbr_review_rating hook.
 				 *
+				 * @hooked msbr_review_design_two_rating_header - 5
 				 * @hooked msbr_review_display_rating - 10
+				 * @hooked msbr_review_design_single_star_rating - 10
 				 */
 				do_action( 'msbr_review_rating', $comment );
 				?>
@@ -49,6 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 * The msbr_review_user hook.
 				 *
 				 * @hooked msbr_review_display_gravatar - 10
+				 * @hooked msbr_review_display_meta - 20
 				 */
 				do_action( 'msbr_review_user', $comment );
 				?>
@@ -61,6 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				/**
 				 * The msbr_review_content hook.
 				 *
+				 * @hooked msbr_review_display_comment_title - 5
 				 * @hooked msbr_review_display_comment_description - 10
 				 */
 				do_action( 'msbr_review_content', $comment );
