@@ -200,16 +200,21 @@ if( !function_exists('msbr_review_design_two_rating_header' ) ) {
         $enable_multi_rating = $msbr_options['msbr_enable_multi_rating'];
         $display_multi_rating_product = $msbr_options['msbr_display_multi_rating_product'];
 
-        if( ( $enable_multi_rating == true ) && ( $display_multi_rating_product == true ) ) {
-            $rating = get_comment_meta( $comment->comment_ID, 'rating', true );
-            ?>
-            <div class="msbr-review-design-two-rating-header">
-                <span class="msbr-review-design-two-rating-header-rating">
-                    <?php echo esc_html( $rating ); ?>
-                </span>
-                <span class="msbr-rating-svg-small" data-rating="<?php echo esc_attr( $rating ); ?>" role="img"></span>
-            </div>
-            <?php
+        $msbr_gen_options = get_option( 'msbr_general_options' );
+        $review_list_design = $msbr_gen_options['msbr_review_list_design'];
+
+        if( $review_list_design == 'two' ) {
+            if( ( $enable_multi_rating == true ) && ( $display_multi_rating_product == true ) ) {
+                $rating = get_comment_meta( $comment->comment_ID, 'rating', true );
+                ?>
+                <div class="msbr-review-design-two-rating-header">
+                    <span class="msbr-review-design-two-rating-header-rating">
+                        <?php echo esc_html( $rating ); ?>
+                    </span>
+                    <span class="msbr-rating-svg-small" data-rating="<?php echo esc_attr( $rating ); ?>" role="img"></span>
+                </div>
+                <?php
+            }
         }
     }
 }
