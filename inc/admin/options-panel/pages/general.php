@@ -128,7 +128,7 @@ $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : 
 													<span class="mswa-radio-group">
 														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('default') ?>" <?php echo esc_attr( $review_header_default_checked ); ?>/>
 														<label for="default">
-															<?php echo esc_html_e( 'Default', 'breview' ); ?>
+															<?php echo esc_html_e( 'Theme Specific', 'breview' ); ?>
 														</label>
 													</span>
 													<span class="mswa-radio-group">
@@ -145,7 +145,7 @@ $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : 
 													</span>
 												</div>
 
-												<span><?php esc_html_e( 'Select the design that you want to show as the header of the Reviews list in the single product pages.', 'breview' ); ?></span>
+												<span><?php esc_html_e( 'Select the design that you want to show as the header of the Reviews list in the single product pages. Design and layout will be controlled by the theme if Theme Specific selected.', 'breview' ); ?></span>
 											</fieldset>
 										</td>
 									</tr>
@@ -163,7 +163,7 @@ $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : 
 													<span class="mswa-radio-group">
 														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('default') ?>" <?php echo esc_attr( $review_list_default_checked ); ?>/>
 														<label for="default">
-															<?php echo esc_html_e( 'Default', 'breview' ); ?>
+															<?php echo esc_html_e( 'Theme Specific', 'breview' ); ?>
 														</label>
 													</span>
 													<span class="mswa-radio-group">
@@ -174,7 +174,7 @@ $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : 
 													</span>
 												</div>
 
-												<span><?php esc_html_e( 'Select the design that you want to show as the header of the Reviews list in the single product pages.', 'breview' ); ?></span>
+												<span><?php esc_html_e( 'Select the design that you want to show as the header of the Reviews list in the single product pages. Design and layout will be controlled by the theme if Theme Specific selected.', 'breview' ); ?></span>
 											</fieldset>
 										</td>
 									</tr>
