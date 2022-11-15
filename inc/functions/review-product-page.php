@@ -116,8 +116,8 @@ function msbr_product_new_review_tab_content() {
         <?php
             if( $display_add_review_on_product && ( $msbr_header_design == 'default' ) ) {
                 $data = array(
-                    'item_id' => $product->ID,
-                    'product_id' => $product->ID,
+                    'item_id' => $product->get_id(),
+                    'product_id' => $product->get_id(),
                     'order_identifier' => 'product_page',
                 );
                 $templates->set_template_data($data)->get_template_part('product/add-review-popup-product');
