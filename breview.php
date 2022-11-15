@@ -99,6 +99,7 @@ function msbr_register_styles() {
     wp_enqueue_style('msbr-star-rating-svg');
     wp_enqueue_style('msbr-magnific-popup');
     wp_enqueue_style("msbr-style");
+    wp_enqueue_style("msbr-responsive");
     wp_enqueue_style("msbr-inline");
 
     $avatar_size = $msbr_options['msbr_reviewer_avatar_size'];
