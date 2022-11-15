@@ -34,6 +34,17 @@
 		useGradient: false,
 		strokeWidth: 0,
 	});
+	$(".msbr-rating-svg-mini").starRating({
+		totalStars: 5,
+		starSize: 18,
+		readOnly: true,
+		useFullStars: false,
+		emptyColor: "#E3E3E3",
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
 
 	// calculate average of multi-rating
 	$(".msbr-review-form").each(function (formInd) {

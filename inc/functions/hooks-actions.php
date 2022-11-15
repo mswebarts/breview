@@ -49,7 +49,7 @@ if( !function_exists('msbr_review_display_rating') ) {
                                     <?php echo esc_html( $rating_name ); ?>
                                 </td>
                                 <td class="msbr-display-multi-ratings-item-rating">
-                                    <?php echo wc_get_rating_html( $rating ); // WPCS: XSS ok. ?>
+                                    <?php echo msbr_get_rating_html( $rating ); // WPCS: XSS ok. ?>
                                 </td>
                             </tr>
                             <?php
@@ -60,6 +60,20 @@ if( !function_exists('msbr_review_display_rating') ) {
                 <?php
             }
         }
+    }
+}
+
+if( !function_exists('msbr_get_rating_html') ) {
+    function msbr_get_rating_html( $rating, $count = 0 ) {
+        $html = '';
+    
+        if ( 0 < $rating ) {
+            /* translators: %s: rating */
+            $label = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
+            $html  = '<div class="msbr-rating-svg-mini" data-rating="'. esc_attr($rating) .'" role="img" aria-label="' . esc_attr( $label ) . '"></div>';
+        }
+    
+        return apply_filters( 'woocommerce_product_get_rating_html', $html, $rating, $count );
     }
 }
 
