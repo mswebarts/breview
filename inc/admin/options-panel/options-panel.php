@@ -16,14 +16,28 @@ function msbr_breview_general_settings_page() {
                 $display_add_review_on_product = intval(0);
             }
 
-            // review form min char
+            // review form title min char
+            if (isset($_POST['msbr_review_form_title_min_char'])) {
+                $review_title_min_char = intval($_POST['msbr_review_form_title_min_char']);
+            } else {
+                $review_title_min_char = intval(10);
+            }
+
+            // review form title max char
+            if (isset($_POST['msbr_review_form_title_max_char'])) {
+                $review_title_max_char = intval($_POST['msbr_review_form_title_max_char']);
+            } else {
+                $review_title_max_char = intval(10);
+            }
+
+            // review form desc min char
             if (isset($_POST['msbr_review_form_desc_min_char'])) {
                 $review_min_char = intval($_POST['msbr_review_form_desc_min_char']);
             } else {
                 $review_min_char = intval(10);
             }
 
-            // review form max char
+            // review form desc max char
             if (isset($_POST['msbr_review_form_desc_max_char'])) {
                 $review_max_char = intval($_POST['msbr_review_form_desc_max_char']);
             } else {
@@ -60,8 +74,10 @@ function msbr_breview_general_settings_page() {
 
             // assign value to array
             $msbr_options['msbr_display_add_review_product'] = $display_add_review_on_product;
-            $msbr_options['msbr_review_form_desc_min_char']       = $review_min_char;
-            $msbr_options['msbr_review_form_desc_max_char']       = $review_max_char;
+            $msbr_options['msbr_review_form_title_min_char'] = $review_title_min_char;
+            $msbr_options['msbr_review_form_title_max_char'] = $review_title_max_char;
+            $msbr_options['msbr_review_form_desc_min_char']  = $review_min_char;
+            $msbr_options['msbr_review_form_desc_max_char']  = $review_max_char;
             $msbr_options['msbr_reviewer_avatar_size']       = $reviewer_avatar_size;
             $msbr_options['msbr_review_list_header_design']  = $review_list_header;
             $msbr_options['msbr_review_list_design']         = $review_list_design;
@@ -79,6 +95,18 @@ function msbr_breview_general_settings_page() {
         $display_add_review_on_product = intval($msbr_options['msbr_display_add_review_product']);
     } else {
         $display_add_review_on_product = intval(0);
+    }
+
+    if (!empty($msbr_options['msbr_review_form_title_min_char'])) {
+        $review_title_min_char = intval($msbr_options['msbr_review_form_title_min_char']);
+    } else {
+        $review_title_min_char = intval(10);
+    }
+
+    if (!empty($msbr_options['msbr_review_form_title_max_char'])) {
+        $review_title_max_char = intval($msbr_options['msbr_review_form_title_max_char']);
+    } else {
+        $review_title_max_char = intval(100);
     }
 
     if (!empty($msbr_options['msbr_review_form_desc_min_char'])) {

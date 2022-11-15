@@ -68,11 +68,15 @@ function msbr_register_styles() {
     wp_enqueue_script('msbr-script');
 
     // pass review data to javascript
-    $msbr_options = get_option('msbr_general_options');
-    $desc_min_char     = isset($msbr_options['msbr_review_form_desc_min_char']) ? $msbr_options['msbr_review_form_desc_min_char'] : 300;
-    $desc_max_char     = isset($msbr_options['msbr_review_form_desc_max_char']) ? $msbr_options['msbr_review_form_desc_max_char'] : 300;
+    $msbr_options    = get_option('msbr_general_options');
+    $title_min_char  = isset($msbr_options['msbr_review_form_title_min_char']) ? $msbr_options['msbr_review_form_title_min_char'] : 10;
+    $title_max_char  = isset($msbr_options['msbr_review_form_title_max_char']) ? $msbr_options['msbr_review_form_title_max_char'] : 100;
+    $desc_min_char   = isset($msbr_options['msbr_review_form_desc_min_char']) ? $msbr_options['msbr_review_form_desc_min_char'] : 30;
+    $desc_max_char   = isset($msbr_options['msbr_review_form_desc_max_char']) ? $msbr_options['msbr_review_form_desc_max_char'] : 300;
 
     $translation_array = array(
+        'title_min_char'             => esc_html($title_min_char),
+        'title_max_char'             => esc_html($title_max_char),
         'min_char'                   => esc_html($desc_min_char),
         'max_char'                   => esc_html($desc_max_char),
         'review_list_design'         => esc_html($msbr_options['msbr_review_list_design']),

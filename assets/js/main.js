@@ -141,8 +141,8 @@
 				// on the right side
 				msbr_review_title: {
 					required: true,
-					minlength: 10,
-					maxlength: 100,
+					minlength: msbr_review.title_min_char,
+					maxlength: msbr_review.title_max_char,
 				},
 				comment: {
 					required: true,
