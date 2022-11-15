@@ -140,10 +140,32 @@ if ( ! function_exists( 'msbr_review_display_comment_text' ) ) {
 }
 
 if( !function_exists( 'msbr_review_avatar_size' ) ) {
+    /**
+     * Change the avatar size in the review template
+     */
     add_filter( 'woocommerce_review_gravatar_size', 'msbr_review_avatar_size' );
     function msbr_review_avatar_size( $size ) {
         $msbr_options = get_option('msbr_general_options');
         $avatar_size  = $msbr_options['msbr_reviewer_avatar_size'];
         return $avatar_size;
+    }
+}
+
+if( !function_exists('msbr_review_design_single_star_rating') ) {
+    /**
+     * Display the single review rating when multi-rating is disabled
+     */
+    add_action( "msbr_review_rating", 'msbr_review_design_single_star_rating', 10 );
+    function msbr_review_design_single_star_rating( $comment ) {
+        $msbr_options = get_option( 'msbr_multi_rating_options' );
+        $enable_multi_rating = $msbr_options['msbr_enable_multi_rating'];
+        $display_multi_rating_product = $msbr_options['msbr_display_multi_rating_product'];
+
+        if( ( $enable_multi_rating == false ) || ( $display_multi_rating_product == false ) ) {
+            $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
+            ?>
+            <div class="msbr-rating-svg-mini" data-rating="<?php echo esc_attr( $rating ); ?>" role="img"></div>
+            <?php
+        }
     }
 }
