@@ -36,11 +36,25 @@
 		order: 2;
 		margin-bottom: 20px;
 	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-right {
+		width: calc(100% - 210px);
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-list li {
+		padding: 20px 10px;
+	}
 }
 
 @media all and (max-width: 479px) {
 	.msbr-review-list-header-design-one .msbr-review-list-header-left,
 	.msbr-review-list-header-design-one .msbr-review-list-header-middle {
 		padding: 5px;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-container {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-left,
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-right {
+		width: 100%;
 	}
 }
