@@ -63,7 +63,7 @@ function msbr_product_new_review_tab_content() {
 
                 $comments = get_comments(
                     array(
-                        'post_id' => $product->id,
+                        'post_id' => $product->get_id(),
                         'status' => 'approve'
                     )
                 );
