@@ -9,6 +9,7 @@
 $product      = $data->product;
 $total_rating = $product->get_review_count();
 $avg_rating   = $product->get_average_rating();
+$avg_rating   = !empty( $avg_rating ) ? $avg_rating : intval(5.0);
 $rating1      = $product->get_rating_count(1);
 $rating2      = $product->get_rating_count(2);
 $rating3      = $product->get_rating_count(3);
