@@ -75,6 +75,7 @@ function msbr_register_styles() {
     $translation_array = array(
         'min_char'                   => esc_html($min_char),
         'max_char'                   => esc_html($max_char),
+        'review_list_design'         => esc_html($msbr_options['msbr_review_list_design']),
         'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $min_char),
         'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
         'review_empty_msg'           => esc_html__('Review description is required', 'breview'),
