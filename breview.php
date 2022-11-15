@@ -92,6 +92,7 @@ function msbr_register_styles() {
     wp_register_style('msbr-star-rating-svg', plugins_url('assets/css/star-rating-svg.css', __FILE__));
     wp_register_style('msbr-magnific-popup', plugins_url('assets/css/magnific-popup.css', __FILE__));
     wp_register_style("msbr-style", plugins_url("style.css", __FILE__));
+    wp_register_style("msbr-responsive", plugins_url("assets/css/responsive.css", __FILE__));
     wp_register_style("msbr-inline", plugins_url("assets/css/inline.css", __FILE__));
 
     wp_enqueue_style('msbr-star-rating');
@@ -102,10 +103,6 @@ function msbr_register_styles() {
 
     $avatar_size = $msbr_options['msbr_reviewer_avatar_size'];
     $custom_css = "
-        .woocommerce .woocommerce-Tabs-panel--msbr_reviews #reviews #comments ol.commentlist li img.avatar,
-        .msbr-show-review-modal ol.commentlist li .comment_container > img {
-                width: {$avatar_size}px;
-        }
         .woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li .comment_container .comment-text,
         .msbr-show-review-modal ol.commentlist li .comment_container .comment-text {
             width: calc(100% - {$avatar_size}px - 10px);

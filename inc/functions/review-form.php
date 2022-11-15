@@ -1,7 +1,6 @@
 <?php
 add_action('woocommerce_order_item_meta_end', 'msbr_add_review_form', 10, 3);
-function msbr_add_review_form($item_id, $item, $order)
-{
+function msbr_add_review_form($item_id, $item, $order) {
     global $product, $msbr_dir;
     $templates = new MSBR_Template_Loader;
     $product_id = $item->get_product_id();
