@@ -24,23 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div id="msbr-review-<?php comment_ID(); ?>" class="msbr-review-container">
 		<div class="msbr-review-left">
-
-			<?php do_action( 'msbr_review_before_user' ); ?>
-			<div class="msbr-review-user">
-				<?php
-				/**
-				 * The msbr_review_user hook.
-				 *
-				 * @hooked msbr_review_display_gravatar - 10
-				 */
-				do_action( 'msbr_review_user', $comment );
-				?>
-			</div>
-			<?php do_action( 'msbr_review_after_user' ); ?>
-			
-		</div>
-
-		<div class="msbr-review-right">
+            
 			<?php do_action( 'msbr_review_before_rating') ?>
 			<div class="msbr-review-rating">
 				<?php
@@ -53,6 +37,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 				?>
 			</div>
 			<?php do_action( 'msbr_review_after_rating') ?>
+			
+		</div>
+
+		<div class="msbr-review-right">
+            
+			<?php do_action( 'msbr_review_before_user' ); ?>
+			<div class="msbr-review-user">
+				<?php
+				/**
+				 * The msbr_review_user hook.
+				 *
+				 * @hooked msbr_review_display_gravatar - 10
+				 */
+				do_action( 'msbr_review_user', $comment );
+				?>
+			</div>
+			<?php do_action( 'msbr_review_after_user' ); ?>
 
 			<?php do_action( 'msbr_review_before_content') ?>
 			<div class="msbr-review-content">

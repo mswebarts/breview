@@ -189,3 +189,27 @@ if( !function_exists('msbr_review_design_single_star_rating') ) {
         }
     }
 }
+
+if( !function_exists('msbr_review_design_two_rating_header' ) ) {
+    /**
+     * Display the two rating header
+     */
+    add_action( "msbr_review_rating", 'msbr_review_design_two_rating_header', 5 );
+    function msbr_review_design_two_rating_header( $comment ) {
+        $msbr_options = get_option( 'msbr_multi_rating_options' );
+        $enable_multi_rating = $msbr_options['msbr_enable_multi_rating'];
+        $display_multi_rating_product = $msbr_options['msbr_display_multi_rating_product'];
+
+        if( ( $enable_multi_rating == true ) && ( $display_multi_rating_product == true ) ) {
+            $rating = get_comment_meta( $comment->comment_ID, 'rating', true );
+            ?>
+            <div class="msbr-review-design-two-rating-header">
+                <span class="msbr-review-design-two-rating-header-rating">
+                    <?php echo esc_html( $rating ); ?>
+                </span>
+                <span class="msbr-rating-svg-small" data-rating="<?php echo esc_attr( $rating ); ?>" role="img"></span>
+            </div>
+            <?php
+        }
+    }
+}

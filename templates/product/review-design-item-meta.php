@@ -30,7 +30,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 
 <?php } else { ?>
 
-	<p class="meta">
+	<div class="meta">
 		<strong class="msbr-review-author"><?php comment_author(); ?> </strong>
 		<?php
 		if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
@@ -40,7 +40,7 @@ if ( '0' === $comment->comment_approved ) { ?>
 		<div class="msbr-review-time">
 			<time class="msbr-review-published-date" datetime="<?php echo esc_attr( get_comment_date( 'c' ) ); ?>"><?php echo esc_html( get_comment_date( wc_date_format() ) ); ?></time>
 		</div>
-	</p>
+	</div>
 
 	<?php
 }
