@@ -40,7 +40,11 @@ if( !function_exists('msbr_review_display_rating') ) {
                     foreach ($multi_ratings as $rating) {
                         $rating_id = $rating['msbr_multi_rating_id'];
                         $rating_name = $rating['msbr_multi_rating_name'];
+
+                        $default_rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
                         $rating = intval( get_comment_meta( $comment->comment_ID, 'msbr_multi_rating_item_'. $rating_id .'', true ) );
+                        // display specific rating if set, otherwise display default rating
+                        $rating = $rating ? $rating : $default_rating;
 
                         if ( $rating && wc_review_ratings_enabled() ) {
                             ?>
