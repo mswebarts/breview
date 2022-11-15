@@ -155,10 +155,16 @@ $order_identifier = $data->order_identifier;
                 <h3><?php echo esc_html_e("Review Submitted Successfully!", "breview"); ?></h3>
                 <div class="msbr-review-success-description">
                     <?php
+                    $auto_approve = get_option('msbr_auto_approve_reviews');
                     echo wp_sprintf(
-                        __( 'Thank you for giving a review to <b>%s</b>', 'breview' ),
+                        __( 'Thank you for giving a review to <b>%s</b>. ', 'breview' ),
                         get_the_title($product_id)
                     );
+                    if( !$auto_approve ) {
+                        echo wp_sprintf(
+                            __( 'Your review will be published after approval by the admin.', 'breview' )
+                        );
+                    }
                     ?>
                 </div>
             </div>
