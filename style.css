@@ -23,6 +23,10 @@
 	padding-left: 0;
 	margin: 0;
 }
+.woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews {
+	width: 100% !important;
+	max-width: 100% !important;
+}
 .woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist,
 .msbr-show-review-modal ol.commentlist,
 .woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li,
@@ -138,6 +142,12 @@
 	-ms-flex-order: 1;
 	order: 1;
 }
+.msbr-display-multi-ratings tr td.msbr-display-multi-ratings-item-rating {
+	text-align: right;
+}
+.woocommerce .woocommerce-Reviews ol.commentlist .comment-text .star-rating {
+	display: inline-block;
+}
 
 /* Add Review Form */
 .msbr-comment-form-comment textarea {
@@ -235,16 +245,16 @@
 	border-bottom: 1px solid #ededed;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-left {
-	width: 220px;
+	width: 260px;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-middle {
-	width: calc(100% - 200px);
+	width: calc(100% - 260px);
 	padding: 20px;
 	border-left: 1px solid #ededed;
 }
 .msbr-review-list-header-design-one.msbr-add-review-enabled .msbr-review-list-header-middle,
 .msbr-review-list-header-design-one.msbr-add-review-enabled.msbr-alt .msbr-review-list-header-middle {
-	width: calc(100% - 440px);
+	width: calc(100% - 460px);
 	border-left: 1px solid #ededed;
 	border-right: 1px solid #ededed;
 }
@@ -305,7 +315,7 @@
 	border-radius: 50px;
 }
 .msbr-review-list-header-design-one .msbr-review-list-header-right {
-	width: 160px;
+	width: 200px;
 	padding: 20px;
 	text-align: center;
 }
