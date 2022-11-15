@@ -60,57 +60,20 @@ function msbr_product_new_review_tab_content() {
             ?>
             
             <?php
-
                 $comments = get_comments(
                     array(
                         'post_id' => $product->get_id(),
                         'status' => 'approve'
                     )
                 );
+
+                // load the review list template
+                $data = array(
+                    'comments' => $comments,
+                    'product' => $product,
+                );
+                $templates->set_template_data($data)->get_template_part( 'product/review-list', 'default' );
             ?>
-            <?php if ( $comments ) : ?>
-                <ol class="commentlist">
-                    <?php
-                    
-                    $msbr_options = get_option( 'msbr_general_options' );
-
-                    if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
-                        $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
-                    } else {
-                        $reviewer_avatar_size = intval( 60 );
-                    }
-                    $args = array(
-                        'max_depth'         => intval(1),
-                        'avatar_size'       => $reviewer_avatar_size,
-                        'reverse_top_level' => false,
-                        'callback' => 'woocommerce_comments',
-                    );
-                    wp_list_comments( $args, $comments );
-                    
-                    ?>
-                </ol>
-                
-                <?php
-                if ( get_comment_pages_count($comments) > 1 && get_option( 'page_comments' ) ) :
-                    echo '<nav class="woocommerce-pagination">';
-                    paginate_comments_links(
-                        apply_filters(
-                            'woocommerce_comment_pagination_args',
-                            array(
-                                'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-                                'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-                                'total'     => get_comment_pages_count($comments),
-                                'type'      => 'list',
-                            )
-                        )
-                    );
-                    echo '</nav>';
-                endif;
-                ?>
-
-            <?php else : ?>
-                <p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'breview' ); ?></p>
-            <?php endif; ?>
         </div>
 
         <?php
