@@ -5,7 +5,17 @@
  * 
  * This template is responsible for showing the review list header design in the product details page and
  * it can be overridden by copying it to yourtheme/breview/header/header-one-alt.php
+ * 
+ * HOWEVER, on occasion Breview will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ * 
+ * @package Breview\Templates
+ * @version 1.1.0
  */
+
 $product      = $data->product;
 $total_rating = $product->get_review_count();
 $avg_rating   = $product->get_average_rating();

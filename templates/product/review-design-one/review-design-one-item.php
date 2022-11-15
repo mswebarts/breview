@@ -13,7 +13,7 @@
  * the readme will list any important changes.
  *
  * @package Breview\Templates
- * @version 1.0.3
+ * @version 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
