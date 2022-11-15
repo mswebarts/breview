@@ -13,6 +13,7 @@ $review_header_one_alt_checked     = $review_list_header == 'one-alt' ? 'checked
 // review list designs
 $review_list_default_checked       = $review_list_design == 'default' ? 'checked' : '';
 $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : '';
+$review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 ?>
 
 <div id="icon-options-general" class="icon32"></div>
@@ -170,6 +171,12 @@ $review_list_one_checked           = $review_list_design == 'one' ? 'checked' : 
 														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('one'); ?>" <?php echo esc_attr( $review_list_one_checked ); ?>/>
 														<label for="one">
 															<?php echo esc_html_e( 'Design One', 'breview' ); ?>
+														</label>
+													</span>
+													<span class="mswa-radio-group">
+														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('two'); ?>" <?php echo esc_attr( $review_list_two_checked ); ?>/>
+														<label for="two">
+															<?php echo esc_html_e( 'Design Two', 'breview' ); ?>
 														</label>
 													</span>
 												</div>
