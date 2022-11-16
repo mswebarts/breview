@@ -63,7 +63,7 @@ $completed_email_check = $enable_completed_email == 1 ? 'checked' : '';
 									</tr>
 									<tr>
 										<td colspan="2">
-											<?php echo esc_html_e( "To change the texts of the email, translate the strings using a translation plugin ( i.e. Loco Translate ).", "breview" ); ?>
+											<?php echo esc_html_e( "To change the texts of the email, navigate to plugins/breview/templates/emails/completed.php. Copy the file and paste it to your-theme/breview/emails and make the changes as you want.", "breview" ); ?>
 										</td>
 									</tr>
 								</table>
