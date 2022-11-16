@@ -61,6 +61,16 @@ The review tab may display a warning after you activate the plugin and the licen
 The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
 
 == Changelog ==
+= Version 1.1.0 ( Major Update ) =
+* Added the option to display single rating only when multi-rating is enabled
+* Introduced Template Structure
+* Add review title field
+* Implemented form submission setting on product page
+* Improved settings panel
+* Added custom review list header designs
+* Added custom review list designs
+* Other minor bug fixes and improvements
+
 = Version 1.0.2 =
 * Fixed max char allowed setting
 * Added min char allowed setting
