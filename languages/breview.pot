@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Breview - Better Review System for WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-13 07:12+0000\n"
+"POT-Creation-Date: 2022-11-16 06:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -17,54 +17,55 @@ msgstr ""
 "X-Domain: breview"
 
 #. 1: reviews count 2: product name
-#: inc/functions/review-product-page.php:45
+#: inc/functions/review-product-page.php:51
 #, php-format
 msgid "%1$s review for %2$s"
 msgid_plural "%1$s reviews for %2$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/classes/class-msbr-lic.php:222
+#: inc/classes/class-msbr-lic.php:207
 msgid "Activate Breview - Better Review System for WooCommerce"
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:108
+#: inc/admin/options-panel/pages/multi-rating.php:121
 msgid "Add a label/name to the rating."
 msgstr ""
 
-#. %s is product title
-#: templates/review-form-add-popup.php:18
-#: inc/functions/review-product-page.php:116
-msgid "Add a review"
+#: templates/order/add-review-popup.php:154
+#: templates/product/add-review-popup-product.php:151
+msgid "Add a review title"
 msgstr ""
 
-#: templates/review-form-add-popup.php:3
+#: templates/order/add-review-popup.php:26
+#: templates/product/add-review-popup-product.php:23
 msgid "Add Review"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:113
+#: inc/admin/options-panel/pages/general.php:139
 msgid "Approve the customer submitted reviews automatically"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:105
-#: inc/admin/options-panel/pages/general.php:110
+#: inc/admin/options-panel/pages/general.php:131
+#: inc/admin/options-panel/pages/general.php:136
 msgid "Auto Approve Reviews"
 msgstr ""
 
-#: templates/review-form-add-popup.php:104
-#: templates/review-form-add-popup.php:118
-#: inc/functions/review-product-page.php:169
+#: templates/order/add-review-popup.php:133
+#: templates/order/add-review-popup.php:147
+#: templates/product/add-review-popup-product.php:130
+#: templates/product/add-review-popup-product.php:144
 msgid "Average"
 msgstr ""
 
-#: inc/functions/review-product-page.php:116
+#: templates/header/header-one-alt.php:118 templates/header/header-one.php:44
 #, php-format
-msgid "Be the first to review &ldquo;%s&rdquo;"
+msgid "Based on %s reviews"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:11
-#: inc/admin/options-panel/pages/general.php:12
-#: inc/admin/options-panel/pages/multi-rating.php:11
+#: inc/admin/options-panel/pages/general.php:20
+#: inc/admin/options-panel/pages/multi-rating.php:12
 msgid "Breview - Better Review for WooCommerce"
 msgstr ""
 
@@ -73,18 +74,18 @@ msgid "Breview - Better Review System for WooCommerce"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:12
-#: inc/admin/options-panel/pages/general.php:13
-#: inc/admin/options-panel/pages/multi-rating.php:12
+#: inc/admin/options-panel/pages/general.php:21
+#: inc/admin/options-panel/pages/multi-rating.php:13
 msgid ""
 "Breview adds a completely new workflow for reviews in WooCommerce. You can "
 "configure all the settings from here."
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:147
+#: inc/classes/class-msbr-lic.php:132
 msgid "Breview License Info"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:53 inc/classes/class-msbr-lic.php:68
+#: inc/classes/class-msbr-lic.php:53
 msgid "Changelog"
 msgstr ""
 
@@ -92,25 +93,31 @@ msgstr ""
 msgid "Check for updates"
 msgstr ""
 
-#: inc/admin/options-panel/pages/email.php:62
+#: inc/admin/options-panel/pages/email.php:60
 msgid ""
 "Check mark to send an email to the customer to review the products when the "
 "order gets completed"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:62
+#: inc/admin/options-panel/pages/general.php:235
 msgid ""
 "Check to display the Add Review form in product pages. Not compatible with "
 "multi-rating yet."
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:63
+#: inc/admin/options-panel/pages/multi-rating.php:76
+msgid ""
+"Checkmark to display the submitted Multi-ratings in the product pages. It "
+"will only show the average rating if you disable this"
+msgstr ""
+
+#: inc/admin/options-panel/pages/multi-rating.php:59
 msgid ""
 "Checkmark to enable the configured multiple ratings in WooCommerce. "
 "Customers will be able to submit these ratings when enabled."
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:42
+#: inc/admin/options-panel/pages/multi-rating.php:41
 msgid ""
 "Configure multiple types of ratings for your products. You can add as many "
 "ratings as you want. But maximum 5 is recommended."
@@ -120,11 +127,15 @@ msgstr ""
 msgid "Configure the email settings for Breview."
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:42
-msgid "Configure the general settings for Breview."
+#: inc/admin/options-panel/pages/general.php:149
+msgid "Configure the general settings for displaying the reviews."
 msgstr ""
 
-#: inc/emails/completed.php:18
+#: inc/admin/options-panel/pages/general.php:51
+msgid "Configure the general settings for review submissions."
+msgstr ""
+
+#: templates/emails/completed.php:32
 #, php-format
 msgid ""
 "Congratulations! The order has just been completed. We hope you have got the "
@@ -132,40 +143,58 @@ msgid ""
 "#%s. It will motivate us to provide better service and grow our business."
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:240
+#: inc/classes/class-msbr-lic.php:225
 msgid "Contact Us"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:54
-#: inc/admin/options-panel/pages/general.php:59
+#: inc/admin/options-panel/pages/general.php:174
+#: inc/admin/options-panel/pages/general.php:209
+msgid "Design One"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:180
+msgid "Design One Alt"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:215
+msgid "Design Two"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:227
+#: inc/admin/options-panel/pages/general.php:232
 msgid "Display Add Review Form"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:50 inc/classes/class-msbr-lic.php:65
+#: inc/admin/options-panel/pages/multi-rating.php:67
+#: inc/admin/options-panel/pages/multi-rating.php:73
+msgid "Display Multi Rating"
+msgstr ""
+
+#: inc/classes/class-msbr-lic.php:50
 msgid "Documentation"
 msgstr ""
 
-#: templates/review-form-add-popup.php:39
-#: inc/functions/review-product-page.php:136
+#: templates/order/add-review-popup.php:68
+#: templates/product/add-review-popup-product.php:65
 msgid "Email"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:248
+#: inc/classes/class-msbr-lic.php:233
 msgid "Email Address"
 msgstr ""
 
-#: inc/admin/options-panel/pages/email.php:38
+#: inc/admin/options-panel/pages/email.php:40
 msgid "Email Settings"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:30
-#: inc/admin/options-panel/pages/general.php:31
-#: inc/admin/options-panel/pages/multi-rating.php:30
+#: inc/admin/options-panel/pages/general.php:39
+#: inc/admin/options-panel/pages/multi-rating.php:31
 msgid "Emails"
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:54
-#: inc/admin/options-panel/pages/multi-rating.php:60
+#: inc/admin/options-panel/pages/multi-rating.php:50
+#: inc/admin/options-panel/pages/multi-rating.php:56
 msgid "Enable Multi Rating"
 msgstr ""
 
@@ -173,38 +202,40 @@ msgstr ""
 msgid "Enjoying Breview?"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:234
+#: inc/classes/class-msbr-lic.php:219
 msgid ""
 "Enter your license key here, to activate the product, and get full feature "
 "updates and premium support."
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:239
+#: inc/classes/class-msbr-lic.php:224
 msgid "Experiencing any issue with the activation? "
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:52 inc/classes/class-msbr-lic.php:67
+#: inc/classes/class-msbr-lic.php:52
 msgid "FAQ"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:24
-#: inc/admin/options-panel/pages/general.php:25
-#: inc/admin/options-panel/pages/multi-rating.php:24
+#: inc/admin/options-panel/pages/general.php:33
+#: inc/admin/options-panel/pages/multi-rating.php:25
 msgid "General"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:39
-msgid "General Settings"
+#: templates/order/add-review-popup.php:34
+#: templates/product/add-review-popup-product.php:31
+msgid "Give a Review"
 msgstr ""
 
-#: inc/emails/completed.php:12 inc/emails/completed.php:15
+#: templates/emails/completed.php:26 templates/emails/completed.php:29
 #, php-format
 msgid "Give a review to your order #%s"
 msgstr ""
 
-#: templates/review-form-add-popup.php:103
-#: templates/review-form-add-popup.php:117
-#: inc/functions/review-product-page.php:168
+#: templates/order/add-review-popup.php:132
+#: templates/order/add-review-popup.php:146
+#: templates/product/add-review-popup-product.php:129
+#: templates/product/add-review-popup-product.php:143
 msgid "Good"
 msgstr ""
 
@@ -216,23 +247,41 @@ msgstr ""
 msgid "https://www.mswebarts.com/plugins/breview/"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:60
+#: inc/classes/class-msbr-lic.php:45
 msgid "Important Links"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:79
+#: inc/admin/options-panel/pages/general.php:123
 msgid ""
-"Input the maximum characters allowed for the Add Review Form's Review field "
-"in the order page"
+"Input the maximum characters allowed for the Add Review Form's Review "
+"Description field in the order page"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:157
+#: inc/admin/options-panel/pages/general.php:87
+msgid ""
+"Input the maximum characters allowed for the Add Review Form's Review title "
+"field"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:105
+msgid ""
+"Input the minimum characters allowed for the Add Review Form's Review "
+"description field in the order page"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:69
+msgid ""
+"Input the minimum characters allowed for the Add Review Form's Review title "
+"field"
+msgstr ""
+
+#: inc/classes/class-msbr-lic.php:142
 msgid "Invalid"
 msgstr ""
 
 #. %s is product title
-#: templates/review-form-add-popup.php:20
-#: inc/functions/review-product-page.php:118
+#: templates/order/add-review-popup.php:49
+#: templates/product/add-review-popup-product.php:46
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
@@ -241,21 +290,20 @@ msgstr ""
 msgid "Leave us a review on Trustpilot and help spread the word!"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:244
+#: inc/classes/class-msbr-lic.php:229
 msgid "License code"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:171
+#: inc/classes/class-msbr-lic.php:156
 msgid "License Expired on"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:164
+#: inc/classes/class-msbr-lic.php:149
 msgid "License Type"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:69
-#: inc/admin/options-panel/pages/general.php:75
-msgid "Max Characters Allowed"
+#: breview.php:90
+msgid "Loading..."
 msgstr ""
 
 #. Author of the plugin
@@ -267,126 +315,203 @@ msgid "MS Web Arts Overview"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:27
-#: inc/admin/options-panel/pages/general.php:28
-#: inc/admin/options-panel/pages/multi-rating.php:27
-#: inc/admin/options-panel/pages/multi-rating.php:71
-#: inc/admin/options-panel/pages/multi-rating.php:77
+#: inc/admin/options-panel/pages/general.php:36
+#: inc/admin/options-panel/pages/multi-rating.php:28
+#: inc/admin/options-panel/pages/multi-rating.php:84
+#: inc/admin/options-panel/pages/multi-rating.php:90
 msgid "Multi Rating"
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:38
+#: inc/admin/options-panel/pages/multi-rating.php:39
 msgid "Multi Rating Settings"
 msgstr ""
 
-#: templates/review-form-add-popup.php:33
-#: inc/functions/review-product-page.php:130
+#: templates/order/add-review-popup.php:62
+#: templates/product/add-review-popup-product.php:59
 msgid "Name"
 msgstr ""
 
-#: templates/review-form-add-popup.php:105
-#: templates/review-form-add-popup.php:119
-#: inc/functions/review-product-page.php:170
+#: breview.php:89
+msgctxt "name of error at the start"
+msgid " occured. Please refresh the page and try again."
+msgstr ""
+
+#: templates/order/add-review-popup.php:134
+#: templates/order/add-review-popup.php:148
+#: templates/product/add-review-popup-product.php:131
+#: templates/product/add-review-popup-product.php:145
 msgid "Not that bad"
 msgstr ""
 
-#: templates/review-form-add-popup.php:154
-#: inc/functions/review-product-page.php:182
+#: templates/order/add-review-popup.php:187
+#: templates/product/add-review-popup-product.php:186
 msgid ""
 "Only logged in customers who have purchased this product may leave a review."
 msgstr ""
 
-#: templates/review-form-add-popup.php:102
-#: templates/review-form-add-popup.php:116
-#: inc/functions/review-product-page.php:167
+#: templates/order/add-review-popup.php:131
+#: templates/order/add-review-popup.php:145
+#: templates/product/add-review-popup-product.php:128
+#: templates/product/add-review-popup-product.php:142
 msgid "Perfect"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:49 inc/classes/class-msbr-lic.php:64
+#: inc/classes/class-msbr-lic.php:49
 msgid "Plugin Homepage"
 msgstr ""
 
-#: templates/review-form-add-popup.php:101
-#: templates/review-form-add-popup.php:115
-#: inc/functions/review-product-page.php:166
+#: templates/order/add-review-popup.php:36
+#: templates/product/add-review-popup-product.php:33
+msgid "Provide a review and help us improve our service."
+msgstr ""
+
+#: templates/order/add-review-popup.php:130
+#: templates/order/add-review-popup.php:144
+#: templates/product/add-review-popup-product.php:127
+#: templates/product/add-review-popup-product.php:141
 msgid "Rate&hellip;"
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:103
+#: templates/header/header-one-alt.php:117 templates/header/header-one.php:43
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: breview.php:87
+msgid "Rating is required"
+msgstr ""
+
+#: inc/admin/options-panel/pages/multi-rating.php:116
 msgid "Rating Label"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:45
-msgid "Recommended Plugins"
-msgstr ""
-
-#: inc/classes/class-msbr-lic.php:175 inc/classes/class-msbr-lic.php:189
+#: inc/classes/class-msbr-lic.php:160 inc/classes/class-msbr-lic.php:174
 msgid "Renew"
 msgstr ""
 
-#: breview.php:88
-msgid "Review can't be empty"
+#: breview.php:85
+msgid "Review description is required"
 msgstr ""
 
-#: breview.php:89
-#, php-format
-msgid "Review can't be more than %s characters"
+#: inc/admin/options-panel/pages/general.php:113
+#: inc/admin/options-panel/pages/general.php:119
+msgid "Review Description Max Chars"
 msgstr ""
 
-#: inc/admin/options-panel/pages/email.php:54
-#: inc/admin/options-panel/pages/email.php:59
+#: inc/admin/options-panel/pages/general.php:95
+#: inc/admin/options-panel/pages/general.php:101
+msgid "Review Description Min Chars"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:147
+msgid "Review Display Settings"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:192
+#: inc/admin/options-panel/pages/general.php:197
+msgid "Review List Design"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:157
+#: inc/admin/options-panel/pages/general.php:162
+msgid "Review List Header Design"
+msgstr ""
+
+#: inc/admin/options-panel/pages/email.php:52
+#: inc/admin/options-panel/pages/email.php:57
 msgid "Review Request on Order Completion"
 msgstr ""
 
-#: templates/review-form-add-popup.php:138
+#: inc/admin/options-panel/pages/general.php:49
+msgid "Review Submission Settings"
+msgstr ""
+
+#: templates/order/add-review-popup.php:171
+#: templates/product/add-review-popup-product.php:168
 msgid "Review Submitted Successfully!"
+msgstr ""
+
+#: templates/order/add-review-popup.php:154
+#: templates/product/add-review-popup-product.php:151
+msgid "Review Title"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:77
+#: inc/admin/options-panel/pages/general.php:83
+msgid "Review Title Max Chars"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:59
+#: inc/admin/options-panel/pages/general.php:65
+msgid "Review Title Min Chars"
 msgstr ""
 
 #: inc/admin/options-panel/pages/overview-sidebar.php:7
 msgid "Review Us on"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:87
-#: inc/admin/options-panel/pages/general.php:93
+#: inc/admin/options-panel/pages/general.php:242
+#: inc/admin/options-panel/pages/general.php:248
 msgid "Reviewer Avatar Size(px)"
 msgstr ""
 
 #: inc/functions/review-product-page.php:15
-#: inc/functions/review-product-page.php:48
+#: inc/functions/review-product-page.php:54
 msgid "Reviews"
 msgstr ""
 
 #: inc/admin/options-panel/pages/email.php:73
-#: inc/admin/options-panel/pages/general.php:119
-#: inc/admin/options-panel/pages/multi-rating.php:134
+#: inc/admin/options-panel/pages/general.php:261
+#: inc/admin/options-panel/pages/multi-rating.php:149
 msgid "Save Settings"
 msgstr ""
 
-#: inc/admin/options-panel/pages/general.php:97
+#: breview.php:86
+msgid "Select a rating"
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:185
+#: inc/admin/options-panel/pages/general.php:220
+msgid ""
+"Select the design that you want to show as the header of the Reviews list in "
+"the single product pages. Design and layout will be controlled by the theme "
+"if Theme Specific selected."
+msgstr ""
+
+#: inc/admin/options-panel/pages/general.php:252
 msgid "Set the reviewer/customer avatar size in Review list"
 msgstr ""
 
-#: templates/review-form-show-popup.php:3
+#: templates/order/show-review-popup.php:34
 msgid "Show Review"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:152
+#: inc/classes/class-msbr-lic.php:137
 msgid "Status"
 msgstr ""
 
-#: templates/review-form-add-popup.php:24
-#: inc/functions/review-product-page.php:122
+#: templates/order/add-review-popup.php:53
+#: templates/product/add-review-popup-product.php:50
 msgid "Submit"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:51 inc/classes/class-msbr-lic.php:66
+#: breview.php:91
+msgid "Submitted!"
+msgstr ""
+
+#: breview.php:88
+msgid "Submitting..."
+msgstr ""
+
+#: inc/classes/class-msbr-lic.php:51
 msgid "Support"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:184
+#: inc/classes/class-msbr-lic.php:169
 msgid "Support Expired on"
 msgstr ""
 
-#: templates/review-form-add-popup.php:143
+#: templates/order/add-review-popup.php:176
 #, php-format
 msgid "Thank you for giving a review to <b>%s</b>"
 msgid_plural ""
@@ -394,6 +519,11 @@ msgid_plural ""
 "products in your order if not done already."
 msgstr[0] ""
 msgstr[1] ""
+
+#: templates/product/add-review-popup-product.php:173
+#, php-format
+msgid "Thank you for giving a review to <b>%s</b>. "
+msgstr ""
 
 #: inc/admin/plugin-update-checker/Puc/v5p0/Plugin/Ui.php:219
 #, php-format
@@ -419,7 +549,14 @@ msgid ""
 "the traditional marketplaces."
 msgstr ""
 
-#: inc/functions/review-product-page.php:103
+#: inc/admin/options-panel/pages/general.php:168
+#: inc/admin/options-panel/pages/general.php:203
+msgid "Theme Specific"
+msgstr ""
+
+#: templates/product/review-design-default.php:63
+#: templates/product/review-design-one.php:64
+#: templates/product/review-design-two.php:64
 msgid "There are no reviews yet."
 msgstr ""
 
@@ -427,11 +564,11 @@ msgstr ""
 msgid "There is no changelog available."
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:96
+#: inc/admin/options-panel/pages/multi-rating.php:109
 msgid "This is a unique ID for this rating."
 msgstr ""
 
-#: inc/functions/review-form.php:145
+#: inc/functions/review-form.php:166
 msgid ""
 "This order has suborders. Please review the products from the suborders page "
 "if they got completed."
@@ -443,17 +580,18 @@ msgid ""
 "Arts and latest news/updates from us"
 msgstr ""
 
-#: inc/admin/options-panel/pages/email.php:68
+#: inc/admin/options-panel/pages/email.php:66
 msgid ""
-"To change the texts of the email, translate the strings using a translation "
-"plugin ( i.e. Loco Translate )."
+"To change the texts of the email, navigate to "
+"plugins/breview/templates/emails/completed.php. Copy the file and paste it "
+"to your-theme/breview/emails and make the changes as you want."
 msgstr ""
 
 #: inc/admin/options-panel/pages/overview-sidebar.php:8
 msgid "Trustpilot Logo"
 msgstr ""
 
-#: inc/admin/options-panel/pages/multi-rating.php:91
+#: inc/admin/options-panel/pages/multi-rating.php:104
 msgid "Unique ID"
 msgstr ""
 
@@ -462,51 +600,71 @@ msgstr ""
 msgid "Unknown update checker status \"%s\""
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:155
+#: inc/classes/class-msbr-lic.php:140
 msgid "Valid"
 msgstr ""
 
-#: templates/review-form-add-popup.php:106
-#: templates/review-form-add-popup.php:120
-#: inc/functions/review-product-page.php:171
+#: templates/order/add-review-popup.php:135
+#: templates/order/add-review-popup.php:149
+#: templates/product/add-review-popup-product.php:132
+#: templates/product/add-review-popup-product.php:146
 msgid "Very poor"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:253
+#: inc/classes/class-msbr-lic.php:238
 msgid ""
 "We will send update news of this product by this email address, don't worry, "
 "we hate spam"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:236
+#: templates/order/add-review-popup.php:156
+#: templates/product/add-review-popup-product.php:153
+msgid "Write your review in detail"
+msgstr ""
+
+#: inc/classes/class-msbr-lic.php:221
 msgid "You can get the License Code in your order page"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:237
+#: inc/classes/class-msbr-lic.php:222
 msgid "You must activate the license to be able to use the plugin"
 msgstr ""
 
 #. %s opening and closing link tags respectively
-#: templates/review-form-add-popup.php:64
-#: inc/functions/review-product-page.php:161
+#: templates/order/add-review-popup.php:93
+#: templates/product/add-review-popup-product.php:90
 #, php-format
 msgid "You must be %1$slogged in%2$s to post a review."
 msgstr ""
 
-#: breview.php:63
+#: breview.php:48
 msgid "You must need to install and activate woocommerce for Breview to work"
 msgstr ""
 
-#: inc/classes/class-msbr-lic.php:197
+#: inc/classes/class-msbr-lic.php:182
 msgid "Your License Key"
 msgstr ""
 
-#: templates/review-form-add-popup.php:114
-#: inc/functions/review-product-page.php:165
+#: templates/order/add-review-popup.php:143
+#: templates/product/add-review-popup-product.php:140
 msgid "Your rating"
 msgstr ""
 
-#: templates/review-form-add-popup.php:125
-#: inc/functions/review-product-page.php:175
+#: templates/order/add-review-popup.php:156
+#: templates/product/add-review-popup-product.php:153
 msgid "Your review"
+msgstr ""
+
+#: breview.php:84
+#, php-format
+msgid "Your review must be maximum %s characters long"
+msgstr ""
+
+#: breview.php:83
+#, php-format
+msgid "Your review must be minimum %s characters long"
+msgstr ""
+
+#: templates/product/add-review-popup-product.php:178
+msgid "Your review will be published after approval by the admin."
 msgstr ""
