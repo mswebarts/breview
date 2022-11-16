@@ -77,7 +77,7 @@ if( !function_exists('msbr_get_rating_html') ) {
         if ( 0 < $rating ) {
             /* translators: %s: rating */
             $label = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
-            $html  = '<div class="msbr-rating-svg-mini" data-rating="'. esc_attr($rating) .'" role="img" aria-label="' . esc_attr( $label ) . '"></div>';
+            $html  = '<div class="star-rating" role="img" aria-label="' . esc_attr( $label ) . '">' . wc_get_star_rating_html( $rating, $count ) . '</div>';
         }
     
         return apply_filters( 'woocommerce_product_get_rating_html', $html, $rating, $count );
@@ -211,7 +211,7 @@ if( !function_exists('msbr_review_design_two_rating_header' ) ) {
                     <span class="msbr-review-design-two-rating-header-rating">
                         <?php echo esc_html( $rating ); ?>
                     </span>
-                    <span class="msbr-rating-svg-small" data-rating="<?php echo esc_attr( $rating ); ?>" role="img"></span>
+                    <?php echo msbr_get_rating_html( $rating ); // WPCS: XSS ok. ?>
                 </div>
                 <?php
             }

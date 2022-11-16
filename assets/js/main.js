@@ -117,15 +117,10 @@
 	$(document).on("click", ".woocommerce-Tabs-panel--msbr_reviews .page-numbers a", function (e) {
 		e.preventDefault();
 		var link = $(this).attr("href");
-		if (msbr_review.review_list_design == "default") {
-			// for default design
-			$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html(msbr_review.review_list_loading_msg); //the 'main' div is inside the 'content' div
-			$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
-		} else {
-			// for custom designs
-			$(".woocommerce-Tabs-panel--msbr_reviews .msbr-reviews-wrapper").html(msbr_review.review_list_loading_msg); //the 'main' div is inside the 'content' div
-			$(".woocommerce-Tabs-panel--msbr_reviews .msbr-reviews-wrapper").load(link + " #msbr-reviews-wrapper");
-		}
+
+		$(".woocommerce-Tabs-panel--msbr_reviews #msbr-review-list-content").html(msbr_review.review_list_loading_msg);
+		//load #msbr-review-list-content of next page
+		$(".woocommerce-Tabs-panel--msbr_reviews #msbr-review-list-content").load(link + " #msbr-review-list-content");
 	});
 
 	// ajaxify add review form

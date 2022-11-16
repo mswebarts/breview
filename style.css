@@ -4,6 +4,9 @@
 	--msbr-star-rating-color-active: #f8ac08;
 	--msbr-review-list-item-heading-color: #4a4a4a;
 }
+.woocommerce .star-rating {
+	float: none !important;
+}
 /* Add Review Modal */
 .msbr-add-review-modal,
 .msbr-show-review-modal {
