@@ -1,8 +1,8 @@
 <?php
 add_action('woocommerce_order_item_meta_end', 'msbr_add_review_form', 10, 3);
-function msbr_add_review_form($item_id, $item, $order)
-{
+function msbr_add_review_form($item_id, $item, $order) {
     global $product, $msbr_dir;
+    $templates = new MSBR_Template_Loader;
     $product_id = $item->get_product_id();
 
     // create an identifier to pass to the form
@@ -42,11 +42,22 @@ function msbr_add_review_form($item_id, $item, $order)
             if (!$comments_count) {
                 // check if order status is completed or wc-completed
                 if ((($order->get_status() == 'completed') || ($order->get_status() == 'wc-completed')) && (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received'))) {
-                    require($msbr_dir . 'templates/review-form-add-popup.php');
+                    $data = array(
+                        'item_id' => $item_id,
+                        'product_id' => $product_id,
+                        'order_identifier' => $order_identifier,
+                        'order' => $order,
+                    );
+                    $templates->set_template_data($data)->get_template_part('order/add-review-popup');
                 }
             } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
                 // if the review is submitted, show the review
-                require($msbr_dir . 'templates/review-form-show-popup.php');
+                $data = array(
+                    'item_id' => $item_id,
+                    'product_id' => $product_id,
+                    'order_identifier' => $order_identifier,
+                );
+                $templates->set_template_data($data)->get_template_part('order/show-review-popup');
             } else {
                 // leave empty so, the review form is not shown anywhere else
             }
@@ -57,11 +68,22 @@ function msbr_add_review_form($item_id, $item, $order)
         if (!$comments_count) {
             // check if order status is completed or wc-completed
             if ((($order->get_status() == 'completed') || ($order->get_status() == 'wc-completed')) && (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received'))) {
-                require($msbr_dir . 'templates/review-form-add-popup.php');
+                $data = array(
+                    'item_id' => $item_id,
+                    'product_id' => $product_id,
+                    'order_identifier' => $order_identifier,
+                    'order' => $order,
+                );
+                $templates->set_template_data($data)->get_template_part('order/add-review-popup');
             }
         } else if (is_wc_endpoint_url('view-order') || is_wc_endpoint_url('order-received')) {
             // if the review is submitted, show the review
-            require($msbr_dir . 'templates/review-form-show-popup.php');
+            $data = array(
+                'item_id' => $item_id,
+                'product_id' => $product_id,
+                'order_identifier' => $order_identifier,
+            );
+            $templates->set_template_data($data)->get_template_part('order/show-review-popup');
         } else {
             // leave empty so, the review form is not shown anywhere else
         }
@@ -77,6 +99,11 @@ function msbr_save_comment_meta_data($comment_id) {
         add_comment_meta($comment_id, 'order_identifier', $order_identifier);
     }
 
+    if ((isset($_POST['msbr_review_title'])) && ($_POST['msbr_review_title'] != '')) {
+        $title = sanitize_text_field($_POST['msbr_review_title']);
+        add_comment_meta($comment_id, 'msbr_review_title', $title);
+    }
+
     // save multi ratings
     $msbr_options = get_option('msbr_multi_rating_options');
 
@@ -87,7 +114,14 @@ function msbr_save_comment_meta_data($comment_id) {
         $enable_multi_rating = intval(0);
     }
 
-    if( $enable_multi_rating ) {
+    // check if multi rating is enabled
+    if (!empty($msbr_options['msbr_display_multi_rating_product'])) {
+        $display_multi_rating_product = intval($msbr_options['msbr_display_multi_rating_product']);
+    } else {
+        $display_multi_rating_product = intval(0);
+    }
+
+    if( $enable_multi_rating && $display_multi_rating_product ) {
         if(!empty($msbr_options['msbr_multi_rating'])) {
             $multi_ratings = $msbr_options['msbr_multi_rating'];
         } else {
@@ -105,19 +139,6 @@ function msbr_save_comment_meta_data($comment_id) {
                     $rating_sum += $msbr_multi_rating_item;
                     add_comment_meta($comment_id, 'msbr_multi_rating_item_'. $rating_id .'', $msbr_multi_rating_item);
                 }
-            }
-
-            $rating_average = $rating_sum / $total_ratings;
-            if( $rating_average >= 1) {
-                $rating_average = intval($rating_average);
-            } else if( $rating_average > 0 && $rating_average < 1) {
-                $rating_average = intval(1);
-            } else {
-                $rating_average = intval(0);
-            }
-
-            if( !empty($rating_average) ) {
-                add_comment_meta($comment_id, 'rating', $rating_average);
             }
         }
     }

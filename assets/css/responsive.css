@@ -1,0 +1,96 @@
+@media all and (max-width: 830px) {
+	.msbr-review-list-header-design-one {
+		border-top: none;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+	}
+	.msbr-review-list-header-design-one .msbr-review-list-header-left,
+	.msbr-review-list-header-design-one .msbr-review-list-header-middle,
+	.msbr-review-list-header-design-one.msbr-add-review-enabled .msbr-review-list-header-middle {
+		width: 100%;
+		padding: 0 15px;
+		margin: 5px 0 10px 0;
+	}
+	.msbr-review-list-header-design-one .msbr-review-list-header-middle,
+	.msbr-review-list-header-design-one.msbr-add-review-enabled .msbr-review-list-header-middle {
+		border-left: none;
+		border-right: none;
+	}
+	.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-left {
+		-webkit-box-ordinal-group: 1;
+		-ms-flex-order: 0;
+		order: 0;
+	}
+	.msbr-review-list-header-design-one.msbr-alt .msbr-review-list-header-middle {
+		border-right: none;
+		-webkit-box-ordinal-group: 2;
+		-ms-flex-order: 1;
+		order: 1;
+	}
+	.msbr-review-list-header-design-one .msbr-review-list-header-right {
+		-webkit-box-ordinal-group: 3;
+		-ms-flex-order: 2;
+		order: 2;
+		margin-bottom: 20px;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-right {
+		width: calc(100% - 210px);
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-list li {
+		padding: 20px 10px;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-two .msbr-review-container {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.msbr-reviews-list-two .msbr-review-left,
+	.msbr-reviews-list-two .msbr-review-right {
+		width: 100%;
+	}
+	.msbr-reviews-list-two .msbr-review-right {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.msbr-reviews-list-two .msbr-review-right .msbr-review-user,
+	.msbr-reviews-list-two .msbr-review-right .msbr-review-content {
+		width: 100%;
+	}
+	.msbr-reviews-list-two .msbr-review-right .msbr-review-user {
+		-webkit-box-ordinal-group: 2;
+		-ms-flex-order: 1;
+		order: 1;
+		margin-top: 20px;
+	}
+	.msbr-reviews-list-two .msbr-review-right .msbr-review-content {
+		-webkit-box-ordinal-group: 1;
+		-ms-flex-order: 0;
+		order: 0;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-two .msbr-review-list li {
+		padding: 15px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	.msbr-review-list-header-design-one .msbr-review-list-header-left,
+	.msbr-review-list-header-design-one .msbr-review-list-header-middle {
+		padding: 5px;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-container {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-left,
+	.msbr-reviews-wrapper.msbr-reviews-list-one .msbr-review-right {
+		width: 100%;
+	}
+	.msbr-reviews-wrapper.msbr-reviews-list-two .msbr-review-list li {
+		padding: 10px;
+	}
+}

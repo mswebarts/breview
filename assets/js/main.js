@@ -11,12 +11,116 @@
 		tooltip: msbr_review.rating_tooltip,
 	});
 
+	// initialize rating svg
+	$(".msbr-rating-svg").starRating({
+		totalStars: 5,
+		starSize: 25,
+		readOnly: true,
+		useFullStars: false,
+		emptyColor: "#E3E3E3",
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
+	$(".msbr-rating-svg-small").starRating({
+		totalStars: 5,
+		starSize: 22,
+		readOnly: true,
+		useFullStars: false,
+		emptyColor: "#E3E3E3",
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
+	$(".msbr-rating-svg-mini").starRating({
+		totalStars: 5,
+		starSize: 18,
+		readOnly: true,
+		useFullStars: false,
+		emptyColor: "#E3E3E3",
+		activeColor: "#F8AC08",
+		ratedColor: "#F8AC08",
+		useGradient: false,
+		strokeWidth: 0,
+	});
+
+	// calculate average of multi-rating
+	$(".msbr-review-form").each(function (formInd) {
+		// get the form
+		var form = $(this);
+		// get each select fields of the form
+		$count = 0;
+		form.find("select").each(function (selectInd) {
+			// get the exact value of the number of select fields
+			$count++;
+			// create an array of sum to store the total values of each form ( needed when using ajax )
+			$sumRating = [];
+
+			// create an object to store the select field values
+			var selectVals = [];
+
+			// create a multi dimensional array to store the select field values
+			/*
+				form[
+					0: [ select value, select value, select value, select value ],
+					0: [ select value, select value, select value, select value ],
+					0: [ select value, select value, select value, select value ],
+				]
+			*/
+			// assign 0 as placeholder to each form field indexes
+			for (var i = 0; i <= formInd; i++) {
+				// assign 0 as placeholder to form sumRatings
+				$sumRating[i] = 0;
+
+				// Create subArray to store the select field values
+				selectVals[i] = [];
+
+				for (var j = 0; j <= selectInd; j++) {
+					selectVals[i].push(0); // Add 0 as element to subArray
+				}
+			}
+
+			// get the current select field
+			$select = $(this);
+			// on change of the current select field
+			$select.change(function () {
+				// check if selected
+				if ($(this).val() != "") {
+					if (selectVals[formInd][selectInd] == 0) {
+						// override the placeholder select field index value with the current value
+						selectVals[formInd][selectInd] = $(this).val();
+
+						// calculate the sum of all select field values
+						$sumRating[formInd] += parseInt(selectVals[formInd][selectInd]);
+					} else {
+						// subtract the existing value first and then add the new value to the sum
+						$sumRating[formInd] -= parseInt(selectVals[formInd][selectInd]);
+						$sumRating[formInd] += parseInt($(this).val());
+						// override the select field index value with the current value
+						selectVals[formInd][selectInd] = $(this).val();
+					}
+				} else {
+					// when deselelcted a rating
+					// subtract the previous value from the sum
+					$sumRating[formInd] -= parseInt(selectVals[formInd][selectInd]);
+					// override the placeholder select field index value with the current value
+					selectVals[formInd][selectInd] = 0;
+				}
+				form.find("input[name='rating']").val($sumRating[formInd] / $count);
+			});
+		});
+	});
+
 	// ajaxify list of review pagination
 	$(document).on("click", ".woocommerce-Tabs-panel--msbr_reviews .page-numbers a", function (e) {
 		e.preventDefault();
 		var link = $(this).attr("href");
-		$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").html(msbr_review.review_list_loading_msg); //the 'main' div is inside the 'content' div
-		$(".woocommerce-Tabs-panel--msbr_reviews .woocommerce-Reviews").load(link + " #comments");
+
+		$(".woocommerce-Tabs-panel--msbr_reviews #msbr-review-list-content").html(msbr_review.review_list_loading_msg);
+		//load #msbr-review-list-content of next page
+		$(".woocommerce-Tabs-panel--msbr_reviews #msbr-review-list-content").load(link + " #msbr-review-list-content");
 	});
 
 	// ajaxify add review form
@@ -30,6 +134,11 @@
 				// The key name on the left side is the name attribute
 				// of an input field. Validation rules are defined
 				// on the right side
+				msbr_review_title: {
+					required: true,
+					minlength: msbr_review.title_min_char,
+					maxlength: msbr_review.title_max_char,
+				},
 				comment: {
 					required: true,
 					minlength: msbr_review.min_char,
