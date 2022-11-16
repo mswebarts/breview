@@ -7,6 +7,10 @@
 .woocommerce .star-rating {
 	float: none !important;
 }
+[data-star-rating] .gl-star-rating--stars[aria-label].s0:before,
+[data-star-rating] .gl-star-rating--stars[aria-label].s0:after {
+	display: none;
+}
 /* Add Review Modal */
 .msbr-add-review-modal,
 .msbr-show-review-modal {
