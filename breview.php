@@ -2,13 +2,13 @@
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
- * Version: 1.0.2
+ * Version: 1.1.0
  * Plugin URI: https://www.mswebarts.com/plugins/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Tested up to: 6.1
+ * Tested up to: 6.1.1
  * Requires at least: 6.1
  * Requires PHP: 7.4
  * Text Domain: breview
@@ -19,8 +19,11 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-global $msbr_dir, $msbr_url, $msbr_options;
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+define( 'MSBR_DIR', plugin_dir_path( __FILE__ ) );
+
+global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
 $msbr_url = plugins_url('/', __FILE__);
 $msbr_options = array();
@@ -51,27 +54,34 @@ add_action("wp_enqueue_scripts", "msbr_register_styles");
 function msbr_register_styles() {
     // register and enqueue javascript
     wp_register_script('msbr-star-rating', plugins_url('assets/js/star-rating.min.js', __FILE__), array('jquery'), '1.0', true);
+    wp_register_script('msbr-star-rating-svg', plugins_url('assets/js/jquery.star-rating-svg.min.js', __FILE__), array('jquery'), '1.0', true);
     wp_register_script('msbr-magnific-popup', plugins_url('assets/js/jquery.magnific-popup.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-pagination', plugins_url('assets/js/pagination.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-jquery-validate', plugins_url('assets/js/jquery.validate.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-script', plugins_url('assets/js/main.js', __FILE__), array('jquery'), '1.0.0', true);
 
     wp_enqueue_script('msbr-star-rating');
+    wp_enqueue_script('msbr-star-rating-svg');
     wp_enqueue_script('msbr-magnific-popup');
     wp_enqueue_script('msbr-pagination');
     wp_enqueue_script('msbr-jquery-validate');
     wp_enqueue_script('msbr-script');
 
     // pass review data to javascript
-    $msbr_options = get_option('msbr_general_options');
-    $min_char     = isset($msbr_options['msbr_review_form_min_char']) ? $msbr_options['msbr_review_form_min_char'] : 300;
-    $max_char     = isset($msbr_options['msbr_review_form_max_char']) ? $msbr_options['msbr_review_form_max_char'] : 300;
+    $msbr_options    = get_option('msbr_general_options');
+    $title_min_char  = isset($msbr_options['msbr_review_form_title_min_char']) ? $msbr_options['msbr_review_form_title_min_char'] : 10;
+    $title_max_char  = isset($msbr_options['msbr_review_form_title_max_char']) ? $msbr_options['msbr_review_form_title_max_char'] : 100;
+    $desc_min_char   = isset($msbr_options['msbr_review_form_desc_min_char']) ? $msbr_options['msbr_review_form_desc_min_char'] : 30;
+    $desc_max_char   = isset($msbr_options['msbr_review_form_desc_max_char']) ? $msbr_options['msbr_review_form_desc_max_char'] : 300;
 
     $translation_array = array(
-        'min_char'                   => esc_html($min_char),
-        'max_char'                   => esc_html($max_char),
-        'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $min_char),
-        'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $max_char),
+        'title_min_char'             => esc_html($title_min_char),
+        'title_max_char'             => esc_html($title_max_char),
+        'min_char'                   => esc_html($desc_min_char),
+        'max_char'                   => esc_html($desc_max_char),
+        'review_list_design'         => esc_html($msbr_options['msbr_review_list_design']),
+        'min_char_msg'               => wp_sprintf(__('Your review must be minimum %s characters long', 'breview'), $desc_min_char),
+        'max_char_msg'               => wp_sprintf(__('Your review must be maximum %s characters long', 'breview'), $desc_max_char),
         'review_empty_msg'           => esc_html__('Review description is required', 'breview'),
         'rating_tooltip'             => esc_html__('Select a rating', 'breview'),
         'rating_empty_msg'           => esc_html__('Rating is required', 'breview'),
@@ -84,21 +94,21 @@ function msbr_register_styles() {
 
     // register and enqueue css
     wp_register_style('msbr-star-rating', plugins_url('assets/css/star-rating.min.css', __FILE__));
+    wp_register_style('msbr-star-rating-svg', plugins_url('assets/css/star-rating-svg.css', __FILE__));
     wp_register_style('msbr-magnific-popup', plugins_url('assets/css/magnific-popup.css', __FILE__));
     wp_register_style("msbr-style", plugins_url("style.css", __FILE__));
+    wp_register_style("msbr-responsive", plugins_url("assets/css/responsive.css", __FILE__));
     wp_register_style("msbr-inline", plugins_url("assets/css/inline.css", __FILE__));
 
     wp_enqueue_style('msbr-star-rating');
+    wp_enqueue_style('msbr-star-rating-svg');
     wp_enqueue_style('msbr-magnific-popup');
     wp_enqueue_style("msbr-style");
+    wp_enqueue_style("msbr-responsive");
     wp_enqueue_style("msbr-inline");
 
     $avatar_size = $msbr_options['msbr_reviewer_avatar_size'];
     $custom_css = "
-        .woocommerce .woocommerce-Tabs-panel--msbr_reviews #reviews #comments ol.commentlist li img.avatar,
-        .msbr-show-review-modal ol.commentlist li .comment_container > img {
-                width: {$avatar_size}px;
-        }
         .woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist li .comment_container .comment-text,
         .msbr-show-review-modal ol.commentlist li .comment_container .comment-text {
             width: calc(100% - {$avatar_size}px - 10px);

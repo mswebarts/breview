@@ -7,9 +7,9 @@
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
 }
 .mswa-col-2 {
 	width: calc(50% - 10px);
@@ -32,6 +32,7 @@
 	border-radius: 5px;
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 5px;
 }
 .mswa-box {
 	padding: 20px;
@@ -62,6 +63,68 @@
 	margin-right: 5px;
 }
 
+.mswa-form-wrapper form {
+	width: 100%;
+}
+.mswa-section-wrapper .mswa-section {
+	background-color: #ffffff;
+	border: 1px solid #cdcdcd;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+}
+.mswa-section .mswa-section-heading h2 {
+	font-size: 16px !important;
+	line-height: 20px !important;
+	font-weight: 600;
+	padding: 0 !important;
+}
+/* radio buttons field */
+.mswa-radio-groups .mswa-radio-group {
+	position: relative;
+	display: inline-block;
+}
+.mswa-radio-groups input[type="radio"] {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+}
+.mswa-radio-groups label {
+	position: relative;
+	color: #3a56a6;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: 400;
+	border: 2px solid #3a56a6;
+	border-radius: 5px;
+	padding: 6px 20px 6px 30px;
+	z-index: 0;
+}
+.mswa-radio-groups label:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 2px solid #3a56a6;
+}
+.mswa-radio-groups input[type="radio"]:checked + label {
+	color: #fff;
+	background-color: #3a56a6;
+}
+.mswa-radio-groups input[type="radio"]:checked + label:before {
+	width: 12px;
+	height: 12px;
+	border: 5px solid #ffffff;
+	background-color: #3a56a6;
+}
 /*==============================
 			Repeater
 ================================*/
