@@ -27,6 +27,12 @@ $order_identifier = $data->order_identifier;
     <?php if (get_option('woocommerce_review_rating_verification_required') === 'no' || wc_customer_bought_product('', get_current_user_id(), $product_id)) : ?>
         <div class="msbr-review-form-wrapper">
             <div class="msbr-review-form">
+                <div class="msbr-review-form-heading">
+                    <h3 class="msbr-review-form-title"><?php echo esc_html_e('Give a Review', 'breview'); ?></h3>
+                    <div class="msbr-review-form-description">
+                        <?php echo esc_html_e('Provide a review and help us improve our service.', 'breview'); ?>
+                    </div>
+                </div>
                 <?php
                 $commenter    = array(
                     'comment_author'       => '',
@@ -35,7 +41,7 @@ $order_identifier = $data->order_identifier;
                 );
                 $comment_form = array(
                     /* translators: %s is product title */
-                    'title_reply'         => esc_html__('Add a review', 'breview'),
+                    'title_reply'         => esc_html__('', 'breview'),
                     /* translators: %s is product title */
                     'title_reply_to'      => esc_html__('Leave a Reply to %s', 'breview'),
                     'title_reply_before'  => '<span id="reply-title" class="comment-reply-title">',

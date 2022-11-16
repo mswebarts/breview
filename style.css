@@ -32,6 +32,47 @@
 	line-height: 25px;
 	font-size: 25px;
 }
+.msbr-add-review-modal .msbr-review-form-heading {
+	text-align: center;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+.msbr-add-review-modal .msbr-comment-form-title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.msbr-add-review-modal .msbr-comment-form-rating > label,
+.msbr-add-review-modal .msbr-comment-form-title > label,
+.msbr-add-review-modal .msbr-comment-form-comment > label {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 16px;
+	color: #404040;
+}
+.msbr-add-review-modal .comment-form input:not([type="submit"]),
+.msbr-add-review-modal .comment-form select,
+.msbr-add-review-modal .comment-form textarea {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: 1px solid #e5e5e5;
+	border-radius: 0;
+	padding: 8px 16px;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.msbr-add-review-modal .msbr-review-form-heading {
+	color: #484848;
+}
+.msbr-add-review-modal .comment-respond .comment-form label {
+	display: block;
+}
+.msbr-add-review-modal .msbr-review-form-heading .msbr-review-form-title {
+	margin-top: 0;
+	margin-bottom: 0;
+}
 
 /* review layout */
 .woocommerce .woocommerce-Tabs-panel--msbr_reviews ol.commentlist,
@@ -194,9 +235,13 @@
 .msbr-review-success {
 	display: none;
 }
-.msbr-review-form .error {
+.msbr-add-review-modal .msbr-review-form .error {
 	color: rgb(255, 0, 0);
 	width: 100%;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: 400;
+	margin-top: 5px;
 }
 
 /* Review Success */
