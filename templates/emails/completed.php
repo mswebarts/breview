@@ -39,4 +39,4 @@ $message = $mailer->wrap_message(
 );
     
 // Client email, email subject and message.
-$mailer->send( $order->billing_email, $subject, $message );
+$mailer->send( $order->get_billing_email(), $subject, $message );
