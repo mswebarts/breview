@@ -221,10 +221,7 @@
 	margin-bottom: 5px;
 }
 .msbr-review-form .comment-reply-title {
-	font-size: 26px;
-	font-weight: 700;
-	display: block;
-	margin-bottom: 16px;
+	display: none;
 }
 .msbr-review-form .msbr-comment-form-rating {
 	margin-bottom: 12px;
