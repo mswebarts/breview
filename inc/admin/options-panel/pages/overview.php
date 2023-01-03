@@ -18,6 +18,21 @@ global $msbr_url;
                 
                 <div class="inside">
                     <div class="mswa-row">
+                        <div class="mswa-col-4">
+                            <div class="mswa-box">
+                                <h3 class="msbr-column-title"><i class="dashicons-before dashicons-admin-links"></i> <?php _e("Important Links", 'breview');?> </h3>
+                                <hr>
+                                <div class="msbr-column-content">
+                                    <ul>
+                                        <li><a href="https://www.mswebarts.com/products/breview/" target="_blank"><?php _e("Plugin Homepage", 'breview');?></a></li>
+                                        <li><a href="https://www.mswebarts.com/documentation/" target="_blank"><?php _e("Documentation", 'breview');?></a></li>
+                                        <li><a href="https://www.mswebarts.com/support/" target="_blank"><?php _e("Support", 'breview');?></a></li>
+                                        <li><a href="https://www.mswebarts.com/documentation/breview/faqs/" target="_blank"><?php _e("FAQ", 'breview');?></a></li>
+                                        <li><a href="https://www.mswebarts.com/documentation/breview/changelog/" target="_blank"><?php _e("Changelog", 'breview');?></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <?php do_action( 'mswa_overview_columns' ); ?>
                     </div>
                 </div>

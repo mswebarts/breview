@@ -19,7 +19,6 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
 define( 'MSBR_DIR', plugin_dir_path( __FILE__ ) );
 
@@ -40,7 +39,7 @@ function msbr_on_plugin_load() {
     }
 
     // include plugin files
-    include_once $msbr_dir . 'inc/classes/class-msbr-lic.php';
+    require_once $msbr_dir .'inc/init.php';
 }
 
 function msbr_woocommerce_dependency_error() {
@@ -132,8 +131,46 @@ function msbr_add_menu_page() {
             $msbr_url . 'inc/admin/assets/images/icon.png',
             100
         );
+
+        // add sub menu pages
+        add_submenu_page(
+            'mswebarts-overview',
+            'Breview General Settings',
+            'Breview',
+            'manage_options',
+            'breview-settings',
+            'msbr_breview_general_settings_page'
+        );
+        
+        add_submenu_page(
+            'breview-settings',
+            'Breview Multi Star-rating Settings',
+            'Multi Star-rating',
+            'manage_options',
+            'breview-multi-rating-settings',
+            'msbr_breview_multi_rating_settings_page'
+        );
+        
+        add_submenu_page(
+            'breview-settings',
+            'Breview Style Settings',
+            'Style',
+            'manage_options',
+            'breview-style-settings',
+            'msbr_breview_style_settings_page'
+        );
+        
+        add_submenu_page(
+            'breview-settings',
+            'Breview Email Settings',
+            'Emails',
+            'manage_options',
+            'breview-email-settings',
+            'msbr_breview_email_settings_page'
+        );
     }
 }
+
 function msbr_overview_page() {
     global $msbr_dir;
     include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
@@ -155,25 +192,6 @@ function msbr_admin_js() {
     global $msbr_url;
     wp_register_script('msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array('jquery'), '1.0.0', true);
     wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater'), '1.0.0', true);
-}
-
-// check for updates
-add_action('plugins_loaded', 'msbr_plugin_update');
-function msbr_plugin_update() {
-    global $msbr_dir;
-    require $msbr_dir . 'inc/admin/plugin-update-checker/plugin-update-checker.php';
-
-    $myUpdateChecker = PucFactory::buildUpdateChecker(
-        'https://github.com/mswebarts/breview',
-        __FILE__,
-        'breview'
-    );
-    
-    //Set the branch that contains the stable release.
-    $myUpdateChecker->setBranch('release');
-    
-    //Optional: If you're using a private repository, specify the access token like this:
-    $myUpdateChecker->setAuthentication('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');
 }
 
 // load translations
