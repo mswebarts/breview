@@ -91,7 +91,7 @@ $order_identifier = $data->order_identifier;
                 }
 
                 if (wc_review_ratings_enabled()) {
-                    $comment_form['comment_field'] = '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html__('Your rating', 'breview') . (wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '') . '</label><select name="rating" id="rating" class="star-rating" required>
+                    $comment_form['comment_field'] = '<div class="msbr-comment-form-rating"><label for="rating">' . esc_html__('Your rating', 'breview') . (wc_review_ratings_required() ? '&nbsp;<span class="required">*</span>' : '') . '</label><select name="rating" id="rating" class="msbr-star-rating"' . (wc_review_ratings_required() ? 'required' : '') . '>
                             <option value="">' . esc_html__('Rate&hellip;', 'breview') . '</option>
                             <option value="5">' . esc_html__('Perfect', 'breview') . '</option>
                             <option value="4">' . esc_html__('Good', 'breview') . '</option>
