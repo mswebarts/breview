@@ -1,7 +1,7 @@
 === Breview ===
 Contributors: mswebarts, msshohan
-Tags:  better, review, order, woocommerce
-Requires at least: 6.1
+Tags:  breview, better, review, order, woocommerce, marketplace
+Requires at least: 5.5
 Tested up to: 6.1.1
 Requires PHP: 7.4
 Stable tag: 1.1.0
