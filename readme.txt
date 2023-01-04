@@ -96,6 +96,15 @@ The plugin gets updated automatically. The plugin should run the updater in 12 h
 
 If you have purchased the pro version, you will not need to use the free version. Above WP 5.6, you can simply upload the pro version and it will give you the option to replace the free version if already installed. If your WP version is older, please deactivate the free version first and then install the pro version.
 
+== Screenshots ==
+
+1. Add review in order page
+2. Add review popup in order page
+3. Breview Settings page
+4. Review header designs ( Pro )
+5. Review list designs ( Pro )
+6. Multi-criteria ratings ( Pro )
+
 == Changelog ==
 = Version 1.1.0 ( Major Update ) =
 * Added the option to display single rating only when multi-rating is enabled
