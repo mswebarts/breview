@@ -49,7 +49,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 * The msbr_review_rating hook.
 				 *
 				 * @hooked msbr_review_design_two_rating_header - 5
-				 * @hooked msbr_review_display_rating - 10
 				 * @hooked msbr_review_design_single_star_rating - 10
 				 */
 				do_action( 'msbr_review_rating', $comment );

@@ -104,45 +104,6 @@ function msbr_save_comment_meta_data($comment_id) {
         add_comment_meta($comment_id, 'msbr_review_title', $title);
     }
 
-    // save multi ratings
-    $msbr_options = get_option('msbr_multi_rating_options');
-
-    // check if multi rating is enabled
-    if (!empty($msbr_options['msbr_enable_multi_rating'])) {
-        $enable_multi_rating = intval($msbr_options['msbr_enable_multi_rating']);
-    } else {
-        $enable_multi_rating = intval(0);
-    }
-
-    // check if multi rating is enabled
-    if (!empty($msbr_options['msbr_display_multi_rating_product'])) {
-        $display_multi_rating_product = intval($msbr_options['msbr_display_multi_rating_product']);
-    } else {
-        $display_multi_rating_product = intval(0);
-    }
-
-    if( $enable_multi_rating && $display_multi_rating_product ) {
-        if(!empty($msbr_options['msbr_multi_rating'])) {
-            $multi_ratings = $msbr_options['msbr_multi_rating'];
-        } else {
-            $multi_ratings = [];
-        }
-        $rating_sum = 0;
-        $total_ratings = count($multi_ratings);
-    
-        if($total_ratings > 0) {
-            foreach ($multi_ratings as $rating) {
-                $rating_id = $rating['msbr_multi_rating_id'];
-                
-                if ((isset($_POST['msbr_multi_rating_item_'. $rating_id .''])) && ($_POST['msbr_multi_rating_item_'. $rating_id .''] != '')) {
-                    $msbr_multi_rating_item = wp_filter_nohtml_kses($_POST['msbr_multi_rating_item_'. $rating_id .'']);
-                    $rating_sum += $msbr_multi_rating_item;
-                    add_comment_meta($comment_id, 'msbr_multi_rating_item_'. $rating_id .'', $msbr_multi_rating_item);
-                }
-            }
-        }
-    }
-
     // set review status based on setting
 
     if( get_option('msbr_auto_approve_reviews') ) {
