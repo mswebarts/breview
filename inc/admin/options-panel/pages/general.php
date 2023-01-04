@@ -168,14 +168,14 @@ $review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 															<?php echo esc_html_e( 'Theme Specific', 'breview' ); ?>
 														</label>
 													</span>
-													<span class="mswa-radio-group">
-														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('one'); ?>" <?php echo esc_attr( $review_header_one_checked ); ?>/>
+													<span class="mswa-radio-group msbr-upgrade">
+														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('default'); ?>" <?php echo esc_attr( $review_header_one_checked ); ?> disabled/>
 														<label for="one">
 															<?php echo esc_html_e( 'Design One', 'breview' ); ?>
 														</label>
 													</span>
-													<span class="mswa-radio-group">
-														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('one-alt'); ?>" <?php echo esc_attr( $review_header_one_alt_checked ); ?>/>
+													<span class="mswa-radio-group msbr-upgrade">
+														<input name="msbr_review_list_header_design" type="radio" value="<?php echo esc_attr('default'); ?>" <?php echo esc_attr( $review_header_one_alt_checked ); ?> disabled/>
 														<label for="one-alt">
 															<?php echo esc_html_e( 'Design One Alt', 'breview' ); ?>
 														</label>
@@ -203,14 +203,14 @@ $review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 															<?php echo esc_html_e( 'Theme Specific', 'breview' ); ?>
 														</label>
 													</span>
-													<span class="mswa-radio-group">
-														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('one'); ?>" <?php echo esc_attr( $review_list_one_checked ); ?>/>
+													<span class="mswa-radio-group msbr-upgrade">
+														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('default'); ?>" <?php echo esc_attr( $review_list_one_checked ); ?> disabled/>
 														<label for="one">
 															<?php echo esc_html_e( 'Design One', 'breview' ); ?>
 														</label>
 													</span>
-													<span class="mswa-radio-group">
-														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('two'); ?>" <?php echo esc_attr( $review_list_two_checked ); ?>/>
+													<span class="mswa-radio-group msbr-upgrade">
+														<input name="msbr_review_list_design" type="radio" value="<?php echo esc_attr('default'); ?>" <?php echo esc_attr( $review_list_two_checked ); ?> disabled/>
 														<label for="two">
 															<?php echo esc_html_e( 'Design Two', 'breview' ); ?>
 														</label>
@@ -275,3 +275,5 @@ $review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 	<!-- #poststuff -->
 
 </div> <!-- .wrap -->
+
+<?php wp_enqueue_script( 'msbr-admin-script' ); ?>

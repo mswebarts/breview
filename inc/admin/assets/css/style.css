@@ -282,6 +282,17 @@
 	height: 20px;
 }
 
+/* free version */
+.msbr-upgrade {
+	opacity: 0.6;
+}
+.mswa-radio-group.msbr-upgrade label {
+	z-index: 2;
+}
+.mswa-radio-group.msbr-upgrade input {
+	z-index: 1;
+}
+
 @media all and (max-width: 768px) {
 	.mswa-col-2,
 	.mswa-col-3,
