@@ -50,11 +50,11 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                         </th>
                                         </label>
                                         <td>
-                                            <fieldset>
+                                            <fieldset class="msbr-upgrade">
                                                 <legend class="screen-reader-text">
                                                     <span><?php esc_html_e('Enable Multi Rating', 'breview'); ?></span>
                                                 </legend>
-                                                <input name="msbr_enable_multi_rating" type="checkbox" id="msbr_enable_multi_rating" value="<?php echo esc_attr('1'); ?>" <?php echo esc_attr($enable_multi_rating); ?> />
+                                                <span class="msbr-checkbox-unchecked"></span>
                                                 <span><?php esc_html_e('Checkmark to enable the configured multiple ratings in WooCommerce. Customers will be able to submit these ratings when enabled.', 'breview'); ?></span>
                                             </fieldset>
                                         </td>
@@ -79,17 +79,14 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                         foreach ($multi_ratings as $rating) {
                                                             //var_dump($rating);
                                                     ?>
-                                                            <div data-repeater-item>
+                                                            <div data-repeater-item class="msbr-upgrade">
                                                                 <div class="msbr-repeater-field-item-container">
                                                                     <label for="msbr_multi_rating_label">
                                                                         <h4 class="msbr-label-heading">
                                                                             <?php esc_html_e('Unique ID', 'breview'); ?>
                                                                         </h4>
                                                                     </label>
-                                                                    <input type="text" class="msbr-multi-rating-id-input" name="msbr_multi_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_multi_rating_id']); ?>" required />
-                                                                    <div class="msbr-field-description">
-                                                                        <?php esc_html_e('This is a unique ID for this rating.', 'breview'); ?>
-                                                                    </div>
+                                                                    <input type="text" class="msbr-multi-rating-id-input" name="msbr_multi_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_multi_rating_id']); ?>" disabled />
                                                                 </div>
 
                                                                 <div class="msbr-repeater-field-item-container">
@@ -98,10 +95,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                                             <?php esc_html_e('Rating Label', 'breview'); ?>
                                                                         </h4>
                                                                     </label>
-                                                                    <input type="text" class="msbr-multi-rating-name-input" name="msbr_multi_rating_name" placeholder="Add a name for the rating" value="<?php echo esc_attr( $rating['msbr_multi_rating_name'] ); ?>" required />
-                                                                    <div class="msbr-field-description">
-                                                                        <?php esc_html_e('Add a label/name to the rating.', 'breview'); ?>
-                                                                    </div>
+                                                                    <input type="text" class="msbr-multi-rating-name-input" name="msbr_multi_rating_name" placeholder="Add a label/name for the rating" value="<?php echo esc_attr( $rating['msbr_multi_rating_name'] ); ?>" disabled />
                                                                 </div>
 
                                                                 <input data-repeater-delete type="button" value="Delete" />
@@ -110,7 +104,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                         }
                                                     } else {
                                                         ?>
-                                                        <div data-repeater-item>
+                                                        <div data-repeater-item class="msbr-upgrade">
                                                             <input type="text" name="msbr_multi_rating_id" placeholder="Add an unique ID for the rating" value="" />
                                                             <input type="text" name="msbr_multi_rating_name" placeholder="Add a name for the rating" value="" />
                                                             <input data-repeater-delete type="button" value="Delete" />
@@ -119,7 +113,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                     }
                                                     ?>
                                                 </div>
-                                                <input data-repeater-create type="button" value="Add a Rating Criteria" />
+                                                <input class="msbr-data-repeater-create msbr-upgrade" type="button" value="Add a Rating Criteria" />
 
                                             </fieldset>
                                         </td>

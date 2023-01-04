@@ -1,7 +1,7 @@
 (function ($) {
 	// do something
 	$(".msbr-repeater").repeater({
-		initEmpty: true,
+		initEmpty: false,
 		show: function () {
 			$(this).slideDown();
 		},
@@ -10,7 +10,7 @@
 				$(this).slideUp(deleteElement);
 			}
 		},
-		isFirstItemUndeletable: false,
+		isFirstItemUndeletable: true,
 	});
 
 	$(".msbr-upgrade").on("click", function (e) {

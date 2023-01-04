@@ -153,7 +153,7 @@
 	color: #f5f5f5;
 	cursor: pointer;
 }
-.msbr-repeater [data-repeater-create] {
+.msbr-repeater .msbr-data-repeater-create {
 	width: auto;
 	background-color: rgb(11, 126, 11);
 	border: none;
@@ -291,6 +291,15 @@
 }
 .mswa-radio-group.msbr-upgrade input {
 	z-index: 1;
+}
+.msbr-checkbox-unchecked {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #d3d3d3;
+	border-radius: 3px;
+	margin-bottom: -3px;
+	cursor: pointer;
 }
 
 @media all and (max-width: 768px) {
