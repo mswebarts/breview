@@ -8,15 +8,51 @@ Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Better review system for WooCommerce. The way reviews should be handled in every WooCommerce websites.
+Marketplace type review workflow for WooCommerce. The way reviews should be handled in every WooCommerce websites.
 
 == Description ==
 
+Enhance your WooCommerce website review collection workflow by accepting reviews for products from the order page after completion similar to marketplaces like Amazon, eBay and AliExpress. Breview has mastered the review collection workflow that was missing in WooCommerce from the beginning but not ANYMORE!
+
 Wouldn’t it be awesome if the WooCommerce review system worked like other traditional e-commerce websites? Traditionally, e-commerce websites let customers place an order and the seller delivers the product. Once the order is completed, customers can leave a product review right from the order page.
 
-This makes sure only customers who have purchased the product can provide a review. But unfortunately, WooCommerce review doesn’t work this way.
+This makes sure only customers who have purchased the product can provide a review to the products only once for a purchase. But unfortunately, WooCommerce review doesn’t work this way. The default WC review system is more of a comment form with rating than an actual review system. With Breview, we have remastered the review workflow as it should be in every WooCommerce websites.
 
-The plugin is full of very useful features like easy to configure cultiple criteria Ratings, review moderation, ajax review submission, Dokan multi-vendor Compatibility, Email Reminder and many more. We always keep updating the plugin and adding new features. We have some really cool feautures in queue in our development list. So, stay tuned for new updates.
+### Free Features
+
+1. Remastered workflow
+2. Review form in order page after order completion
+3. Ajax form submission
+4. Ajax pagination for reviews
+5. Review moderation
+6. Email reminder for completed orders
+7. Override-able templated structure
+8. Review submission form validation settings
+9. Automatic style adapt based on theme
+10. Dokan multi-vendor compatible
+
+### Pro Features
+
+1. Ability to add review title
+2. Multiple custom review list header design
+3. Multiple custom review design
+4. Multi-criteria rating
+5. Attaching images to reviews ( Upcoming )
+6. Ability to filter reviews ( Upcoming )
+7. More header and list designs ( Upcoming )
+8. Style customization ( Upcoming )
+
+### Documentation and Support
+
+- For documentation and tutorials go to our [Documentation](https://www.mswebarts.com/docs-category/breview/). 
+- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/breview).
+- For more information about features, FAQs and documentation, check out our website at [Breview - Better Review System for WooCommerce](https://www.mswebarts.com/products/breview/).
+
+### Happy User of Essential Addons?
+
+- Like our [Facebook Page](https://www.facebook.com/mswebarts).
+- Learn from our tutorials on [Youtube Channel](https://www.youtube.com/@mswebarts).
+- Or rate us on [WordPress](https://wordpress.org/support/plugin/breview/reviews/?rate=5#new-post) :)
 
 
 == Installation ==
@@ -31,7 +67,7 @@ This section describes how to install the plugin and get it working.
 4. Upload the downloaded plugin zip file
 5. Then activate it.
 
-Once the plugin is activated, you will find a new admin menu named MS Web Arts in your Wordpress dashboard. Go to that menu. You will see that it's asking for a license code. Copy the license code that you got after purchasing Breview and pase it in the License code field. After the successful activation, a new submenu named Breview will appear below MS Web Arts. You can control all the settings of the plugin from that page.
+Once the plugin is activated, go to MS Web Arts -> Breview from the admin menu. You can control all the settings of the plugin from this page.
 
 Pro Tip: If you see any PHP warning in your site's frontend, just go to MS Web Arts -> Breview and click on the Save Settings button.
 
@@ -48,10 +84,6 @@ Hope the installation process was as smooth as the plugin works!
 
 == Frequently Asked Questions ==
 
-= I have activated the plugin on localhost and reached the license limit. What should I do? =
-
-All of our plans give you access to at least 2 domains. Even if you activate the plugin in localhost, you will be able to activate the same license key on the live site as well. Or you can simply deactivate the license key from the localhost and then use the key in the live site.
-
 = How to remove PHP warnings in the review tab? =
 
 The review tab may display a warning after you activate the plugin and the license. You just need to go to your WordPress site’s admin panel -> MS Web Arts -> Breview and then just click on the Save Settings button. This will save the settings in the database and the warnings will go away.
@@ -59,6 +91,10 @@ The review tab may display a warning after you activate the plugin and the licen
 = How can I update the plugin? =
 
 The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
+
+= Do I need to use free and pro version both? =
+
+If you have purchased the pro version, you will not need to use the free version. Above WP 5.6, you can simply upload the pro version and it will give you the option to replace the free version if already installed. If your WP version is older, please deactivate the free version first and then install the pro version.
 
 == Changelog ==
 = Version 1.1.0 ( Major Update ) =
