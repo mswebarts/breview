@@ -232,7 +232,7 @@ $review_list_two_checked		   = $review_list_design == 'two' ? 'checked' : '';
 													<span><?php esc_html_e( 'Display Add Review Form', 'breview' ); ?></span>
 												</legend>
 												<input name="msbr_display_add_review_product" type="checkbox" id="msbr_display_add_review_product" value="<?php echo esc_attr( '1' ); ?>" <?php echo esc_attr( $add_review_check ); ?> />
-												<span><?php esc_html_e( 'Check to display the Add Review form in product pages. Not compatible with multi-rating yet.', 'breview' ); ?></span>
+												<span><?php esc_html_e( 'Check to display the Add Review form in product pages.', 'breview' ); ?></span>
 											</fieldset>
 										</td>
 									</tr>
