@@ -41,6 +41,9 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+.msbr-comment-form-rating p.stars {
+	display: none;
+}
 .msbr-add-review-modal .msbr-comment-form-rating > label,
 .msbr-add-review-modal .msbr-comment-form-title > label,
 .msbr-add-review-modal .msbr-comment-form-comment > label {
