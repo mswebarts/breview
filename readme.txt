@@ -31,7 +31,7 @@ This makes sure only customers who have purchased the product can provide a revi
 9. Automatic style adapt based on theme
 10. Dokan multi-vendor compatible
 
-### Pro Features
+### [Upgarde to Pro](https://www.mswebarts.com/products/breview/)
 
 1. Ability to add review title
 2. Multiple custom review list header design
