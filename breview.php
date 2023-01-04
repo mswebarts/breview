@@ -184,14 +184,18 @@ function msbr_overview_sidebar() {
 // add admin styles and js
 add_action('admin_enqueue_scripts', 'msbr_admin_styles');
 function msbr_admin_styles() {
-    wp_register_style("msbr-admin-style", plugins_url("inc/admin/assets/css/style.css", __FILE__));
+    global $msbr_url;
+    wp_register_style('msbr-sweetalert2', $msbr_url . 'inc/admin/assets/css/sweetalert2.min.css');
+    wp_register_style("msbr-admin-style", $msbr_url . 'inc/admin/assets/css/style.css' );
+    wp_enqueue_style("msbr-sweetalert2");
     wp_enqueue_style("msbr-admin-style");
 }
 add_action('admin_enqueue_scripts', 'msbr_admin_js');
 function msbr_admin_js() {
     global $msbr_url;
     wp_register_script('msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array('jquery'), '1.0.0', true);
-    wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater'), '1.0.0', true);
+    wp_register_script( 'msbr-sweetalert2', $msbr_url . 'inc/admin/assets/js/sweetalert2.all.min.js', array('jquery'), '1.0.0', true);
+    wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater', 'msbr-sweetalert2' ), '1.0.0', true);
 }
 
 // load translations
