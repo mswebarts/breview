@@ -34,10 +34,10 @@ function msbr_product_new_review_tab_content() {
     $msbr_review_list_design         = $msbr_options['msbr_review_list_design'];
     $templates                       = new MSBR_Template_Loader;
   
-    $msbr_review_list_id             = $msbr_review_list_design == 'default' ? 'reviews' : 'msbr-reviews-wrapper';
-    $msbr_review_list_class          = $msbr_review_list_design == 'default' ? 'woocommerce-Reviews' : 'msbr-reviews-wrapper';
+    $msbr_review_list_id             = 'reviews';
+    $msbr_review_list_class          = 'woocommerce-Reviews';
     $msbr_review_list_class         .= ' msbr-reviews-list-' . $msbr_review_list_design;
-    $msbr_review_list_comment_class  = $msbr_review_list_design == 'default' ? 'comments' : 'msbr-reviews';
+    $msbr_review_list_comment_class  = 'comments';
 
     ?>
     <div id="<?php echo esc_attr($msbr_review_list_id); ?>" class="<?php echo esc_attr($msbr_review_list_class); ?>">
@@ -68,7 +68,7 @@ function msbr_product_new_review_tab_content() {
                     'comments' => $comments,
                     'product' => $product,
                 );
-                $templates->set_template_data($data)->get_template_part( 'product/review-design', $msbr_review_list_design );
+                $templates->set_template_data($data)->get_template_part( 'product/review-design', 'default' );
             ?>
         </div>
 
