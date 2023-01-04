@@ -42,7 +42,6 @@ function msbr_product_new_review_tab_content() {
     ?>
     <div id="<?php echo esc_attr($msbr_review_list_id); ?>" class="<?php echo esc_attr($msbr_review_list_class); ?>">
         <div id="<?php echo esc_attr($msbr_review_list_comment_class); ?>">
-            <?php if( $msbr_header_design == "default" ) { ?>
             <h2 class="woocommerce-Reviews-title">
                 <?php
                 $count = $product->get_review_count();
@@ -55,14 +54,6 @@ function msbr_product_new_review_tab_content() {
                 }
                 ?>
             </h2>
-            <?php } else {
-                // load the template for the header design
-                $data = array(
-                    'product' => $product,
-                );
-                $templates->set_template_data($data)->get_template_part( 'header/header', $msbr_header_design );
-            }
-            ?>
             
             <?php
                 $comments = get_comments(
