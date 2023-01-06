@@ -4,7 +4,7 @@ function msbr_breview_general_settings_page() {
 
     // check if form submitted
     if (isset($_POST['msbr_general_form_submitted'])) {
-        $submitted = $_POST['msbr_general_form_submitted'];
+        $submitted = sanitize_text_field( $_POST['msbr_general_form_submitted'] );
 
         // if submitted is set to Y
         if ($submitted == 'Y') {
@@ -153,7 +153,7 @@ function msbr_breview_email_settings_page() {
     global $msbr_dir;
 
     if (isset($_POST['msbr_email_form_submitted'])) {
-        $submitted = $_POST['msbr_email_form_submitted'];
+        $submitted = sanitize_text_field( $_POST['msbr_email_form_submitted'] );
 
         // if submitted is set to Y
         if ($submitted == 'Y') {
@@ -187,7 +187,7 @@ function msbr_breview_multi_rating_settings_page() {
     global $msbr_dir;
 
     if (isset($_POST['msbr_multi_rating_form_submitted'])) {
-        $submitted = $_POST['msbr_multi_rating_form_submitted'];
+        $submitted = sanitize_text_field( $_POST['msbr_multi_rating_form_submitted'] );
 
         // if submitted is set to Y
         if ($submitted == 'Y') {
@@ -200,7 +200,7 @@ function msbr_breview_multi_rating_settings_page() {
 
             // save multi rating ids
             if (isset($_POST['msbr_multi_rating'])) {
-                $multi_ratings = $_POST['msbr_multi_rating'];
+                $multi_ratings = sanitize_text_field( $_POST['msbr_multi_rating'] );
             }
 
             // sanitize the array
