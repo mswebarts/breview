@@ -186,58 +186,12 @@ function msbr_breview_email_settings_page() {
 function msbr_breview_multi_rating_settings_page() {
     global $msbr_dir;
 
-    if (isset($_POST['msbr_multi_rating_form_submitted'])) {
-        $submitted = sanitize_text_field( $_POST['msbr_multi_rating_form_submitted'] );
-
-        // if submitted is set to Y
-        if ($submitted == 'Y') {
-            // save enable multi rating
-            if (isset($_POST['msbr_enable_multi_rating'])) {
-                $enable_multi_rating = intval($_POST['msbr_enable_multi_rating']);
-            } else {
-                $enable_multi_rating = intval(0);
-            }
-
-            // save multi rating ids
-            if (isset($_POST['msbr_multi_rating'])) {
-                $multi_ratings = sanitize_text_field( $_POST['msbr_multi_rating'] );
-            }
-
-            // sanitize the array
-            foreach( $multi_ratings as $rating ){
-                $rating_id = sanitize_text_field( stripslashes( $rating['msbr_multi_rating_id'] ) );
-                $rating_name = sanitize_text_field( stripslashes( $rating['msbr_multi_rating_name'] ) );
-
-                $multi_ratings_new[] = array(
-                    'msbr_multi_rating_id' => $rating_id,
-                    'msbr_multi_rating_name' => $rating_name
-                );
-            }
-
-            // assign value to array
-            $msbr_options['msbr_enable_multi_rating']          = $enable_multi_rating;
-            // only add the sanitized fields
-            $msbr_options['msbr_multi_rating']                 = $multi_ratings_new;
-
-            // save options
-            update_option('msbr_multi_rating_options', $msbr_options);
-        }
-    }
-
     // retrieve the options to use in multi-rating.php
     $msbr_options            = get_option('msbr_multi_rating_options');
 
-    if (!empty($msbr_options['msbr_enable_multi_rating'])) {
-        $enable_multi_rating = intval($msbr_options['msbr_enable_multi_rating']);
-    } else {
-        $enable_multi_rating = intval(0);
-    }
+    $enable_multi_rating = intval(0);
 
-    if (!empty($msbr_options['msbr_multi_rating'])) {
-        $multi_ratings = $msbr_options['msbr_multi_rating'];
-    } else {
-        $multi_ratings = [];
-    }
+    $multi_ratings = [];
 
     include_once $msbr_dir . 'inc/admin/options-panel/pages/multi-rating.php';
 }
