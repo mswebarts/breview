@@ -77,7 +77,7 @@
 	}
 }
 
-@media all and (max-width: 479px) {
+@media all and (max-width: 570px) {
 	.msbr-review-list-header-design-one .msbr-review-list-header-left,
 	.msbr-review-list-header-design-one .msbr-review-list-header-middle {
 		padding: 5px;
@@ -92,5 +92,8 @@
 	}
 	.msbr-reviews-wrapper.msbr-reviews-list-two .msbr-review-list li {
 		padding: 10px;
+	}
+	.msbr-modal {
+		width: calc(100% - 20px);
 	}
 }
