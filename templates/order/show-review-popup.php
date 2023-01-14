@@ -30,11 +30,15 @@ $msbr_review_list_class         .= ' msbr-reviews-list-' . $msbr_review_list_des
 $msbr_review_list_comment_class  = $msbr_review_list_design == 'default' ? 'comments' : 'msbr-reviews';
 ?>
 <div class="msbr-show-review">
-    <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-show-review-modal">
+    <a href="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="btn button msbr-open-show-review-modal" data-izimodal-open="#msbr-show-review-<?php echo esc_attr( $item_id ); ?>" data-izimodal-transitionin="fadeInDown">
         <?php echo esc_html_e( 'Show Review', 'breview' ); ?>
     </a>
 </div>
-<div id="msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-show-review-modal mfp-hide">
+<div id="msbr-show-review-<?php echo esc_attr( $item_id ); ?>" class="msbr-show-review-modal msbr-modal">
+    <!-- modal close -->
+    <span class="msbr-modal-close" data-izimodal-close>
+        <span class="dashicons dashicons-no-alt"></span>
+    </span>
     <div id="<?php echo esc_attr($msbr_review_list_id); ?>" class="<?php echo esc_attr($msbr_review_list_class); ?>">
         <div id="<?php echo esc_attr($msbr_review_list_comment_class); ?>">
             <?php

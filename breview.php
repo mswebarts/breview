@@ -54,14 +54,14 @@ function msbr_register_styles() {
     // register and enqueue javascript
     wp_register_script('msbr-star-rating', plugins_url('assets/js/star-rating.min.js', __FILE__), array('jquery'), '1.0', true);
     wp_register_script('msbr-star-rating-svg', plugins_url('assets/js/jquery.star-rating-svg.min.js', __FILE__), array('jquery'), '1.0', true);
-    wp_register_script('msbr-magnific-popup', plugins_url('assets/js/jquery.magnific-popup.min.js', __FILE__), array('jquery'), '1.0.0', true);
+    wp_register_script('msbr-iziModal', plugins_url('assets/js/iziModal.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-pagination', plugins_url('assets/js/pagination.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-jquery-validate', plugins_url('assets/js/jquery.validate.min.js', __FILE__), array('jquery'), '1.0.0', true);
     wp_register_script('msbr-script', plugins_url('assets/js/main.js', __FILE__), array('jquery'), '1.0.0', true);
 
     wp_enqueue_script('msbr-star-rating');
     wp_enqueue_script('msbr-star-rating-svg');
-    wp_enqueue_script('msbr-magnific-popup');
+    wp_enqueue_script('msbr-iziModal');
     wp_enqueue_script('msbr-pagination');
     wp_enqueue_script('msbr-jquery-validate');
     wp_enqueue_script('msbr-script');
@@ -94,14 +94,14 @@ function msbr_register_styles() {
     // register and enqueue css
     wp_register_style('msbr-star-rating', plugins_url('assets/css/star-rating.min.css', __FILE__));
     wp_register_style('msbr-star-rating-svg', plugins_url('assets/css/star-rating-svg.css', __FILE__));
-    wp_register_style('msbr-magnific-popup', plugins_url('assets/css/magnific-popup.css', __FILE__));
+    wp_register_style("msbr-iziModal", plugins_url("assets/css/iziModal.min.css", __FILE__));
     wp_register_style("msbr-style", plugins_url("style.css", __FILE__));
     wp_register_style("msbr-responsive", plugins_url("assets/css/responsive.css", __FILE__));
     wp_register_style("msbr-inline", plugins_url("assets/css/inline.css", __FILE__));
 
     wp_enqueue_style('msbr-star-rating');
     wp_enqueue_style('msbr-star-rating-svg');
-    wp_enqueue_style('msbr-magnific-popup');
+    wp_enqueue_style("msbr-iziModal");
     wp_enqueue_style("msbr-style");
     wp_enqueue_style("msbr-responsive");
     wp_enqueue_style("msbr-inline");

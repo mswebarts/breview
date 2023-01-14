@@ -1,8 +1,12 @@
 (function ($) {
-	// initialize magnific popup
-	$(".msbr-open-add-review-modal, .msbr-open-show-review-modal").magnificPopup({
-		type: "inline",
-		midClick: true, // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	// initialize iziModal
+	$(".msbr-modal").iziModal({
+		focusInput: false,
+		closeButton: true,
+	});
+
+	$(".msbr-modal-close").iziModal("close", {
+		transition: "bounceOutDown", // Here transitionOut is the same property.
 	});
 
 	// initialize rating

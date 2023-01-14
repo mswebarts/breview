@@ -19,11 +19,15 @@ $order_identifier = $data->order_identifier;
 ?>
 
 <div class="msbr-add-review">
-    <a href="#msbr-add-review-<?php echo esc_attr($item_id); ?>" class="btn button msbr-open-add-review-modal">
+    <a href="#msbr-add-review-<?php echo esc_attr($item_id); ?>" class="btn button msbr-open-add-review-modal" data-izimodal-open="#msbr-add-review-<?php echo esc_attr($item_id); ?>" data-izimodal-transitionin="fadeInDown">
         <?php echo esc_html_e('Add Review', 'breview'); ?>
     </a>
 </div>
-<div id="msbr-add-review-<?php echo esc_attr($item_id); ?>" class="msbr-add-review-modal mfp-hide">
+<div id="msbr-add-review-<?php echo esc_attr($item_id); ?>" class="msbr-add-review-modal msbr-modal">
+    <!-- modal close -->
+    <span class="msbr-modal-close" data-izimodal-close>
+        <span class="dashicons dashicons-no-alt"></span>
+    </span>
     <?php if (get_option('woocommerce_review_rating_verification_required') === 'no' || wc_customer_bought_product('', get_current_user_id(), $product_id)) : ?>
         <div class="msbr-review-form-wrapper">
             <div class="msbr-review-form">
