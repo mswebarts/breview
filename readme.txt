@@ -1,4 +1,4 @@
-=== Breview ===
+=== Breview - Better Review System for WooCommerce ===
 Contributors: mswebarts, msshohan
 Tags:  breview, better, review, order, woocommerce, marketplace
 Requires at least: 5.5
