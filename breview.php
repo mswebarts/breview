@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
@@ -20,7 +21,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define( 'MSBR_DIR', plugin_dir_path( __FILE__ ) );
+define('MSBR_DIR', plugin_dir_path(__FILE__));
+define('BREVIEW_PACKAGE', 'FREE');
 
 global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
@@ -38,13 +40,25 @@ function msbr_on_plugin_load() {
         return;
     }
 
+    if (BREVIEW_PACKAGE == 'PRO') {
+        add_action('admin_notices', 'msbr_pro_package_already_installed');
+        return;
+    }
+
     // include plugin files
-    require_once $msbr_dir .'inc/init.php';
+    require_once $msbr_dir . 'inc/init.php';
 }
 
 function msbr_woocommerce_dependency_error() {
     $class = 'notice notice-error';
     $message = __('You must need to install and activate woocommerce for Breview to work', 'breview');
+
+    printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
+}
+
+function msbr_pro_package_already_installed() {
+    $class = 'notice notice-error';
+    $message = __('You have the Breview Pro version already installed. You don\'t need the free version. You can safely deactivate and remove it.', 'breview');
 
     printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
 }
@@ -141,7 +155,7 @@ function msbr_add_menu_page() {
             'breview-settings',
             'msbr_breview_general_settings_page'
         );
-        
+
         add_submenu_page(
             'breview-settings',
             'Breview Multi Star-rating Settings',
@@ -150,7 +164,7 @@ function msbr_add_menu_page() {
             'breview-multi-rating-settings',
             'msbr_breview_multi_rating_settings_page'
         );
-        
+
         add_submenu_page(
             'breview-settings',
             'Breview Style Settings',
@@ -159,7 +173,7 @@ function msbr_add_menu_page() {
             'breview-style-settings',
             'msbr_breview_style_settings_page'
         );
-        
+
         add_submenu_page(
             'breview-settings',
             'Breview Email Settings',
@@ -186,7 +200,7 @@ add_action('admin_enqueue_scripts', 'msbr_admin_styles');
 function msbr_admin_styles() {
     global $msbr_url;
     wp_register_style('msbr-sweetalert2', $msbr_url . 'inc/admin/assets/css/sweetalert2.min.css');
-    wp_register_style("msbr-admin-style", $msbr_url . 'inc/admin/assets/css/style.css' );
+    wp_register_style("msbr-admin-style", $msbr_url . 'inc/admin/assets/css/style.css');
     wp_enqueue_style("msbr-sweetalert2");
     wp_enqueue_style("msbr-admin-style");
 }
@@ -194,8 +208,8 @@ add_action('admin_enqueue_scripts', 'msbr_admin_js');
 function msbr_admin_js() {
     global $msbr_url;
     wp_register_script('msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array('jquery'), '1.0.0', true);
-    wp_register_script( 'msbr-sweetalert2', $msbr_url . 'inc/admin/assets/js/sweetalert2.all.min.js', array('jquery'), '1.0.0', true);
-    wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater', 'msbr-sweetalert2' ), '1.0.0', true);
+    wp_register_script('msbr-sweetalert2', $msbr_url . 'inc/admin/assets/js/sweetalert2.all.min.js', array('jquery'), '1.0.0', true);
+    wp_register_script('msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array('jquery', 'msbr-jquery-repeater', 'msbr-sweetalert2'), '1.0.0', true);
 }
 
 // load translations
