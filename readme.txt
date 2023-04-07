@@ -48,7 +48,7 @@ This makes sure only customers who have purchased the product can provide a revi
 - If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/breview).
 - For more information about features, FAQs and documentation, check out our website at [Breview - Better Review System for WooCommerce](https://www.mswebarts.com/products/breview/).
 
-### Happy User of Essential Addons?
+### Happy User of Breview?
 
 - Like our [Facebook Page](https://www.facebook.com/mswebarts).
 - Learn from our tutorials on [Youtube Channel](https://www.youtube.com/@mswebarts).
@@ -106,6 +106,8 @@ If you have purchased the pro version, you will not need to use the free version
 6. Multi-criteria ratings ( Pro )
 
 == Changelog ==
+= Version 1.1.1 =
+* WordPress 6.2 Compatibility
 = Version 1.1.0 ( Major Update ) =
 * Added the option to display single rating only when multi-rating is enabled
 * Introduced Template Structure
