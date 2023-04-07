@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Breview - Better Review System for WooCommerce
  * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
@@ -8,7 +9,7 @@
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Tested up to: 6.2.0
+ * Tested up to: 6.2
  * Requires at least: 5.5
  * Requires PHP: 7.4
  * Text Domain: breview
