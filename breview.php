@@ -22,7 +22,6 @@ if (!defined('ABSPATH')) {
 }
 
 define('MSBR_DIR', plugin_dir_path(__FILE__));
-define('BREVIEW_PACKAGE', 'FREE');
 
 global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
@@ -40,11 +39,6 @@ function msbr_on_plugin_load() {
         return;
     }
 
-    if (BREVIEW_PACKAGE == 'PRO') {
-        add_action('admin_notices', 'msbr_pro_package_already_installed');
-        return;
-    }
-
     // include plugin files
     require_once $msbr_dir . 'inc/init.php';
 }
@@ -52,13 +46,6 @@ function msbr_on_plugin_load() {
 function msbr_woocommerce_dependency_error() {
     $class = 'notice notice-error';
     $message = __('You must need to install and activate woocommerce for Breview to work', 'breview');
-
-    printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
-}
-
-function msbr_pro_package_already_installed() {
-    $class = 'notice notice-error';
-    $message = __('You have the Breview Pro version already installed. You don\'t need the free version. You can safely deactivate and remove it.', 'breview');
 
     printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
 }
