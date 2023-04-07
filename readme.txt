@@ -108,6 +108,7 @@ If you have purchased the pro version, you will not need to use the free version
 == Changelog ==
 = Version 1.1.1 =
 * WordPress 6.2 Compatibility
+
 = Version 1.1.0 ( Major Update ) =
 * Added the option to display single rating only when multi-rating is enabled
 * Introduced Template Structure
