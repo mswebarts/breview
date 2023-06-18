@@ -1,4 +1,4 @@
-=== Breview - Better Review System for WooCommerce ===
+=== Breview - Order completion review, multi-criteria rating and marketplace type reviews for WooCommerce ===
 Contributors: mswebarts, msshohan
 Tags:  breview, better, review, order, woocommerce, marketplace
 Requires at least: 5.5
