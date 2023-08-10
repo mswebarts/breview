@@ -31,7 +31,7 @@ $subject = sprintf( __( 'Give a review to your order #%s', 'breview' ), $order_i
 // message body text
 $message_body = wp_sprintf( __( 'Congratulations! The order has just been completed. We hope you have got the product without any issue. Please provide review for the products in order #%s. It will motivate us to provide better service and grow our business.', 'breview' ), $order_id );
 $message_body .= '<br/>';
-$message_body .= '<a style="background-color: inherit; bgcolor:inherit;" href=' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . 'view-order' . '/' . $order_id . ' target="_blank">Add Review</a>';
+$message_body .= '<a style="background-color: inherit; bgcolor:inherit;" href=' . get_permalink( get_option('woocommerce_myaccount_page_id') ) . 'view-order' . '/' . $order_id . ' target="_blank">'. __("Add a Review", "breview") .'</a>';
 
 $message = $mailer->wrap_message(
     // Message head and message body.
