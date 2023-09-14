@@ -1,4 +1,4 @@
-=== Breview - Order completion review, multi-criteria rating and marketplace type reviews for WooCommerce ===
+=== Breview for WooCommerce - Order completion review, multi-criteria rating and marketplace (Dokan) type reviews ===
 Contributors: mswebarts, msshohan
 Tags:  breview, better, review, order, woocommerce, marketplace
 Requires at least: 5.5
