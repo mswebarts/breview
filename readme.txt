@@ -2,9 +2,9 @@
 Contributors: mswebarts, msshohan
 Tags:  breview, better, review, order, woocommerce, marketplace
 Requires at least: 5.5
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,11 @@ If you have purchased the pro version, you will not need to use the free version
 6. Multi-criteria ratings ( Pro )
 
 == Changelog ==
+= Version 1.1.2 =
+* WordPress 6.3 Compatibility
+* Fixed disabled completed email still sending emails
+* Minor bug fixes
+
 = Version 1.1.1 =
 * WordPress 6.2 Compatibility
 
