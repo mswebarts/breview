@@ -1,4 +1,10 @@
 <?php
+// overview page
+function msbr_overview_page() {
+    global $msbr_dir;
+    include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
+}
+
 function msbr_breview_general_settings_page() {
     global $msbr_dir, $msbr_options;
 

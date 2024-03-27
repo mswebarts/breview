@@ -199,11 +199,7 @@ class MSBR_Lite {
             );
         }
     }
-
-    function msbr_overview_page() {
-        global $msbr_dir;
-        include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
-    }
+    
     function msbr_overview_sidebar() {
         global $msbr_dir;
         include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
