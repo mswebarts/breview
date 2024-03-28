@@ -1,4 +1,4 @@
-=== Breview for WooCommerce - Order completion review, multi-criteria rating and marketplace (Dokan) type reviews ===
+=== Breview - Order reviews for WooCommerce ===
 Contributors: mswebarts, msshohan
 Tags:  breview, better, review, order, woocommerce, marketplace
 Requires at least: 5.5
@@ -8,7 +8,7 @@ Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Marketplace type review workflow for WooCommerce. The way reviews should be handled in every WooCommerce websites.
+Collect and display customer reviews on your WooCommerce store. Breview allows customers to leave reviews on the order received page and display them on the product page.
 
 == Description ==
 
@@ -90,22 +90,28 @@ The review tab may display a warning after you activate the plugin and the licen
 
 = How can I update the plugin? =
 
-The plugin gets updated automatically. The plugin should run the updater in 12 hours of an update gets uploaded to our server. If you want, you can click on the Check For Update button in the Plugins page and will see a Update notification with button if available.
+You can update the plugin using WordPress's automatic and manual update options.
 
 = Do I need to use free and pro version both? =
 
-If you have purchased the pro version, you will not need to use the free version. Above WP 5.6, you can simply upload the pro version and it will give you the option to replace the free version if already installed. If your WP version is older, please deactivate the free version first and then install the pro version.
+If you have purchased the pro version, you will not need to use the free version. We have separated free and pro versions from version 1.2.0. If you activate the Pro version above 1.2.0, the free version will be deactivated automatically as you don't need that anymore.
 
 == Screenshots ==
 
 1. Add review in order page
 2. Add review popup in order page
 3. Breview Settings page
-4. Review header designs ( Pro )
-5. Review list designs ( Pro )
-6. Multi-criteria ratings ( Pro )
+4. Review header designs
+5. Review list designs
+6. Multi-criteria ratings
 
 == Changelog ==
+= Version 1.2.0 ( Major Update ) =
+* WordPress 6.5 Compatibility
+* Added settings panel improvements
+* Fixed add review and show review modal not showing
+* Some other minor fixes
+
 = Version 1.1.2 =
 * WordPress 6.3 Compatibility
 * Fixed disabled completed email still sending emails

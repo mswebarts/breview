@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Plugin Name: Breview - Better Review for WooCommerce
- * Description: The way reviews should be handled in every WooCommerce websites just like the traditional marketplaces.
- * Version: 1.1.1
+ * Plugin Name: Breview - Order Reviews for WooCommerce
+ * Description: Collect and display customer reviews on your WooCommerce store. Breview allows customers to leave reviews on the order received page and display them on the product page.
+ * Version: 1.2.0
  * Plugin URI: https://www.mswebarts.com/products/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Tested up to: 6.3
+ * Tested up to: 6.5
  * Requires at least: 5.5
  * Requires PHP: 7.4
  * Text Domain: breview
