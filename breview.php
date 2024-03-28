@@ -53,6 +53,14 @@ class MSBR_Lite {
         }
     }
 
+    public static function msbr_pro_activation() {
+        // Check if the free version of the plugin is active
+        if (is_plugin_active(plugin_basename(__FILE__))) {
+            // Deactivate the free version
+            deactivate_plugins(plugin_basename(__FILE__));
+        }
+    }
+
     public function msbr_on_plugin_load() {
         global $msbr_dir;
 
