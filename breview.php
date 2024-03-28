@@ -66,7 +66,7 @@ class MSBR_Lite {
 
         // Check if woocommerce is installed
         if (!defined('WC_VERSION')) {
-            add_action('admin_notices', 'msbr_woocommerce_dependency_error');
+            add_action('admin_notices', array($this, 'msbr_woocommerce_dependency_error'));
             return;
         }
 
