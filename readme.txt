@@ -18,6 +18,8 @@ Wouldn’t it be awesome if the WooCommerce review system worked like other trad
 
 This makes sure only customers who have purchased the product can provide a review to the products only once for a purchase. But unfortunately, WooCommerce review doesn’t work this way. The default WC review system is more of a comment form with rating than an actual review system. With Breview, we have remastered the review workflow as it should be in every WooCommerce websites.
 
+[youtube https://youtu.be/_8OHFfId_10]
+
 ### Free Features
 
 1. Remastered workflow
