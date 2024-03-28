@@ -1,6 +1,6 @@
 === Breview - Order reviews for WooCommerce ===
 Contributors: mswebarts, msshohan
-Tags:  breview, better, review, order, woocommerce, marketplace
+Tags:  order reviews, customer reviews, multi-criteria ratings, marketplace reviews, woocommerce review
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.4
@@ -8,7 +8,7 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Collect and display customer reviews on your WooCommerce store. Breview allows customers to leave reviews on the order received page and display them on the product page.
+Collect reviews from order page and display them on product pages on your WooCommerce store.
 
 == Description ==
 
