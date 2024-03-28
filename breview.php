@@ -42,7 +42,7 @@ class MSBR_Lite {
         add_action('init', array($this, 'msbr_load_textdomain'));
     }
 
-    function breview_free_activation() {
+    public function breview_free_activation() {
         // Check if the Pro version of the plugin is active
         if (class_exists('MSBR_Pro')) {
             // Deactivate the free version
@@ -53,7 +53,7 @@ class MSBR_Lite {
         }
     }
 
-    function msbr_on_plugin_load() {
+    public function msbr_on_plugin_load() {
         global $msbr_dir;
 
         // Check if woocommerce is installed
@@ -66,21 +66,21 @@ class MSBR_Lite {
         require_once $msbr_dir . 'inc/init.php';
     }
 
-    function msbr_woocommerce_dependency_error() {
+    public function msbr_woocommerce_dependency_error() {
         $class = 'notice notice-error';
         $message = __('You must need to install and activate woocommerce for Breview to work', 'breview');
 
         printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
     }
 
-    function msbr_pro_dependency_error() {
+    public function msbr_pro_dependency_error() {
         $class = 'notice notice-error';
         $message = __('Breview Pro is already installed and activated. You don\'t need the free version.', 'breview');
 
         printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), esc_html($message));
     }
 
-    function msbr_register_styles() {
+    public function msbr_register_styles() {
         // register and enqueue javascript
         wp_register_script('msbr-star-rating', plugins_url('assets/js/star-rating.min.js', __FILE__), array('jquery'), '1.0', true);
         wp_register_script('msbr-star-rating-svg', plugins_url('assets/js/jquery.star-rating-svg.min.js', __FILE__), array('jquery'), '1.0', true);
@@ -147,7 +147,7 @@ class MSBR_Lite {
     }
 
     // add_menu_page
-    function msbr_add_menu_page() {
+    public function msbr_add_menu_page() {
         global $msbr_url;
         // add parent settings page only if not added by other plugin from us
         if (empty($GLOBALS['admin_page_hooks']['mswebarts-overview'])) {
@@ -200,20 +200,20 @@ class MSBR_Lite {
         }
     }
     
-    function msbr_overview_sidebar() {
+    public function msbr_overview_sidebar() {
         global $msbr_dir;
         include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-sidebar.php';
     }
 
     // add admin styles and js
-    function msbr_admin_styles() {
+    public function msbr_admin_styles() {
         global $msbr_url;
         wp_register_style('msbr-sweetalert2', $msbr_url . 'inc/admin/assets/css/sweetalert2.min.css');
         wp_register_style("msbr-admin-style", $msbr_url . 'inc/admin/assets/css/style.css');
         wp_enqueue_style("msbr-sweetalert2");
         wp_enqueue_style("msbr-admin-style");
     }
-    function msbr_admin_js() {
+    public function msbr_admin_js() {
         global $msbr_url;
         wp_register_script('msbr-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array('jquery'), '1.0.0', true);
         wp_register_script('msbr-sweetalert2', $msbr_url . 'inc/admin/assets/js/sweetalert2.all.min.js', array('jquery'), '1.0.0', true);
@@ -221,7 +221,7 @@ class MSBR_Lite {
     }
 
     // load translations
-    function msbr_load_textdomain() {
+    public function msbr_load_textdomain() {
         load_plugin_textdomain('breview', false, dirname(plugin_basename(__FILE__)) . '/languages');
     }
 }
