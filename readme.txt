@@ -8,7 +8,7 @@ Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Collect reviews from order page and display them on product pages on your WooCommerce store.
+Collect reviews from order page after completion and display them on product pages on your WooCommerce store.
 
 == Description ==
 
