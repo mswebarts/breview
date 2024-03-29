@@ -7,7 +7,7 @@ function msbr_completed_email_notification($order_id, $checkout=null) {
    
     if( $msbr_options['msbr_enable_completed_email'] ) {
         $order = new WC_Order( $order_id );
-        if($order->get_status === 'completed' ) {
+        if($order->get_status() === 'completed' ) {
             $data = array(
                 'order_id' => $order_id,
                 'order'    => $order,
