@@ -4,7 +4,7 @@ Tags:  order reviews, customer reviews, multi-criteria ratings, marketplace revi
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,10 @@ If you have purchased the pro version, you will not need to use the free version
 6. Multi-criteria ratings
 
 == Changelog ==
+= Version 1.2.1 ( minor Update ) =
+* **Fix** Fixed review completion reminder not sending
+* Some other minor fixes
+
 = Version 1.2.0 ( Major Update ) =
 * WordPress 6.5 Compatibility
 * Added settings panel improvements
