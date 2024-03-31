@@ -14,12 +14,14 @@
 /* Add Review Modal */
 .msbr-add-review-modal,
 .msbr-show-review-modal {
-	position: relative;
+	/* position: relative; */
 	background: #fff;
 	width: auto;
 	max-width: 600px;
 	margin: 20px auto;
 	border-radius: 5px;
+	top: 50%;
+	transform: translateY(-50%);
 }
 .msbr-add-review-modal .msbr-review-form-wrapper,
 .msbr-show-review-modal .msbr-reviews-list-default {
@@ -52,7 +54,7 @@
 	line-height: 16px;
 	color: #404040;
 }
-.msbr-add-review-modal .comment-form input:not([type="submit"]),
+.msbr-add-review-modal .comment-form input:not([type='submit']),
 .msbr-add-review-modal .comment-form select,
 .msbr-add-review-modal .comment-form textarea {
 	-webkit-box-shadow: none;
@@ -90,10 +92,15 @@
 	-webkit-transition: 0.1s ease-in;
 	-o-transition: 0.1s ease-in;
 	transition: 0.1s ease-in;
+	width: 26px;
+	height: 26px;
 }
 .msbr-modal-close:hover {
 	background-color: #ff0000;
 	color: #f5f5f5;
+}
+.msbr-comment-form-rating p.stars {
+	display: none !important;
 }
 
 /* review layout */
@@ -176,7 +183,7 @@
 	top: 0.5px;
 }
 .msbr-show-review-modal .star-rating::before {
-	content: "sssss";
+	content: 'sssss';
 	color: #d3ced2;
 	float: left;
 	top: 0;
@@ -203,7 +210,7 @@
 	top: 0.5px;
 }
 .msbr-show-review-modal .star-rating span::before {
-	content: "SSSSS";
+	content: 'SSSSS';
 	top: 0;
 	position: absolute;
 	left: 0;
