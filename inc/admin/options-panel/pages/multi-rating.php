@@ -113,7 +113,6 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                     }
                                                     ?>
                                                 </div>
-                                                <input class="msbr-data-repeater-create mswa-upgrade msbr-upgrade" type="button" value="Add a Rating Criteria" />
 
                                             </fieldset>
                                         </td>
