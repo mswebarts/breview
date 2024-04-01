@@ -28,17 +28,7 @@ global $msbr_url;
 
 			<!-- sidebar -->
 			<div id="postbox-container-1" class="postbox-container">
-
-                <div class="postbox">
-
-                    <div class="inside">
-                        <?php do_action( 'mswa_overview_sidebar' ); ?>
-                    </div>
-                    <!-- .inside -->
-
-                </div>
-                <!-- .postbox -->
-
+                <?php do_action( 'mswa_overview_sidebar' ); ?>
 			</div>
 			<!-- #postbox-container-1 .postbox-container -->
 
