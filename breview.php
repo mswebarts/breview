@@ -25,10 +25,27 @@ if(!defined('MSBR_DIR')) {
     define('MSBR_DIR', plugin_dir_path(__FILE__));
 }
 
+require MSBR_DIR . '/vendor/autoload.php';
+
 global $msbr_dir, $msbr_url, $msbr_options;
 $msbr_dir = plugin_dir_path(__FILE__);
 $msbr_url = plugins_url('/', __FILE__);
 $msbr_options = array();
+
+// setup appsero
+function appsero_init_tracker_breview() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/appsero/src/Client.php';
+    }
+
+    $client = new Appsero\Client( 'd56c64db-6495-4fdd-a72b-7ac221d8aaf5', 'Breview - Order reviews for WooCommerce', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+}
+appsero_init_tracker_breview();
 
 class MSBR_Lite {
     public function __construct() {
