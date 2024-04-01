@@ -11,6 +11,13 @@
 	-ms-flex-pack: start;
 	justify-content: flex-start;
 }
+.mswa-row .notice {
+	display: none;
+}
+.mswa-row-col {
+	width: 100%;
+	margin-bottom: 10px;
+}
 .mswa-col-2 {
 	width: calc(50% - 10px);
 	margin-bottom: 10px;
@@ -27,12 +34,17 @@
 	width: calc(20% - 10px);
 	margin-bottom: 10px;
 }
-.mswa-row [class*="mswa-col-"] {
+.mswa-row [class*='mswa-col-'] {
 	background: #fff;
 	border-radius: 5px;
 	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin: 5px;
+}
+.mswa-title {
+	font-size: 30px !important;
+	font-weight: 600 !important;
+	margin-bottom: 10px;
 }
 .mswa-box {
 	padding: 20px;
@@ -84,7 +96,7 @@
 	position: relative;
 	display: inline-block;
 }
-.mswa-radio-groups input[type="radio"] {
+.mswa-radio-groups input[type='radio'] {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -103,7 +115,7 @@
 	z-index: 0;
 }
 .mswa-radio-groups label:before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 50%;
 	left: 5px;
@@ -115,11 +127,11 @@
 	border-radius: 50%;
 	border: 2px solid #3a56a6;
 }
-.mswa-radio-groups input[type="radio"]:checked + label {
+.mswa-radio-groups input[type='radio']:checked + label {
 	color: #fff;
 	background-color: #3a56a6;
 }
-.mswa-radio-groups input[type="radio"]:checked + label:before {
+.mswa-radio-groups input[type='radio']:checked + label:before {
 	width: 12px;
 	height: 12px;
 	border: 5px solid #ffffff;
@@ -201,7 +213,7 @@
 	padding-right: 5px;
 }
 .msbr-license-container .msbr-license-info-title:after {
-	content: ":";
+	content: ':';
 	position: absolute;
 	right: 2px;
 }
@@ -258,10 +270,10 @@
 }
 
 /* sidebar */
-.msbr-add-trustpilot-review {
+.msbr-add-wordpress-review {
 	display: block;
 	padding: 10px;
-	border: 1px solid #00b67a;
+	border: 1px solid #111111;
 	text-align: center;
 	margin-top: 20px;
 	font-size: 16px;
@@ -275,10 +287,10 @@
 	-ms-flex-pack: center;
 	justify-content: center;
 }
-.msbr-add-trustpilot-review:hover {
+.msbr-add-wordpress-review:hover {
 	color: #111111;
 }
-.msbr-add-trustpilot-review img {
+.msbr-add-wordpress-review img {
 	height: 20px;
 }
 
@@ -303,6 +315,7 @@
 }
 
 @media all and (max-width: 768px) {
+	.mswa-row-col,
 	.mswa-col-2,
 	.mswa-col-3,
 	.mswa-col-4,
