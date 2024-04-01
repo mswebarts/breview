@@ -3,7 +3,7 @@
 </div>
 <div class="mswa-col-4">
     <div class="mswa-box">
-        <h3 class="msbr-column-title"><i class="dashicons-before dashicons-admin-links"></i> <?php _e("Important Links", 'breview');?> </h3>
+        <h3 class="mswa-column-title"><i class="dashicons-before dashicons-admin-links"></i> <?php _e("Important Links", 'breview');?> </h3>
         <hr>
         <div class="msbr-column-content">
             <ul>

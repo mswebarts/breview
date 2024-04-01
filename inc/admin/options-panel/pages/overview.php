@@ -1,7 +1,7 @@
 <?php
 global $msbr_url;
 ?>
-<h1 class="msbr-admin-options-page-title">
+<h1 class="mswa-admin-options-page-title">
     <img src="<?php echo esc_url( $msbr_url . 'inc/admin/assets/images/logo.png' ); ?>" alt="">
     <span><?php echo esc_html_e( 'MS Web Arts Overview', 'breview' ); ?></span>
 </h1>

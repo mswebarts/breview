@@ -50,11 +50,11 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                         </th>
                                         </label>
                                         <td>
-                                            <fieldset class="msbr-upgrade">
+                                            <fieldset class="mswa-upgrade msbr-upgrade">
                                                 <legend class="screen-reader-text">
                                                     <span><?php esc_html_e('Enable Multi Rating', 'breview'); ?></span>
                                                 </legend>
-                                                <span class="msbr-checkbox-unchecked"></span>
+                                                <span class="mswa-checkbox-unchecked"></span>
                                                 <span><?php esc_html_e('Checkmark to enable the configured multiple ratings in WooCommerce. Customers will be able to submit these ratings when enabled.', 'breview'); ?></span>
                                             </fieldset>
                                         </td>
@@ -67,7 +67,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                             </label>
                                         </th>
                                         <td>
-                                            <fieldset class="msbr-repeater">
+                                            <fieldset class="mswa-repeater">
                                                 <legend class="screen-reader-text">
                                                     <span><?php esc_html_e('Multi Rating', 'breview'); ?></span>
                                                 </legend>
@@ -79,19 +79,19 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                         foreach ($multi_ratings as $rating) {
                                                             //var_dump($rating);
                                                     ?>
-                                                            <div data-repeater-item class="msbr-upgrade">
-                                                                <div class="msbr-repeater-field-item-container">
+                                                            <div data-repeater-item class="mswa-upgrade msbr-upgrade">
+                                                                <div class="mswa-repeater-field-item-container">
                                                                     <label for="msbr_multi_rating_label">
-                                                                        <h4 class="msbr-label-heading">
+                                                                        <h4 class="mswa-label-heading">
                                                                             <?php esc_html_e('Unique ID', 'breview'); ?>
                                                                         </h4>
                                                                     </label>
                                                                     <input type="text" class="msbr-multi-rating-id-input" name="msbr_multi_rating_id" placeholder="Add an unique ID for the rating" value="<?php echo esc_attr($rating['msbr_multi_rating_id']); ?>" disabled />
                                                                 </div>
 
-                                                                <div class="msbr-repeater-field-item-container">
+                                                                <div class="mswa-repeater-field-item-container">
                                                                     <label for="msbr_multi_rating_name">
-                                                                        <h4 class="msbr-label-heading">
+                                                                        <h4 class="mswa-label-heading">
                                                                             <?php esc_html_e('Rating Label', 'breview'); ?>
                                                                         </h4>
                                                                     </label>
@@ -104,7 +104,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                         }
                                                     } else {
                                                         ?>
-                                                        <div data-repeater-item class="msbr-upgrade">
+                                                        <div data-repeater-item class="mswa-upgrade msbr-upgrade">
                                                             <input type="text" name="msbr_multi_rating_id" placeholder="Add an unique ID for the rating" value="" />
                                                             <input type="text" name="msbr_multi_rating_name" placeholder="Add a name for the rating" value="" />
                                                             <input data-repeater-delete type="button" value="Delete" />
@@ -113,7 +113,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                     }
                                                     ?>
                                                 </div>
-                                                <input class="msbr-data-repeater-create msbr-upgrade" type="button" value="Add a Rating Criteria" />
+                                                <input class="msbr-data-repeater-create mswa-upgrade msbr-upgrade" type="button" value="Add a Rating Criteria" />
 
                                             </fieldset>
                                         </td>
@@ -140,4 +140,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
 
 </div> <!-- .wrap -->
 
-<?php wp_enqueue_script("msbr-admin-script"); ?>
+<?php
+wp_enqueue_script("mswa-global-script");
+wp_enqueue_script("msbr-admin-script");
+?>
