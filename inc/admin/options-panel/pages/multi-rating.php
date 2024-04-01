@@ -140,7 +140,4 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
 
 </div> <!-- .wrap -->
 
-<?php
-wp_enqueue_script("mswa-global-script");
-wp_enqueue_script("msbr-admin-script");
-?>
+<?php wp_enqueue_script("msbr-admin-script"); ?>
