@@ -53,6 +53,7 @@ class MSBR_Lite {
         add_action('plugins_loaded', array($this, 'msbr_on_plugin_load'));
         add_action("wp_enqueue_scripts", array($this, 'msbr_register_styles'));
         add_action('admin_menu', array($this, 'msbr_add_menu_page'));
+        add_action('mswa_overview_content', array($this, 'msbr_overview_content'), 10);
         add_action('mswa_overview_sidebar', array($this, 'msbr_overview_sidebar'), 10);
         add_action('admin_enqueue_scripts', array($this, 'msbr_admin_styles'));
         add_action('admin_enqueue_scripts', array($this, 'msbr_admin_js'));
@@ -223,6 +224,11 @@ class MSBR_Lite {
                 'msbr_breview_email_settings_page'
             );
         }
+    }
+    
+    public function msbr_overview_content() {
+        global $msbr_dir;
+        include_once $msbr_dir . 'inc/admin/options-panel/pages/overview-content.php';
     }
     
     public function msbr_overview_sidebar() {
