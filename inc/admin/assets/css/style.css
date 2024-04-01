@@ -1,3 +1,6 @@
+.msbr-upgrade [data-repeater-create] {
+	pointer-events: none;
+}
 /* sidebar */
 .msbr-add-wordpress-review {
 	display: block;

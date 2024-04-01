@@ -67,7 +67,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                             </label>
                                         </th>
                                         <td>
-                                            <fieldset class="mswa-repeater">
+                                            <fieldset class="mswa-repeater msbr-upgrade">
                                                 <legend class="screen-reader-text">
                                                     <span><?php esc_html_e('Multi Rating', 'breview'); ?></span>
                                                 </legend>
@@ -113,6 +113,7 @@ $enable_multi_rating = $enable_multi_rating == 1 ? 'checked' : '';
                                                     }
                                                     ?>
                                                 </div>
+                                                <input data-repeater-create="" class="mswa-upgrade" type="button" value="Add a Rating Criteria">
 
                                             </fieldset>
                                         </td>
