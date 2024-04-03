@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Breview - Order Reviews for WooCommerce
  * Description: Collect and display customer reviews on your WooCommerce store. Breview allows customers to leave reviews on the order received page and display them on the product page.
- * Version: 1.2.2
+ * Version: 1.2.3
  * Plugin URI: https://www.mswebarts.com/products/breview/
  * Author: MS Web Arts
  * Author URI: https://www.mswebarts.com/

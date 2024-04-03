@@ -4,7 +4,7 @@ Tags:  order reviews, customer reviews, multi-criteria ratings, marketplace revi
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -108,6 +108,12 @@ If you have purchased the pro version, you will not need to use the free version
 6. Multi-criteria ratings
 
 == Changelog ==
+
+= Version 1.2.3 ( minor update ) =
+* Admin settings improvements ( global )
+* Serving global CSS and JS from CDN
+* Minor bug fixes
+
 = Version 1.2.2 ( minor Update ) =
 * **Fix** Add review popup not showing or misposition
 * Some other minor fixes
