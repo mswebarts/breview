@@ -1,18 +1,4 @@
 (function ($) {
-	// do something
-	$('.mswa-repeater').repeater({
-		initEmpty: false,
-		show: function () {
-			$(this).slideDown();
-		},
-		hide: function (deleteElement) {
-			if (confirm('Are you sure you want to delete this element?')) {
-				$(this).slideUp(deleteElement);
-			}
-		},
-		isFirstItemUndeletable: true,
-	});
-
 	$('.msbr-upgrade').on('click', function (e) {
 		// init sweetalert2
 		Swal.fire({
