@@ -182,7 +182,7 @@ class MSBR_Lite {
                 'MS Web Arts',
                 'manage_options',
                 'mswebarts-overview',
-                'msbr_overview_page',
+                array( $this, 'msbr_overview_page' ),
                 $msbr_url . 'inc/admin/assets/images/icon.png',
                 100
             );
@@ -224,6 +224,11 @@ class MSBR_Lite {
                 'msbr_breview_email_settings_page'
             );
         }
+    }
+
+    public function msbr_overview_page() {
+        global $msbr_dir, $msbr_url;
+        include_once $msbr_dir . 'inc/admin/options-panel/pages/overview.php';
     }
     
     public function msbr_overview_content() {
