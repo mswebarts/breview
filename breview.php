@@ -50,13 +50,6 @@ class MSBR_Lite {
 	public function __construct() {
 		register_activation_hook( __FILE__, array( $this, 'breview_free_activation' ) );
 		add_action( 'plugins_loaded', array( $this, 'msbr_on_plugin_load' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'msbr_register_styles' ) );
-		add_action( 'admin_menu', array( $this, 'msbr_add_menu_page' ) );
-		add_action( 'mswa_overview_content', array( $this, 'msbr_overview_content' ), 10 );
-		add_action( 'mswa_overview_sidebar', array( $this, 'msbr_overview_sidebar' ), 10 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'msbr_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'msbr_admin_js' ) );
-		add_action( 'init', array( $this, 'msbr_load_textdomain' ) );
 	}
 
 	public function breview_free_activation() {
@@ -85,10 +78,17 @@ class MSBR_Lite {
 		if ( ! defined( 'WC_VERSION' ) ) {
 			add_action( 'admin_notices', array( $this, 'msbr_woocommerce_dependency_error' ) );
 			return;
+		} else {
+			// include plugin files
+			require_once $msbr_dir . 'inc/init.php';
+			add_action( 'wp_enqueue_scripts', array( $this, 'msbr_register_styles' ) );
+			add_action( 'admin_menu', array( $this, 'msbr_add_menu_page' ) );
+			add_action( 'mswa_overview_content', array( $this, 'msbr_overview_content' ), 10 );
+			add_action( 'mswa_overview_sidebar', array( $this, 'msbr_overview_sidebar' ), 10 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'msbr_admin_styles' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'msbr_admin_js' ) );
+			add_action( 'init', array( $this, 'msbr_load_textdomain' ) );
 		}
-
-		// include plugin files
-		require_once $msbr_dir . 'inc/init.php';
 	}
 
 	public function msbr_woocommerce_dependency_error() {
