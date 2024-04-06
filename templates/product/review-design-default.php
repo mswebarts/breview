@@ -13,52 +13,53 @@
  * @package Breview\Templates
  * @version 1.1.0
  */
-$comments = $data->comments;
-$product = $data->product;
+
+$comments_data = $data->comments;
+$product       = $data->product;
 ?>
 
-<?php if ( $comments ) : ?>
-    <div id="msbr-review-list-content" class="msbr-review-list-content">
-        <ol class="commentlist">
-            <?php
-            
-            $msbr_options = get_option( 'msbr_general_options' );
+<?php if ( $comments_data ) : ?>
+	<div id="msbr-review-list-content" class="msbr-review-list-content">
+		<ol class="commentlist">
+			<?php
 
-            if( !empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
-                $reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
-            } else {
-                $reviewer_avatar_size = intval( 60 );
-            }
-            $args = array(
-                'max_depth'         => intval(1),
-                'avatar_size'       => $reviewer_avatar_size,
-                'reverse_top_level' => false,
-                'callback' => 'woocommerce_comments',
-            );
-            wp_list_comments( $args, $comments );
-            
-            ?>
-        </ol>
-        
-        <?php
-        if ( get_comment_pages_count($comments) > 1 && get_option( 'page_comments' ) ) :
-            echo '<nav class="woocommerce-pagination">';
-            paginate_comments_links(
-                apply_filters(
-                    'woocommerce_comment_pagination_args',
-                    array(
-                        'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-                        'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-                        'total'     => get_comment_pages_count($comments),
-                        'type'      => 'list',
-                    )
-                )
-            );
-            echo '</nav>';
-        endif;
-        ?>
-    </div>
+			$msbr_options = get_option( 'msbr_general_options' );
+
+			if ( ! empty( $msbr_options['msbr_reviewer_avatar_size'] ) ) {
+				$reviewer_avatar_size = intval( $msbr_options['msbr_reviewer_avatar_size'] );
+			} else {
+				$reviewer_avatar_size = intval( 60 );
+			}
+			$args = array(
+				'max_depth'         => intval( 1 ),
+				'avatar_size'       => $reviewer_avatar_size,
+				'reverse_top_level' => false,
+				'callback'          => 'woocommerce_comments',
+			);
+			wp_list_comments( $args, $comments_data );
+
+			?>
+		</ol>
+		
+		<?php
+		if ( get_comment_pages_count( $comments_data ) > 1 && get_option( 'page_comments' ) ) :
+			echo '<nav class="woocommerce-pagination">';
+			paginate_comments_links(
+				apply_filters(
+					'woocommerce_comment_pagination_args',
+					array(
+						'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
+						'next_text' => is_rtl() ? '&larr;' : '&rarr;',
+						'total'     => get_comment_pages_count( $comments_data ),
+						'type'      => 'list',
+					)
+				)
+			);
+			echo '</nav>';
+		endif;
+		?>
+	</div>
 
 <?php else : ?>
-    <p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'breview' ); ?></p>
+	<p class="woocommerce-noreviews"><?php esc_html_e( 'There are no reviews yet.', 'breview' ); ?></p>
 <?php endif; ?>
