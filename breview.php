@@ -292,7 +292,7 @@ class MSBR_Lite {
 	 */
 	public function msbr_admin_styles() {
 		global $msbr_url;
-		wp_register_style( 'mswa-global-style', 'https://mswebarts.b-cdn.net/plugins-global/global.css', array(), '1.2.4', 'all' );
+		wp_register_style( 'mswa-global-style', $msbr_url . 'inc/admin/assets/css/global.css', array(), '1.2.4', 'all' );
 		wp_enqueue_style( 'mswa-global-style' );
 
 		wp_register_style( 'msbr-sweetalert2', $msbr_url . 'inc/admin/assets/css/sweetalert2.min.css', array(), '1.2.4', 'all' );
@@ -306,8 +306,8 @@ class MSBR_Lite {
 	 */
 	public function msbr_admin_js() {
 		global $msbr_url;
-		wp_register_script( 'mswa-jquery-repeater', 'https://mswebarts.b-cdn.net/plugins-global/jquery.repeater.min.js', array( 'jquery' ), '1.2.4', true );
-		wp_register_script( 'mswa-global-script', 'https://mswebarts.b-cdn.net/plugins-global/global.js', array( 'jquery', 'mswa-jquery-repeater' ), '1.2.4', true );
+		wp_register_script( 'mswa-jquery-repeater', $msbr_url . 'inc/admin/assets/js/jquery.repeater.min.js', array( 'jquery' ), '1.2.4', true );
+		wp_register_script( 'mswa-global-script', $msbr_url . 'inc/admin/assets/js/global.js', array( 'jquery', 'mswa-jquery-repeater' ), '1.2.4', true );
 
 		wp_register_script( 'msbr-sweetalert2', $msbr_url . 'inc/admin/assets/js/sweetalert2.all.min.js', array( 'jquery' ), '1.2.4', true );
 		wp_register_script( 'msbr-admin-script', $msbr_url . 'inc/admin/assets/js/script.js', array( 'jquery', 'mswa-jquery-repeater', 'mswa-global-script', 'msbr-sweetalert2' ), '1.2.4', true );
