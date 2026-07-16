@@ -46,62 +46,35 @@ if ( ! function_exists( 'msbr_add_review_form' ) ) {
 			$marketplace_compat['dokan'] = false;
 		}
 
-		// dokan compatibility.
+		// dokan compatibility: parent orders with suborders don't get a review form.
 		if ( ! empty( $marketplace_compat ) && $marketplace_compat['dokan'] ) {
 			// check if order has suborders.
 			$suborders = $order->get_meta( 'has_sub_order' );
 			if ( $suborders ) {
 				return;
-			} else {
-				// if the review is not submitted, show the form.
-				if ( ! $comments_count ) {
-					// check if order status is completed or wc-completed.
-					if ( ( ( $order->get_status() === 'completed' ) || ( $order->get_status() === 'wc-completed' ) ) && ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
-						$data = array(
-							'item_id'          => $item_id,
-							'product_id'       => $product_id,
-							'order_identifier' => $order_identifier,
-							'order'            => $order,
-						);
-						$templates->set_template_data( $data )->get_template_part( 'order/add-review-popup' );
-					}
-				} elseif ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) {
-					// if the review is submitted, show the review.
-					$data = array(
-						'item_id'          => $item_id,
-						'product_id'       => $product_id,
-						'order_identifier' => $order_identifier,
-					);
-					$templates->set_template_data( $data )->get_template_part( 'order/show-review-popup' );
-				} else {
-					// leave empty so, the review form is not shown anywhere else.
-				}
 			}
-		} else {
-			// default woocommerce compatibility.
-			// if the review is not submitted, show the form.
-			if ( ! $comments_count ) {
-				// check if order status is completed or wc-completed.
-				if ( ( ( $order->get_status() === 'completed' ) || ( $order->get_status() === 'wc-completed' ) ) && ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
-					$data = array(
-						'item_id'          => $item_id,
-						'product_id'       => $product_id,
-						'order_identifier' => $order_identifier,
-						'order'            => $order,
-					);
-					$templates->set_template_data( $data )->get_template_part( 'order/add-review-popup' );
-				}
-			} elseif ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) {
-				// if the review is submitted, show the review.
+		}
+
+		// if the review is not submitted, show the form.
+		if ( ! $comments_count ) {
+			// check if order status is completed or wc-completed.
+			if ( ( ( $order->get_status() === 'completed' ) || ( $order->get_status() === 'wc-completed' ) ) && ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) ) {
 				$data = array(
 					'item_id'          => $item_id,
 					'product_id'       => $product_id,
 					'order_identifier' => $order_identifier,
+					'order'            => $order,
 				);
-				$templates->set_template_data( $data )->get_template_part( 'order/show-review-popup' );
-			} else {
-				// leave empty so, the review form is not shown anywhere else.
+				$templates->set_template_data( $data )->get_template_part( 'order/add-review-popup' );
 			}
+		} elseif ( is_wc_endpoint_url( 'view-order' ) || is_wc_endpoint_url( 'order-received' ) ) {
+			// if the review is submitted, show the review.
+			$data = array(
+				'item_id'          => $item_id,
+				'product_id'       => $product_id,
+				'order_identifier' => $order_identifier,
+			);
+			$templates->set_template_data( $data )->get_template_part( 'order/show-review-popup' );
 		}
 	}
 	add_action( 'woocommerce_order_item_meta_end', 'msbr_add_review_form', 10, 3 );

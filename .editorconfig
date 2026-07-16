@@ -1,0 +1,23 @@
+# EditorConfig for the Breview plugin.
+# Follows WordPress coding standards: tabs for indentation, LF line endings.
+# See https://developer.wordpress.org/coding-standards/
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.min.{js,css}]
+insert_final_newline = false
+trim_trailing_whitespace = false

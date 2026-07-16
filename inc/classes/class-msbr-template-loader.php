@@ -108,8 +108,8 @@ if ( ! class_exists( 'MSBR_Template_Loader' ) ) {
 		 */
 		public function get_template_part( $slug, $name = null, $load = true ) {
 			// Execute code for this part.
-			do_action( 'get_template_part_' . $slug, $slug, $name );
-			do_action( $this->filter_prefix . '_get_template_part_' . $slug, $slug, $name );
+			do_action( 'get_template_part_' . $slug, $slug, $name ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Mirrors the WordPress core get_template_part hook by design.
+			do_action( $this->filter_prefix . '_get_template_part_' . $slug, $slug, $name ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- $filter_prefix holds the plugin prefix 'msbr'.
 
 			// Get files names of templates, for given slug and name.
 			$templates = $this->get_template_file_names( $slug, $name );
@@ -199,7 +199,7 @@ if ( ! class_exists( 'MSBR_Template_Loader' ) ) {
 			 * @param string $slug      Template slug.
 			 * @param string $name      Template variation name.
 			 */
-			return apply_filters( $this->filter_prefix . '_get_template_part', $templates, $slug, $name );
+			return apply_filters( $this->filter_prefix . '_get_template_part', $templates, $slug, $name ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- $filter_prefix holds the plugin prefix 'msbr'.
 		}
 
 		/**
@@ -213,11 +213,11 @@ if ( ! class_exists( 'MSBR_Template_Loader' ) ) {
 		 *
 		 * @param string|array $template_names Template file(s) to search for, in order.
 		 * @param bool         $load           If true the template file will be loaded if it is found.
-		 * @param bool         $require_once   Whether to require_once or require. Default true.
+		 * @param bool         $load_once      Whether to require_once or require. Default true.
 		 *                                     Has no effect if $load is false.
 		 * @return string The template filename if one is located.
 		 */
-		public function locate_template( $template_names, $load = false, $require_once = true ) {
+		public function locate_template( $template_names, $load = false, $load_once = true ) {
 
 			// Use $template_names as a cache key - either first element of array or the variable itself if it's a string.
 			$cache_key = is_array( $template_names ) ? $template_names[0] : $template_names;
@@ -252,7 +252,7 @@ if ( ! class_exists( 'MSBR_Template_Loader' ) ) {
 			}
 
 			if ( $load && $located ) {
-				load_template( $located, $require_once );
+				load_template( $located, $load_once );
 			}
 
 			return $located;
@@ -289,7 +289,7 @@ if ( ! class_exists( 'MSBR_Template_Loader' ) ) {
 			 *
 			 * @param array $var Default is directory in child theme at index 1, parent theme at 10, and plugin at 100.
 			 */
-			$file_paths = apply_filters( $this->filter_prefix . '_template_paths', $file_paths );
+			$file_paths = apply_filters( $this->filter_prefix . '_template_paths', $file_paths ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound -- $filter_prefix holds the plugin prefix 'msbr'.
 
 			// Sort the file paths based on priority.
 			ksort( $file_paths, SORT_NUMERIC );

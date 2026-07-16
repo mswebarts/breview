@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<ruleset name="Breview">
+	<description>WordPress Coding Standards (Extra) for the Breview plugin.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>*.min.js</exclude-pattern>
+	<exclude-pattern>*.min.css</exclude-pattern>
+
+	<!-- Scan PHP files only, show sniff codes, use colors, run in parallel. -->
+	<arg name="extensions" value="php"/>
+	<arg name="basepath" value="."/>
+	<arg value="ps"/>
+	<arg name="colors"/>
+	<arg name="parallel" value="8"/>
+
+	<rule ref="WordPress-Extra">
+		<!-- Allow short array syntax. -->
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="breview"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- The main plugin file must keep the plugin slug as its name. -->
+	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
+		<exclude-pattern>/breview\.php$</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="breview"/>
+				<element value="msbr"/>
+				<!-- Shared prefix for cross-plugin MS Web Arts admin hooks (mswa_overview_content etc.). -->
+				<element value="mswa"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!--
+		Template and options-page files are pulled in via load_template() / include
+		inside a function scope, so their variables are local, not global. The sniff
+		cannot detect the include context and reports false positives.
+	-->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+		<exclude-pattern>/templates/*</exclude-pattern>
+		<exclude-pattern>/inc/admin/options-panel/pages/*</exclude-pattern>
+	</rule>
+
+	<config name="minimum_wp_version" value="5.5"/>
+	<config name="testVersion" value="7.4-"/>
+</ruleset>

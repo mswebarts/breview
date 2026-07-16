@@ -373,8 +373,13 @@ msgid "Rate&hellip;"
 msgstr ""
 
 #: templates/header/header-one-alt.php:117 templates/header/header-one.php:43
+#: inc/functions/hooks-actions.php:21
 #, php-format
 msgid "Rated %s out of 5"
+msgstr ""
+
+#: templates/product/review-design-item-meta.php:27
+msgid "Your review is awaiting approval"
 msgstr ""
 
 #: breview.php:87

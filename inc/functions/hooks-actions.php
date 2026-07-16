@@ -18,11 +18,11 @@ if ( ! function_exists( 'msbr_get_rating_html' ) ) {
 
 		if ( 0 < $rating ) {
 			/* translators: %s: rating */
-			$label = sprintf( __( 'Rated %s out of 5', 'woocommerce' ), $rating );
+			$label = sprintf( __( 'Rated %s out of 5', 'breview' ), $rating );
 			$html  = '<div class="star-rating" role="img" aria-label="' . esc_attr( $label ) . '">' . wc_get_star_rating_html( $rating, $count ) . '</div>';
 		}
 
-		return apply_filters( 'woocommerce_product_get_rating_html', $html, $rating, $count );
+		return apply_filters( 'woocommerce_product_get_rating_html', $html, $rating, $count ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Intentionally fires the WooCommerce core filter so existing theme/plugin customizations keep working.
 	}
 }
 
@@ -34,7 +34,7 @@ if ( ! function_exists( 'msbr_review_display_gravatar' ) ) {
 	 * @return void
 	 */
 	function msbr_review_display_gravatar( $comment ) {
-		echo get_avatar( $comment, apply_filters( 'woocommerce_review_gravatar_size', '60' ), '' );
+		echo get_avatar( $comment, apply_filters( 'woocommerce_review_gravatar_size', '60' ), '' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Intentionally fires the WooCommerce core filter so existing theme/plugin customizations keep working.
 	}
 	add_action( 'msbr_review_user', 'msbr_review_display_gravatar', 10 );
 }

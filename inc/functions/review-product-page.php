@@ -69,7 +69,7 @@ function msbr_product_new_review_tab_content() {
 					/* translators: 1: reviews count 2: product name */
 					$reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'breview' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
 					echo wp_kses(
-						apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ),
+						apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ), // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Intentionally fires the WooCommerce core filter so existing theme/plugin customizations keep working.
 						array(
 							'span' => array(),
 						)

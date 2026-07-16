@@ -46,7 +46,7 @@ $product       = $data->product;
 			echo '<nav class="woocommerce-pagination">';
 			paginate_comments_links(
 				apply_filters(
-					'woocommerce_comment_pagination_args',
+					'woocommerce_comment_pagination_args', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Intentionally fires the WooCommerce core filter so existing theme/plugin customizations keep working.
 					array(
 						'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
 						'next_text' => is_rtl() ? '&larr;' : '&rarr;',
