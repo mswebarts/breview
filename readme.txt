@@ -1,11 +1,11 @@
 === Breview – WooCommerce Order Reviews & Verified Buyer Ratings ===
 
 Contributors: mswebarts, msshohan
-Tags: woocommerce, reviews, product reviews, order reviews, verified reviews
+Tags: woocommerce, reviews, customer reviews, product reviews, order reviews, woocommerce reviews
 Requires at least: 5.5
 Tested up to: 7.0.1
 Requires PHP: 7.4
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
