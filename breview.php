@@ -223,44 +223,44 @@ class MSBR_Lite {
 				$msbr_url . 'inc/admin/assets/images/icon.png',
 				100
 			);
-
-			// add sub menu pages.
-			add_submenu_page(
-				'mswebarts-overview',
-				'Breview General Settings',
-				'Breview',
-				'manage_options',
-				'breview-settings',
-				'msbr_breview_general_settings_page'
-			);
-
-			add_submenu_page(
-				'breview-settings',
-				'Breview Multi Star-rating Settings',
-				'Multi Star-rating',
-				'manage_options',
-				'breview-multi-rating-settings',
-				'msbr_breview_multi_rating_settings_page'
-			);
-
-			add_submenu_page(
-				'breview-settings',
-				'Breview Style Settings',
-				'Style',
-				'manage_options',
-				'breview-style-settings',
-				'msbr_breview_style_settings_page'
-			);
-
-			add_submenu_page(
-				'breview-settings',
-				'Breview Email Settings',
-				'Emails',
-				'manage_options',
-				'breview-email-settings',
-				'msbr_breview_email_settings_page'
-			);
 		}
+
+		// add sub menu pages regardless of which plugin created the parent menu.
+		add_submenu_page(
+			'mswebarts-overview',
+			'Breview General Settings',
+			'Breview',
+			'manage_options',
+			'breview-settings',
+			'msbr_breview_general_settings_page'
+		);
+
+		add_submenu_page(
+			'breview-settings',
+			'Breview Multi Star-rating Settings',
+			'Multi Star-rating',
+			'manage_options',
+			'breview-multi-rating-settings',
+			'msbr_breview_multi_rating_settings_page'
+		);
+
+		add_submenu_page(
+			'breview-settings',
+			'Breview Style Settings',
+			'Style',
+			'manage_options',
+			'breview-style-settings',
+			'msbr_breview_style_settings_page'
+		);
+
+		add_submenu_page(
+			'breview-settings',
+			'Breview Email Settings',
+			'Emails',
+			'manage_options',
+			'breview-email-settings',
+			'msbr_breview_email_settings_page'
+		);
 	}
 
 	/**
